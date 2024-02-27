@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="MeetL" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23E-pD-Ser" customClass="UserCard" customModule="MeetL" customModuleProvider="target">
+                                <rect key="frame" x="26.666666666666657" y="136" width="340" height="450"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-cg-czt">
+                                <rect key="frame" x="228" y="621" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="X2p-SJ-dai"/>
+                                    <constraint firstAttribute="height" constant="60" id="gDy-Ys-XWl"/>
+                                </constraints>
+                                <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="heart"/>
+                                <connections>
+                                    <action selector="like:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Gqh-5i-jDS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYf-m7-pc1">
+                                <rect key="frame" x="107" y="621" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="MHh-H7-7Aj"/>
+                                    <constraint firstAttribute="height" constant="60" id="Vl4-d4-hi0"/>
+                                </constraints>
+                                <color key="tintColor" red="0.0" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" imagePadding="0.0">
+                                    <imageReference key="image" image="dismiss" symbolScale="large"/>
+                                    <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="dismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEX-Fc-oL0"/>
+                                </connections>
+                            </button>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-DD-SyM">
+                                <rect key="frame" x="0.0" y="808" width="393" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="q61-qH-eSj"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" red="1" green="0.95484910892748065" blue="0.97122103845579344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.77647060160000003" green="0.57383008164406202" blue="0.59334274787672825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="aN9-cg-czt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="61.5" id="Ago-3O-ZqL"/>
+                            <constraint firstItem="23E-pD-Ser" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CG6-Zf-UJd"/>
+                            <constraint firstItem="23E-pD-Ser" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.86514" id="IfY-Pj-BRi"/>
+                            <constraint firstItem="23E-pD-Ser" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.469484" constant="50" id="TnN-dY-uaj"/>
+                            <constraint firstItem="AYf-m7-pc1" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="XIa-mu-vtN"/>
+                            <constraint firstItem="aN9-cg-czt" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="p0l-dd-q8p"/>
+                            <constraint firstItem="AYf-m7-pc1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-59.5" id="scT-ov-gld"/>
+                            <constraint firstItem="23E-pD-Ser" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-65" id="xI9-cg-cel"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="customCard" destination="23E-pD-Ser" id="bYm-lx-GJD"/>
+                        <outlet property="dismissButton" destination="AYf-m7-pc1" id="xUg-qk-wP0"/>
+                        <outlet property="likeButton" destination="aN9-cg-czt" id="t7g-dh-Pwx"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="70.992366412213741" y="3.5211267605633805"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="dismiss" width="70" height="70"/>
+        <image name="heart" width="70" height="70"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
