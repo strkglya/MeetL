@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		16A942F837952C3348EB1212 /* Pods_MeetL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E2F6ABADBF0FBEFF23160DB4 /* Pods_MeetL.framework */; };
 		7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789AA2B83C61400EBE3D6 /* AppDelegate.swift */; };
 		7A0789AD2B83C61400EBE3D6 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789AC2B83C61400EBE3D6 /* SceneDelegate.swift */; };
 		7A0789AF2B83C61400EBE3D6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789AE2B83C61400EBE3D6 /* ViewController.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5AF5AE12762C4287347D5DA6 /* Pods-MeetL.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetL.debug.xcconfig"; path = "Target Support Files/Pods-MeetL/Pods-MeetL.debug.xcconfig"; sourceTree = "<group>"; };
 		7A0789A72B83C61400EBE3D6 /* MeetL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MeetL.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A0789AA2B83C61400EBE3D6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7A0789AC2B83C61400EBE3D6 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,8 +50,6 @@
 		7A3DADCC2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A3DADCD2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		B599D8F77B6CE3D8AC56AE87 /* Pods-MeetL.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MeetL.release.xcconfig"; path = "Target Support Files/Pods-MeetL/Pods-MeetL.release.xcconfig"; sourceTree = "<group>"; };
-		E2F6ABADBF0FBEFF23160DB4 /* Pods_MeetL.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MeetL.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,30 +57,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16A942F837952C3348EB1212 /* Pods_MeetL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		65106760CB96CF3FE600282F /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5AF5AE12762C4287347D5DA6 /* Pods-MeetL.debug.xcconfig */,
-				B599D8F77B6CE3D8AC56AE87 /* Pods-MeetL.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		7A07899E2B83C61400EBE3D6 = {
 			isa = PBXGroup;
 			children = (
 				7A0789A92B83C61400EBE3D6 /* MeetL */,
 				7A0789A82B83C61400EBE3D6 /* Products */,
-				65106760CB96CF3FE600282F /* Pods */,
-				CA1B9F0420DAD51F3B123F58 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -195,14 +178,6 @@
 			path = CoreDataFiles;
 			sourceTree = "<group>";
 		};
-		CA1B9F0420DAD51F3B123F58 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				E2F6ABADBF0FBEFF23160DB4 /* Pods_MeetL.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -210,11 +185,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 7A0789BE2B83C61500EBE3D6 /* Build configuration list for PBXNativeTarget "MeetL" */;
 			buildPhases = (
-				6387C7FA8C1A71F1056760B3 /* [CP] Check Pods Manifest.lock */,
 				7A0789A32B83C61400EBE3D6 /* Sources */,
 				7A0789A42B83C61400EBE3D6 /* Frameworks */,
 				7A0789A52B83C61400EBE3D6 /* Resources */,
-				38F0A8785F0D36A99DFB18BC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -272,48 +245,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		38F0A8785F0D36A99DFB18BC /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeetL/Pods-MeetL-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-MeetL/Pods-MeetL-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-MeetL/Pods-MeetL-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		6387C7FA8C1A71F1056760B3 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-MeetL-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7A0789A32B83C61400EBE3D6 /* Sources */ = {
@@ -480,7 +411,6 @@
 		};
 		7A0789BF2B83C61500EBE3D6 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5AF5AE12762C4287347D5DA6 /* Pods-MeetL.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -509,7 +439,6 @@
 		};
 		7A0789C02B83C61500EBE3D6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B599D8F77B6CE3D8AC56AE87 /* Pods-MeetL.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
