@@ -3,9 +3,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var customCard: UserCard!
-    var model: UserViewModel!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
+    
+    var model: UserViewModel!
+
+    var loadedImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -14,6 +17,9 @@ class ViewController: UIViewController {
         setUpBorders()
         setUpShadow()
         uploadView()
+
+        let tap = UITapGestureRecognizer(target: self, action: #selector(getDetails))
+        customCard.addGestureRecognizer(tap)
     }
     
     private func setUpShadow(){
@@ -36,15 +42,25 @@ class ViewController: UIViewController {
     
     func uploadView() {
         model.userDidChange = { [weak self] in
-            DispatchQueue.main.async {
                 self?.model.imageFromUrl(completion: { image in
+                    guard let user = self?.model.loadedUser else {return}
+                    guard let image = image else {return}
+                    self?.loadedImage = image
                     DispatchQueue.main.async {
-                        self?.customCard.configure(name: self?.model.loadedUser.name, age: String(self?.model.loadedUser.age ?? 0), image: image)
+                        self?.customCard.configure(user: user, image: self?.loadedImage)
                     }
                 })
-            }
+            
         }
     }
+    
+    @objc private func getDetails(){
+        let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetails
+        present(secondVC, animated: true)
+        secondVC.configure(model: model.loadedUser, image: loadedImage)
+    }
+    
     @IBAction func like(_ sender: Any) {
         model.load()
         uploadView()

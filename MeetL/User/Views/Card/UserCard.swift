@@ -38,9 +38,9 @@ class UserCard: UIView {
         addSubview(view)
     }
     
-    func configure(name: String?, age: String?, image: UIImage?){
-        nameLabel.text = name
-        ageLabel.text = age
+    func configure(user: UserModel, image: UIImage?){
+        nameLabel.text = user.name
+        ageLabel.text = String(user.age)
         personImage.image = image
         personImage.layer.cornerRadius = personImage.frame.width/2
     }

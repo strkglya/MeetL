@@ -28,13 +28,16 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hq4-Sp-oew">
                     <rect key="frame" x="40" y="60" width="260" height="260"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="260" id="nRQ-rp-lCg"/>
-                        <constraint firstAttribute="width" constant="260" id="vBD-jR-hL6"/>
+                        <constraint firstAttribute="width" constant="260" id="6XO-4e-md4"/>
+                        <constraint firstAttribute="height" constant="260" id="RtA-LC-opR"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bobo Nana" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4U-LL-7dk">
-                    <rect key="frame" x="40" y="361" width="148.33333333333334" height="27"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bobo Nana" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w4U-LL-7dk">
+                    <rect key="frame" x="40" y="358" width="148.33333333333334" height="30"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="dYV-bw-XTF"/>
+                    </constraints>
                     <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="27"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
