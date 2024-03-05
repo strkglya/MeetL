@@ -6,6 +6,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     
+    @IBOutlet weak var chatButton: UIBarButtonItem!
+    @IBOutlet weak var heartButton: UIBarButtonItem!
+    @IBOutlet weak var personalPageButton: UIBarButtonItem!
+    
     var model: UserViewModel!
 
     var loadedImage = UIImage()
@@ -16,10 +20,9 @@ class ViewController: UIViewController {
         model.load()
         setUpBorders()
         setUpShadow()
+        setUpToolbar()
+        setUpTaps()
         uploadView()
-
-        let tap = UITapGestureRecognizer(target: self, action: #selector(getDetails))
-        customCard.addGestureRecognizer(tap)
     }
     
     private func setUpShadow(){
@@ -40,6 +43,12 @@ class ViewController: UIViewController {
         customCard.layer.borderColor = color.cgColor
     }
     
+    private func setUpTaps(){
+        
+        let tap = UITapGestureRecognizer(target: self, action: #selector(getDetails))
+        customCard.addGestureRecognizer(tap)
+    }
+    
     func uploadView() {
         model.userDidChange = { [weak self] in
                 self?.model.imageFromUrl(completion: { image in
@@ -54,11 +63,30 @@ class ViewController: UIViewController {
         }
     }
     
+    private func setUpToolbar(){
+        setUpBarButtonImage(button: chatButton, image: UIImage(named: "chatInactive")!)
+        setUpBarButtonImage(button: personalPageButton, image: UIImage(named: "personInactive")!)
+    }
+    
+    private func setUpBarButtonImage(button: UIBarButtonItem, image: UIImage){
+        let originalImage = image.withRenderingMode(.alwaysOriginal)
+        button.image = originalImage
+    }
+    
     @objc private func getDetails(){
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetails
         present(secondVC, animated: true)
         secondVC.configure(model: model.loadedUser, image: loadedImage)
+    }
+    
+    @IBAction func goToChats(_ sender: Any) {
+    }
+    
+    @IBAction func goToPersonalPage(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "PersonalPage", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: "PersonalPage")
+        present(secondVC, animated: true)
     }
     
     @IBAction func like(_ sender: Any) {

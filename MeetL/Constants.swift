@@ -9,7 +9,7 @@ import Foundation
 
 final class Constants {
 //    let gender: Gender
-    static let mainUrl = "https://peoplegeneratorapi.live/api/person"
+    static let mainUrl = "https://raw.githubusercontent.com/strkglya/jsonHolder/main/usersJson.json"
     
     static func imageUrl(responseGender: String) -> String {
         let randomNumber = Int.random(in: 0..<100)

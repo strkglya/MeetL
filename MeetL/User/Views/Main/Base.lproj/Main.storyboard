@@ -50,32 +50,58 @@
                                     <action selector="dismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEX-Fc-oL0"/>
                                 </connections>
                             </button>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-DD-SyM">
-                                <rect key="frame" x="0.0" y="808" width="393" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VoX-DD-SyM">
+                                <rect key="frame" x="0.0" y="792" width="393" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="kgD-mY-vGq"/>
+                                </constraints>
                                 <items>
-                                    <barButtonItem title="Item" id="q61-qH-eSj"/>
+                                    <barButtonItem title="Item" width="100" id="q61-qH-eSj">
+                                        <imageReference key="image" image="chatInactive" symbolScale="default"/>
+                                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-13"/>
+                                        <connections>
+                                            <action selector="goToChats:" destination="BYZ-38-t0r" id="hdq-jw-mgO"/>
+                                        </connections>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="z8O-bp-8yf"/>
+                                    <barButtonItem title="Item" width="100" id="g0O-BY-792">
+                                        <imageReference key="image" image="toolbarHeart" symbolScale="large"/>
+                                        <inset key="imageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="-15"/>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="a2Z-GF-QKs"/>
+                                    <barButtonItem title="Item" image="personInactive" width="100" id="BJO-mO-EiT">
+                                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-13"/>
+                                        <connections>
+                                            <action selector="goToPersonalPage:" destination="BYZ-38-t0r" id="o1X-qp-EfR"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.95484910892748065" blue="0.97122103845579344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                        <color key="tintColor" red="0.77647060160000003" green="0.57383008164406202" blue="0.59334274787672825" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.77647058823529413" green="0.5725490196078431" blue="0.59215686274509804" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="VoX-DD-SyM" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="1YD-9W-7aj"/>
                             <constraint firstItem="aN9-cg-czt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="61.5" id="Ago-3O-ZqL"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CG6-Zf-UJd"/>
+                            <constraint firstAttribute="trailing" secondItem="VoX-DD-SyM" secondAttribute="trailing" id="Eux-OB-892"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.86514" id="IfY-Pj-BRi"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.469484" constant="50" id="TnN-dY-uaj"/>
                             <constraint firstItem="AYf-m7-pc1" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="XIa-mu-vtN"/>
+                            <constraint firstAttribute="bottom" secondItem="VoX-DD-SyM" secondAttribute="bottom" id="niQ-pD-SKk"/>
                             <constraint firstItem="aN9-cg-czt" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="p0l-dd-q8p"/>
                             <constraint firstItem="AYf-m7-pc1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-59.5" id="scT-ov-gld"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-65" id="xI9-cg-cel"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="chatButton" destination="q61-qH-eSj" id="n1l-jn-7Cw"/>
                         <outlet property="customCard" destination="23E-pD-Ser" id="bYm-lx-GJD"/>
                         <outlet property="dismissButton" destination="AYf-m7-pc1" id="xUg-qk-wP0"/>
+                        <outlet property="heartButton" destination="g0O-BY-792" id="zI3-tv-IRD"/>
                         <outlet property="likeButton" destination="aN9-cg-czt" id="t7g-dh-Pwx"/>
+                        <outlet property="personalPageButton" destination="BJO-mO-EiT" id="0se-O7-hQO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -84,8 +110,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="chatInactive" width="51" height="51"/>
         <image name="dismiss" width="70" height="70"/>
         <image name="heart" width="70" height="70"/>
+        <image name="personInactive" width="70" height="70"/>
+        <image name="toolbarHeart" width="72" height="62"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

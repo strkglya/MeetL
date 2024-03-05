@@ -11,7 +11,7 @@ final class UserViewModel {
     
     private let loadService = UserLoadService()
     
-    var loadedUser = UserModel(name: "", age: 0, job: "", height: 0, weight: 0, gender: "", religion: "", country: "", city: "", image: ""){
+    var loadedUser = UserModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
         didSet {
             userDidChange?()
         }

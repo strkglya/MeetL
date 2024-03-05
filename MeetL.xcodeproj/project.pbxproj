@@ -23,8 +23,8 @@
 		7A0789E52B88F0E800EBE3D6 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789E42B88F0E800EBE3D6 /* UserCard.swift */; };
 		7A07E7A22B8E56F400E9B277 /* UserDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A07E7A12B8E56F400E9B277 /* UserDetails.storyboard */; };
 		7A07E7A42B8E570D00E9B277 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07E7A32B8E570D00E9B277 /* UserDetails.swift */; };
-		7A3DADCE2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADCC2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift */; };
-		7A3DADCF2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADCD2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift */; };
+		7A32A04A2B93701900E6BD99 /* PersonalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPage.swift */; };
+		7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */; };
 		7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADD12B8A800200142CC7 /* CoreDataService.swift */; };
 /* End PBXBuildFile section */
 
@@ -47,8 +47,8 @@
 		7A0789E42B88F0E800EBE3D6 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
 		7A07E7A12B8E56F400E9B277 /* UserDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetails.storyboard; sourceTree = "<group>"; };
 		7A07E7A32B8E570D00E9B277 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
-		7A3DADCC2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7A3DADCD2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7A32A0492B93701900E6BD99 /* PersonalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPage.swift; sourceTree = "<group>"; };
+		7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -128,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				7A07E7A72B8E572C00E9B277 /* Main */,
+				7A32A0482B936FE200E6BD99 /* PersonalPage */,
 				7A07E7A62B8E572500E9B277 /* Card */,
 				7A07E7A52B8E571600E9B277 /* Details */,
 			);
@@ -161,6 +162,15 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
+		7A32A0482B936FE200E6BD99 /* PersonalPage */ = {
+			isa = PBXGroup;
+			children = (
+				7A32A0492B93701900E6BD99 /* PersonalPage.swift */,
+				7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */,
+			);
+			path = PersonalPage;
+			sourceTree = "<group>";
+		};
 		7A3DADD02B8A7FE300142CC7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,8 +182,6 @@
 		7A3DADD32B8A801300142CC7 /* CoreDataFiles */ = {
 			isa = PBXGroup;
 			children = (
-				7A3DADCC2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift */,
-				7A3DADCD2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift */,
 			);
 			path = CoreDataFiles;
 			sourceTree = "<group>";
@@ -237,6 +245,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A0789BA2B83C61500EBE3D6 /* LaunchScreen.storyboard in Resources */,
+				7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */,
 				7A0789B72B83C61500EBE3D6 /* Assets.xcassets in Resources */,
 				7A0789E32B88F0DE00EBE3D6 /* UserCard.xib in Resources */,
 				7A07E7A22B8E56F400E9B277 /* UserDetails.storyboard in Resources */,
@@ -251,11 +260,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7A3DADCF2B8A7FBB00142CC7 /* UserData+CoreDataProperties.swift in Sources */,
 				7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */,
+				7A32A04A2B93701900E6BD99 /* PersonalPage.swift in Sources */,
 				7A0789AF2B83C61400EBE3D6 /* ViewController.swift in Sources */,
 				7A0789CA2B83D1C200EBE3D6 /* UserViewModel.swift in Sources */,
-				7A3DADCE2B8A7FBB00142CC7 /* UserData+CoreDataClass.swift in Sources */,
 				7A0789B52B83C61400EBE3D6 /* MeetL.xcdatamodeld in Sources */,
 				7A0789C22B83C66F00EBE3D6 /* UserLoadService.swift in Sources */,
 				7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */,

@@ -9,31 +9,50 @@ import UIKit
 
 final class UserLoadService {
     
+    private let userDefaultsKey = "currentIndex"
+    private var index: Int {
+        get {
+            return UserDefaults.standard.integer(forKey: userDefaultsKey)
+        }
+        set {
+            UserDefaults.standard.set(newValue, forKey: userDefaultsKey)
+        }
+    }
+    
     func loadUser(completion: @escaping (UserModel) -> ()) {
+        
         let urlString = Constants.mainUrl
         guard let url = URL(string: urlString) else { return }
-        
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            
             guard let data = data else { return }
-            
             do {
-                let userResponse = try JSONDecoder().decode(User.self, from: data)
-                let posts = UserModel(name: userResponse.name, 
-                                      age: userResponse.age,
-                                      job: userResponse.job,
-                                      height: userResponse.height,
-                                      weight: userResponse.weight,
-                                      gender: userResponse.gender,
-                                      religion: userResponse.religion,
-                                      country: userResponse.address.country,
-                                      city: userResponse.address.city,
-                                      image: Constants.imageUrl(responseGender: userResponse.gender))
+                let userResponse = try JSONDecoder().decode([User].self, from: data)
+                
+                guard self.index < userResponse.count else {
+                    self.index = 0
+                    self.loadUser(completion: completion)
+                    return
+                }
+                
+                let user = userResponse[self.index]
+                let posts = UserModel(id: user.id,
+                                      name: user.name,
+                                      age: user.age,
+                                      height: user.height,
+                                      weight: user.weight,
+                                      interests: user.interests,
+                                      gender: user.gender,
+                                      city: user.city,
+                                      country: user.country,
+                                      about: user.about,
+                                      image: Constants.imageUrl(responseGender: user.gender))
+                print(posts)
+                self.index += 1
                 completion(posts)
-                print(posts.image)
+                
             } catch {
                 print("Error decoding JSON: \(error)")
             }

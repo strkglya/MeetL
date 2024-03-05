@@ -8,14 +8,25 @@
 import Foundation
 
 struct UserModel {
+    let id: Int
     let name: String
     let age: Int
-    let job: String
-    let height: Double
-    let weight: Double
+    let height: Int
+    let weight: Int
+    let interests: [String]
+    
+    var interestsString: String {
+        var allInterests = ""
+        for interest in interests {
+            allInterests.append(interest)
+        }
+        return allInterests
+    }
+    
     let gender: String
-    let religion: String
-    let country: String
     let city: String
+    let country: String
+    let about: String
+
     let image: String
 }

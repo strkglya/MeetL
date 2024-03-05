@@ -40,19 +40,19 @@ class CoreDataService {
         }
     }
     
-    private func saveUser(user: UserModel){
-        let context = CoreDataService.shared.context
-        let newUser = UserData(context: context)
-        newUser.name = user.name
-        newUser.age = Int16(user.age)
-        newUser.job = user.job
-        newUser.height = user.height
-        newUser.weight = user.weight
-        newUser.gender = user.gender
-        newUser.religion = user.religion
-        newUser.country = user.country
-        newUser.city = user.city
-        newUser.image = user.image
-        CoreDataService.shared.saveContext()
-    }
+//    private func saveUser(user: UserModel){
+//        let context = CoreDataService.shared.context
+//        let newUser = UserData(context: context)
+//        newUser.name = user.name
+//        newUser.age = Int16(user.age)
+//        newUser.job = user.job
+//        newUser.height = user.height
+//        newUser.weight = user.weight
+//        newUser.gender = user.gender
+//        newUser.religion = user.religion
+//        newUser.country = user.country
+//        newUser.city = user.city
+//        newUser.image = user.image
+//        CoreDataService.shared.saveContext()
+//    }
 }
