@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23E-pD-Ser" customClass="UserCard" customModule="MeetL" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23E-pD-Ser" customClass="UserCardController" customModule="MeetL" customModuleProvider="target">
                                 <rect key="frame" x="26.666666666666657" y="136" width="340" height="450"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>

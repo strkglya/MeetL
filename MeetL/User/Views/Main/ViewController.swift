@@ -2,7 +2,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var customCard: UserCard!
+    @IBOutlet weak var customCard: UserCardController!
     @IBOutlet weak var dismissButton: UIButton!
     @IBOutlet weak var likeButton: UIButton!
     
@@ -75,12 +75,15 @@ class ViewController: UIViewController {
     
     @objc private func getDetails(){
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetails
+        let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
         present(secondVC, animated: true)
         secondVC.configure(model: model.loadedUser, image: loadedImage)
     }
     
     @IBAction func goToChats(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "Chats", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: "ChatsController") as! ChatsController
+        present(secondVC, animated: true)
     }
     
     @IBAction func goToPersonalPage(_ sender: Any) {

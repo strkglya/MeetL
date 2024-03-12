@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PersonalPage: UIViewController {
+class PersonalPageController: UIViewController {
 
     @IBOutlet weak var personalImage: UIImageView!
     @IBOutlet weak var editButton: UIButton!

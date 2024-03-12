@@ -26,6 +26,11 @@ struct UserModel {
     let gender: String
     let city: String
     let country: String
+    
+    var address: String {
+        return "\(country),\(city)"
+    }
+    
     let about: String
 
     let image: String

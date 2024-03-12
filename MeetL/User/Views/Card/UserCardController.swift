@@ -8,7 +8,7 @@
 import UIKit
 
 @IBDesignable
-class UserCard: UIView {
+class UserCardController: UIView {
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var ageLabel: UILabel!
@@ -19,19 +19,16 @@ class UserCard: UIView {
         initSubviews()
         personImage.layer.borderWidth = 2
         personImage.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
-        
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
-
     }
     
     private func initSubviews() {
         let nib = UINib(nibName: "UserCard", bundle: nil)
         guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {fatalError("Unable to convert nib")}
-        
         view.frame = bounds
         view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         

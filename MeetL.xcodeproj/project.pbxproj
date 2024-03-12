@@ -20,12 +20,15 @@
 		7A0789CE2B84C41000EBE3D6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789CD2B84C41000EBE3D6 /* User.swift */; };
 		7A0789D02B84C4D200EBE3D6 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789CF2B84C4D200EBE3D6 /* UserModel.swift */; };
 		7A0789E32B88F0DE00EBE3D6 /* UserCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7A0789E22B88F0DE00EBE3D6 /* UserCard.xib */; };
-		7A0789E52B88F0E800EBE3D6 /* UserCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789E42B88F0E800EBE3D6 /* UserCard.swift */; };
+		7A0789E52B88F0E800EBE3D6 /* UserCardController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A0789E42B88F0E800EBE3D6 /* UserCardController.swift */; };
 		7A07E7A22B8E56F400E9B277 /* UserDetails.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A07E7A12B8E56F400E9B277 /* UserDetails.storyboard */; };
-		7A07E7A42B8E570D00E9B277 /* UserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07E7A32B8E570D00E9B277 /* UserDetails.swift */; };
-		7A32A04A2B93701900E6BD99 /* PersonalPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPage.swift */; };
+		7A07E7A42B8E570D00E9B277 /* UserDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A07E7A32B8E570D00E9B277 /* UserDetailsController.swift */; };
+		7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPageController.swift */; };
 		7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */; };
 		7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADD12B8A800200142CC7 /* CoreDataService.swift */; };
+		7A76B8B82B9796D800E94618 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A76B8B72B9796D800E94618 /* Chats.storyboard */; };
+		7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BB2B97970800E94618 /* ChatsController.swift */; };
+		7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BD2B97978D00E94618 /* ChatCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,12 +47,15 @@
 		7A0789CD2B84C41000EBE3D6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7A0789CF2B84C4D200EBE3D6 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		7A0789E22B88F0DE00EBE3D6 /* UserCard.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserCard.xib; sourceTree = "<group>"; };
-		7A0789E42B88F0E800EBE3D6 /* UserCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCard.swift; sourceTree = "<group>"; };
+		7A0789E42B88F0E800EBE3D6 /* UserCardController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCardController.swift; sourceTree = "<group>"; };
 		7A07E7A12B8E56F400E9B277 /* UserDetails.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserDetails.storyboard; sourceTree = "<group>"; };
-		7A07E7A32B8E570D00E9B277 /* UserDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetails.swift; sourceTree = "<group>"; };
-		7A32A0492B93701900E6BD99 /* PersonalPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPage.swift; sourceTree = "<group>"; };
+		7A07E7A32B8E570D00E9B277 /* UserDetailsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDetailsController.swift; sourceTree = "<group>"; };
+		7A32A0492B93701900E6BD99 /* PersonalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageController.swift; sourceTree = "<group>"; };
 		7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		7A76B8B72B9796D800E94618 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
+		7A76B8BB2B97970800E94618 /* ChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
+		7A76B8BD2B97978D00E94618 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,6 +133,7 @@
 		7A0789DB2B88D0BD00EBE3D6 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				7A76B8B62B9796BE00E94618 /* Chats */,
 				7A07E7A72B8E572C00E9B277 /* Main */,
 				7A32A0482B936FE200E6BD99 /* PersonalPage */,
 				7A07E7A62B8E572500E9B277 /* Card */,
@@ -139,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				7A07E7A12B8E56F400E9B277 /* UserDetails.storyboard */,
-				7A07E7A32B8E570D00E9B277 /* UserDetails.swift */,
+				7A07E7A32B8E570D00E9B277 /* UserDetailsController.swift */,
 			);
 			path = Details;
 			sourceTree = "<group>";
@@ -148,7 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				7A0789E22B88F0DE00EBE3D6 /* UserCard.xib */,
-				7A0789E42B88F0E800EBE3D6 /* UserCard.swift */,
+				7A0789E42B88F0E800EBE3D6 /* UserCardController.swift */,
 			);
 			path = Card;
 			sourceTree = "<group>";
@@ -165,7 +172,7 @@
 		7A32A0482B936FE200E6BD99 /* PersonalPage */ = {
 			isa = PBXGroup;
 			children = (
-				7A32A0492B93701900E6BD99 /* PersonalPage.swift */,
+				7A32A0492B93701900E6BD99 /* PersonalPageController.swift */,
 				7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */,
 			);
 			path = PersonalPage;
@@ -184,6 +191,16 @@
 			children = (
 			);
 			path = CoreDataFiles;
+			sourceTree = "<group>";
+		};
+		7A76B8B62B9796BE00E94618 /* Chats */ = {
+			isa = PBXGroup;
+			children = (
+				7A76B8B72B9796D800E94618 /* Chats.storyboard */,
+				7A76B8BB2B97970800E94618 /* ChatsController.swift */,
+				7A76B8BD2B97978D00E94618 /* ChatCell.swift */,
+			);
+			path = Chats;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -248,6 +265,7 @@
 				7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */,
 				7A0789B72B83C61500EBE3D6 /* Assets.xcassets in Resources */,
 				7A0789E32B88F0DE00EBE3D6 /* UserCard.xib in Resources */,
+				7A76B8B82B9796D800E94618 /* Chats.storyboard in Resources */,
 				7A07E7A22B8E56F400E9B277 /* UserDetails.storyboard in Resources */,
 				7A0789B22B83C61400EBE3D6 /* Main.storyboard in Resources */,
 			);
@@ -261,18 +279,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */,
-				7A32A04A2B93701900E6BD99 /* PersonalPage.swift in Sources */,
+				7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */,
 				7A0789AF2B83C61400EBE3D6 /* ViewController.swift in Sources */,
 				7A0789CA2B83D1C200EBE3D6 /* UserViewModel.swift in Sources */,
 				7A0789B52B83C61400EBE3D6 /* MeetL.xcdatamodeld in Sources */,
 				7A0789C22B83C66F00EBE3D6 /* UserLoadService.swift in Sources */,
 				7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */,
 				7A0789CE2B84C41000EBE3D6 /* User.swift in Sources */,
+				7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */,
 				7A0789AD2B83C61400EBE3D6 /* SceneDelegate.swift in Sources */,
 				7A0789C42B83C6E800EBE3D6 /* Constants.swift in Sources */,
-				7A07E7A42B8E570D00E9B277 /* UserDetails.swift in Sources */,
+				7A07E7A42B8E570D00E9B277 /* UserDetailsController.swift in Sources */,
+				7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */,
 				7A0789D02B84C4D200EBE3D6 /* UserModel.swift in Sources */,
-				7A0789E52B88F0E800EBE3D6 /* UserCard.swift in Sources */,
+				7A0789E52B88F0E800EBE3D6 /* UserCardController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
