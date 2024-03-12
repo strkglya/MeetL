@@ -22,8 +22,23 @@ final class UserViewModel {
     func load(){
         loadService.loadUser { [weak self] user in
             self?.loadedUser = user
+            self?.imageFromUrl(completion: { image in
+                guard let image = image else { return }
+                self?.loadedImage = image
+            })
         }
     }
+    
+    var loadedImage = UIImage() 
+//    {
+//        didSet {
+//            imageFromUrl(completion: { image in
+//                guard let image = image else { return }
+//                self.loadedImage = image
+//            })
+//        }
+//    }
+    
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
         let imageURLString = loadedUser.image

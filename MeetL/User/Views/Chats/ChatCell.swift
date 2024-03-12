@@ -24,7 +24,7 @@ class ChatCell: UITableViewCell {
 
     }
     
-    private func configure(model: UserModel, image: UIImage){
+    func configure(model: UserModel, image: UIImage){
         likedImage.image = image
         likedName.text = model.name
         likedAge.text = String(model.age)

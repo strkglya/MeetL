@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var model: UserViewModel!
 
-    var loadedImage = UIImage()
+   // var loadedImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,24 +44,31 @@ class ViewController: UIViewController {
     }
     
     private func setUpTaps(){
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(getDetails))
         customCard.addGestureRecognizer(tap)
     }
     
     func uploadView() {
+//        model.userDidChange = { [weak self] in
+//                self?.model.imageFromUrl(completion: { image in
+//                    guard let user = self?.model.loadedUser else {return}
+//                    self?.model.loadedImage = image!
+////                    guard let image = image else {return}
+////                    self?.loadedImage = image
+//                    DispatchQueue.main.async {
+//                        self?.customCard.configure(user: user, image: self?.model.loadedImage)
+//                    }
+//                })
+//            
+//        }
         model.userDidChange = { [weak self] in
-                self?.model.imageFromUrl(completion: { image in
-                    guard let user = self?.model.loadedUser else {return}
-                    guard let image = image else {return}
-                    self?.loadedImage = image
-                    DispatchQueue.main.async {
-                        self?.customCard.configure(user: user, image: self?.loadedImage)
-                    }
-                })
-            
+            guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.customCard.configure(user: self.model.loadedUser, image: self.model.loadedImage)
+            }
         }
     }
+    
     
     private func setUpToolbar(){
         setUpBarButtonImage(button: chatButton, image: UIImage(named: "chatInactive")!)
@@ -77,7 +84,7 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
         present(secondVC, animated: true)
-        secondVC.configure(model: model.loadedUser, image: loadedImage)
+        secondVC.configure(model: model.loadedUser, image: model.loadedImage)
     }
     
     @IBAction func goToChats(_ sender: Any) {
