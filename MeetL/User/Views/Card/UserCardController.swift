@@ -17,6 +17,7 @@ class UserCardController: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()
+        personImage.layer.cornerRadius = personImage.frame.width/2
         personImage.layer.borderWidth = 2
         personImage.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
     }
@@ -38,7 +39,10 @@ class UserCardController: UIView {
     func configure(user: UserModel, image: UIImage?){
         nameLabel.text = user.name
         ageLabel.text = String(user.age)
+       
+    }
+    
+    func updateImage(image: UIImage){
         personImage.image = image
-        personImage.layer.cornerRadius = personImage.frame.width/2
     }
 }

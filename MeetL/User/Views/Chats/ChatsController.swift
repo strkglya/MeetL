@@ -12,15 +12,17 @@ class ChatsController: UIViewController {
     let model = UserViewModel()
     
     var likedUsers = [UserModel]()
+    var likedPhoto = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        likedUsers.append(model.loadedUser)
     }
 }
 
 extension ChatsController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 90
+    }
 }
 
 extension ChatsController: UITableViewDataSource {
@@ -30,9 +32,7 @@ extension ChatsController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as? ChatCell else { return UITableViewCell()}
-        cell.configure(model: likedUsers[indexPath.row], image: model.loadedImage)
+        cell.configure(model: likedUsers[indexPath.row], image: likedPhoto)
         return cell
     }
-    
-    
 }

@@ -40,19 +40,51 @@ class CoreDataService {
         }
     }
     
-//    private func saveUser(user: UserModel){
-//        let context = CoreDataService.shared.context
-//        let newUser = UserData(context: context)
-//        newUser.name = user.name
-//        newUser.age = Int16(user.age)
-//        newUser.job = user.job
-//        newUser.height = user.height
-//        newUser.weight = user.weight
-//        newUser.gender = user.gender
-//        newUser.religion = user.religion
-//        newUser.country = user.country
-//        newUser.city = user.city
-//        newUser.image = user.image
-//        CoreDataService.shared.saveContext()
-//    }
+    static func savePerson(personToSave: UserModel){
+        
+        let context = CoreDataService.shared.context
+        let newUser = LikedPersonData(context: context)
+        newUser.name = personToSave.name
+        newUser.age = Int16(personToSave.age)
+        newUser.height = Int16(personToSave.height)
+        newUser.weight = Int16(personToSave.weight)
+        newUser.gender = personToSave.gender
+        newUser.country = personToSave.country
+        newUser.city = personToSave.city
+        newUser.interests = personToSave.interestsString
+        newUser.image = personToSave.image
+        CoreDataService.shared.saveContext()
+    }
+    
+    static func loadUsers() -> [UserModel] {
+        
+        var loadedPersons = [UserModel]()
+        
+        let context = CoreDataService.shared.context
+        let fetchRequest: NSFetchRequest<LikedPersonData> = LikedPersonData.fetchRequest()
+        
+        do {
+            let fetchedPersons = try context.fetch(fetchRequest)
+            
+            for person in fetchedPersons {
+                let loadedPerson = UserModel(id: Int(person.id),
+                                             name: person.name ?? "",
+                                             age: Int(person.age),
+                                             height: Int(person.height),
+                                             weight: Int(person.weight),
+                                             interests: person.interests?.split(separator: ", ") as! [String] ,
+                                             gender: person.gender ?? "",
+                                             city: person.city ?? "",
+                                             country: person.country ?? "",
+                                             about: person.about ?? "",
+                                             image: person.image ?? "")
+                loadedPersons.append(loadedPerson)
+            }
+            
+        } catch {
+            print(error)
+        }
+        
+        return loadedPersons
+    }
 }

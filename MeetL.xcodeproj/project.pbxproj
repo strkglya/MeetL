@@ -26,6 +26,8 @@
 		7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPageController.swift */; };
 		7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */; };
 		7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADD12B8A800200142CC7 /* CoreDataService.swift */; };
+		7A52DF242BA35E5000FE73E3 /* LikedPersonData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52DF222BA35E5000FE73E3 /* LikedPersonData+CoreDataClass.swift */; };
+		7A52DF252BA35E5000FE73E3 /* LikedPersonData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52DF232BA35E5000FE73E3 /* LikedPersonData+CoreDataProperties.swift */; };
 		7A76B8B82B9796D800E94618 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A76B8B72B9796D800E94618 /* Chats.storyboard */; };
 		7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BB2B97970800E94618 /* ChatsController.swift */; };
 		7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BD2B97978D00E94618 /* ChatCell.swift */; };
@@ -53,6 +55,8 @@
 		7A32A0492B93701900E6BD99 /* PersonalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageController.swift; sourceTree = "<group>"; };
 		7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		7A52DF222BA35E5000FE73E3 /* LikedPersonData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedPersonData+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7A52DF232BA35E5000FE73E3 /* LikedPersonData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "LikedPersonData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7A76B8B72B9796D800E94618 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		7A76B8BB2B97970800E94618 /* ChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		7A76B8BD2B97978D00E94618 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
@@ -189,6 +193,8 @@
 		7A3DADD32B8A801300142CC7 /* CoreDataFiles */ = {
 			isa = PBXGroup;
 			children = (
+				7A52DF222BA35E5000FE73E3 /* LikedPersonData+CoreDataClass.swift */,
+				7A52DF232BA35E5000FE73E3 /* LikedPersonData+CoreDataProperties.swift */,
 			);
 			path = CoreDataFiles;
 			sourceTree = "<group>";
@@ -282,6 +288,8 @@
 				7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */,
 				7A0789AF2B83C61400EBE3D6 /* ViewController.swift in Sources */,
 				7A0789CA2B83D1C200EBE3D6 /* UserViewModel.swift in Sources */,
+				7A52DF242BA35E5000FE73E3 /* LikedPersonData+CoreDataClass.swift in Sources */,
+				7A52DF252BA35E5000FE73E3 /* LikedPersonData+CoreDataProperties.swift in Sources */,
 				7A0789B52B83C61400EBE3D6 /* MeetL.xcdatamodeld in Sources */,
 				7A0789C22B83C66F00EBE3D6 /* UserLoadService.swift in Sources */,
 				7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */,

@@ -11,13 +11,20 @@ final class UserViewModel {
     
     private let loadService = UserLoadService()
     
+    var userDidChange: (() -> Void)?
+    var imageDidLoad: (() -> Void)?
+    
     var loadedUser = UserModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
         didSet {
             userDidChange?()
         }
     }
     
-    var userDidChange: (() -> Void)?
+    var loadedImage = UIImage() {
+        didSet {
+            imageDidLoad?()
+        }
+    }
     
     func load(){
         loadService.loadUser { [weak self] user in
@@ -28,17 +35,6 @@ final class UserViewModel {
             })
         }
     }
-    
-    var loadedImage = UIImage() 
-//    {
-//        didSet {
-//            imageFromUrl(completion: { image in
-//                guard let image = image else { return }
-//                self.loadedImage = image
-//            })
-//        }
-//    }
-    
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
         let imageURLString = loadedUser.image
@@ -53,4 +49,5 @@ final class UserViewModel {
             completion(image)
         }.resume()
     }
+    
 }

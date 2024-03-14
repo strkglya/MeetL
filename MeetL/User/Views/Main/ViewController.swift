@@ -11,8 +11,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var personalPageButton: UIBarButtonItem!
     
     var model: UserViewModel!
-
-   // var loadedImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,18 +47,13 @@ class ViewController: UIViewController {
     }
     
     func uploadView() {
-//        model.userDidChange = { [weak self] in
-//                self?.model.imageFromUrl(completion: { image in
-//                    guard let user = self?.model.loadedUser else {return}
-//                    self?.model.loadedImage = image!
-////                    guard let image = image else {return}
-////                    self?.loadedImage = image
-//                    DispatchQueue.main.async {
-//                        self?.customCard.configure(user: user, image: self?.model.loadedImage)
-//                    }
-//                })
-//            
-//        }
+        model.imageDidLoad = { [weak self] in
+            DispatchQueue.main.async {
+                guard let self = self else {return}
+                self.customCard.updateImage(image: self.model.loadedImage)
+            }
+        }
+        
         model.userDidChange = { [weak self] in
             guard let self = self else {return}
             DispatchQueue.main.async {
@@ -91,6 +84,8 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Chats", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "ChatsController") as! ChatsController
         present(secondVC, animated: true)
+        secondVC.likedUsers.append(model.loadedUser)
+        secondVC.likedPhoto = model.loadedImage
     }
     
     @IBAction func goToPersonalPage(_ sender: Any) {

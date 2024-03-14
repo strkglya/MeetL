@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NXw-c0-pBI">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <rect key="frame" x="0.0" y="103" width="393" height="749"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="chatCell" rowHeight="80" id="we5-qw-H4T" customClass="ChatCell" customModule="MeetL" customModuleProvider="target">
@@ -93,7 +93,8 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="mlD-oC-Cqf" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="3rj-IK-PEa"/>
-                            <constraint firstItem="NXw-c0-pBI" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" id="8oz-AL-RlU"/>
+                            <constraint firstAttribute="bottom" secondItem="NXw-c0-pBI" secondAttribute="bottom" id="90c-2f-J8t"/>
+                            <constraint firstItem="NXw-c0-pBI" firstAttribute="top" secondItem="mlD-oC-Cqf" secondAttribute="bottom" id="Dqo-tC-ngs"/>
                             <constraint firstItem="mlD-oC-Cqf" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="Yaz-Lz-2oj"/>
                             <constraint firstAttribute="trailing" secondItem="mlD-oC-Cqf" secondAttribute="trailing" id="Zc1-Gh-NJb"/>
                             <constraint firstAttribute="bottom" secondItem="NXw-c0-pBI" secondAttribute="bottom" id="abS-jE-q5K"/>

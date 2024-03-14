@@ -16,11 +16,7 @@ struct UserModel {
     let interests: [String]
     
     var interestsString: String {
-        var allInterests = ""
-        for interest in interests {
-            allInterests.append(interest)
-        }
-        return allInterests
+        return interests.joined(separator: ", ")
     }
     
     let gender: String
@@ -32,6 +28,5 @@ struct UserModel {
     }
     
     let about: String
-
     let image: String
 }
