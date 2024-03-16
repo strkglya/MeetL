@@ -21,7 +21,7 @@ extension LikedPersonData {
     @NSManaged public var country: String?
     @NSManaged public var gender: String?
     @NSManaged public var height: Int16
-    @NSManaged public var image: String?
+    @NSManaged public var image: Data?
     @NSManaged public var name: String?
     @NSManaged public var weight: Int16
     @NSManaged public var id: Int16

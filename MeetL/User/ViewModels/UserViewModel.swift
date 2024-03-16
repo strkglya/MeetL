@@ -26,28 +26,49 @@ final class UserViewModel {
         }
     }
     
-    func load(){
+    func loadFromJson(){
         loadService.loadUser { [weak self] user in
             self?.loadedUser = user
-            self?.imageFromUrl(completion: { image in
-                guard let image = image else { return }
+            let image = UIImage()
+            self?.imageFromUrl { image in
+                guard let image = image else {return}
                 self?.loadedImage = image
-            })
+            }
         }
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
-        let imageURLString = loadedUser.image
-        guard let imageURL = URL(string: imageURLString) else { return }
+           let imageURLString = loadedUser.image
+           guard let imageURL = URL(string: imageURLString) else { return }
+           
+           URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+               guard error == nil, let data = data, let image = UIImage(data: data) else {
+                   print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
+                   completion(nil)
+                   return
+               }
+               completion(image)
+           }.resume()
+       }
+    
+    func saveToCoreData(likedPerson: UserModel, with image: UIImage){
+        if let imageData = image.pngData() {
+            CoreDataService.shared.savePerson(personToSave: CoreDataModel(id: likedPerson.id,
+                                                                          name: likedPerson.name,
+                                                                          age: likedPerson.age,
+                                                                          height: likedPerson.height,
+                                                                          weight: likedPerson.weight,
+                                                                          interests: likedPerson.interests,
+                                                                          gender: likedPerson.gender,
+                                                                          city: likedPerson.city,
+                                                                          country: likedPerson.country,
+                                                                          about: likedPerson.about,
+                                                                          image: imageData))
+        }
         
-        URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-            guard error == nil, let data = data, let image = UIImage(data: data) else {
-                print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
-                completion(nil)
-                return
-            }
-            completion(image)
-        }.resume()
     }
     
+    func loadFromCoreData() -> [CoreDataModel]{
+        return CoreDataService.shared.loadUsers()
+    }
 }

@@ -9,7 +9,9 @@ import Foundation
 import CoreData
 
 class CoreDataService {
-
+    
+    let model = UserViewModel()
+    
     static let shared = CoreDataService()
     
     private init() {}
@@ -27,7 +29,7 @@ class CoreDataService {
         })
         return container
     }()
-
+    
     private func saveContext () {
         let context = persistentContainer.viewContext
         if context.hasChanges {
@@ -40,8 +42,8 @@ class CoreDataService {
         }
     }
     
-    static func savePerson(personToSave: UserModel){
-        
+    func savePerson(personToSave: CoreDataModel){
+
         let context = CoreDataService.shared.context
         let newUser = LikedPersonData(context: context)
         newUser.name = personToSave.name
@@ -52,13 +54,15 @@ class CoreDataService {
         newUser.country = personToSave.country
         newUser.city = personToSave.city
         newUser.interests = personToSave.interestsString
+        newUser.about = personToSave.about
         newUser.image = personToSave.image
+
         CoreDataService.shared.saveContext()
     }
     
-    static func loadUsers() -> [UserModel] {
+    func loadUsers() -> [CoreDataModel] {
         
-        var loadedPersons = [UserModel]()
+        var loadedPersons = [CoreDataModel]()
         
         let context = CoreDataService.shared.context
         let fetchRequest: NSFetchRequest<LikedPersonData> = LikedPersonData.fetchRequest()
@@ -67,20 +71,23 @@ class CoreDataService {
             let fetchedPersons = try context.fetch(fetchRequest)
             
             for person in fetchedPersons {
-                let loadedPerson = UserModel(id: Int(person.id),
-                                             name: person.name ?? "",
-                                             age: Int(person.age),
-                                             height: Int(person.height),
-                                             weight: Int(person.weight),
-                                             interests: person.interests?.split(separator: ", ") as! [String] ,
-                                             gender: person.gender ?? "",
-                                             city: person.city ?? "",
-                                             country: person.country ?? "",
-                                             about: person.about ?? "",
-                                             image: person.image ?? "")
-                loadedPersons.append(loadedPerson)
+                let interestsString = person.interests ?? ""
+                let interestsArray = interestsString.split(separator: ", ").map { String($0) }
+                if let imageData = person.image {
+                    let loadedPerson = CoreDataModel(id: Int(person.id),
+                                                     name: person.name ?? "",
+                                                     age: Int(person.age),
+                                                     height: Int(person.height),
+                                                     weight: Int(person.weight),
+                                                     interests: interestsArray ,
+                                                     gender: person.gender ?? "",
+                                                     city: person.city ?? "",
+                                                     country: person.country ?? "",
+                                                     about: person.about ?? "",
+                                                     image: imageData)
+                    loadedPersons.append(loadedPerson)
+                }
             }
-            
         } catch {
             print(error)
         }

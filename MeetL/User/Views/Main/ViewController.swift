@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model = UserViewModel()
-        model.load()
+        model.loadFromJson()
         setUpBorders()
         setUpShadow()
         setUpToolbar()
@@ -84,8 +84,6 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "Chats", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "ChatsController") as! ChatsController
         present(secondVC, animated: true)
-        secondVC.likedUsers.append(model.loadedUser)
-        secondVC.likedPhoto = model.loadedImage
     }
     
     @IBAction func goToPersonalPage(_ sender: Any) {
@@ -95,13 +93,13 @@ class ViewController: UIViewController {
     }
     
     @IBAction func like(_ sender: Any) {
-        model.load()
+        model.loadFromJson()
         uploadView()
-        print("Like!!!")
+        model.saveToCoreData(likedPerson: model.loadedUser, with: model.loadedImage)
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        model.load()
+        model.loadFromJson()
         uploadView()
         print("fy")
     }
