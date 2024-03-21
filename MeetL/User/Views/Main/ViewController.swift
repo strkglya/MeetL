@@ -73,6 +73,14 @@ class ViewController: UIViewController {
         button.image = originalImage
     }
     
+    private func showAlert(){
+        let alert = UIAlertController(title: "It's a match!", message: "It looks like this user liked you back!", preferredStyle: .alert)
+
+        let action = UIAlertAction(title: "ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
     @objc private func getDetails(){
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
@@ -93,9 +101,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func like(_ sender: Any) {
+        if model.loadedUser.likedBack {
+            showAlert()
+            model.saveToCoreData(likedPerson: model.loadedUser, with: model.loadedImage)
+        }
         model.loadFromJson()
         uploadView()
-        model.saveToCoreData(likedPerson: model.loadedUser, with: model.loadedImage)
     }
     
     @IBAction func dismiss(_ sender: Any) {

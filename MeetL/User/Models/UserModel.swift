@@ -29,4 +29,8 @@ struct UserModel {
     
     let about: String
     let image: String
+    
+    var likedBack: Bool {
+        return Bool.random()
+    }
 }
