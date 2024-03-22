@@ -18,9 +18,9 @@ class ViewController: UIViewController {
         model.loadFromJson()
         setUpBorders()
         setUpShadow()
-        setUpToolbar()
         setUpTaps()
         uploadView()
+        tabBarItem.image = UIImage(named: "heart")
     }
     
     private func setUpShadow(){
@@ -60,12 +60,6 @@ class ViewController: UIViewController {
                 self.customCard.configure(user: self.model.loadedUser, image: self.model.loadedImage)
             }
         }
-    }
-    
-    
-    private func setUpToolbar(){
-        setUpBarButtonImage(button: chatButton, image: UIImage(named: "chatInactive")!)
-        setUpBarButtonImage(button: personalPageButton, image: UIImage(named: "personInactive")!)
     }
     
     private func setUpBarButtonImage(button: UIBarButtonItem, image: UIImage){
@@ -115,3 +109,4 @@ class ViewController: UIViewController {
         print("fy")
     }
 }
+

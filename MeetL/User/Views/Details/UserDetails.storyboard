@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
-        <capability name="Image references" minToolsVersion="12.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -169,45 +168,18 @@
                                     <constraint firstAttribute="height" constant="2" id="ooK-1D-xAG"/>
                                 </constraints>
                             </view>
-                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOq-hB-4Y2">
-                                <rect key="frame" x="0.0" y="792" width="393" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="fNz-F5-fy3"/>
-                                </constraints>
-                                <items>
-                                    <barButtonItem title="Item" width="100" id="nnX-IZ-YyV">
-                                        <imageReference key="image" image="chatInactive" symbolScale="default"/>
-                                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-13"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="f9d-fN-rKs"/>
-                                    <barButtonItem title="Item" width="100" id="m5Q-cC-ovH">
-                                        <imageReference key="image" image="tbHeatrInactive" symbolScale="large"/>
-                                        <inset key="imageInsets" minX="0.0" minY="-1" maxX="0.0" maxY="-15"/>
-                                    </barButtonItem>
-                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="khP-oQ-eJK"/>
-                                    <barButtonItem title="Item" image="people" width="100" id="qL9-Zu-f2W">
-                                        <inset key="imageInsets" minX="0.0" minY="-2" maxX="0.0" maxY="-13"/>
-                                    </barButtonItem>
-                                </items>
-                            </toolbar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="bottom" secondItem="gOq-hB-4Y2" secondAttribute="bottom" id="26O-jP-M22"/>
                             <constraint firstItem="Urr-Cr-xPa" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="20" id="3y3-Bu-aJy"/>
-                            <constraint firstItem="gOq-hB-4Y2" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="5KF-mx-HLz"/>
                             <constraint firstItem="GKh-hh-GJU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="20" id="ASr-uA-tgp"/>
                             <constraint firstItem="GKh-hh-GJU" firstAttribute="top" secondItem="bl7-yd-6ur" secondAttribute="bottom" constant="20" id="AdQ-3f-c5j"/>
-                            <constraint firstItem="gOq-hB-4Y2" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="Bko-RX-ReC"/>
                             <constraint firstItem="bl7-yd-6ur" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="KrR-3j-2uz"/>
                             <constraint firstItem="Urr-Cr-xPa" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="LzL-kG-jKA"/>
-                            <constraint firstAttribute="bottom" secondItem="gOq-hB-4Y2" secondAttribute="bottom" id="OEw-JB-PNT"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="bl7-yd-6ur" secondAttribute="trailing" id="drj-za-ZAe"/>
-                            <constraint firstAttribute="trailing" secondItem="gOq-hB-4Y2" secondAttribute="trailing" id="lee-DA-d6W"/>
                             <constraint firstItem="bl7-yd-6ur" firstAttribute="top" secondItem="Urr-Cr-xPa" secondAttribute="bottom" constant="30" id="mTz-Mv-6Xl"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="GKh-hh-GJU" secondAttribute="trailing" constant="20" id="nri-Dt-Sqi"/>
-                            <constraint firstItem="gOq-hB-4Y2" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="y6N-K6-KJQ"/>
                         </constraints>
                     </view>
                     <connections>
@@ -229,9 +201,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chatInactive" width="51" height="51"/>
-        <image name="people" width="70" height="70"/>
-        <image name="tbHeatrInactive" width="72" height="62"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

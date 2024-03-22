@@ -34,6 +34,7 @@
 		7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BD2B97978D00E94618 /* ChatCell.swift */; };
 		7AEBB5A42BAC9DB8006A333F /* FilterPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */; };
 		7AEBB5A62BAC9DDB006A333F /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A52BAC9DDB006A333F /* FilterController.swift */; };
+		7AEBB5A82BACACFB006A333F /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A72BACACFB006A333F /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		7A76B8BD2B97978D00E94618 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterPage.storyboard; sourceTree = "<group>"; };
 		7AEBB5A52BAC9DDB006A333F /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
+		7AEBB5A72BACACFB006A333F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 			children = (
 				7A0789C12B83C66E00EBE3D6 /* UserLoadService.swift */,
 				7A3DADD12B8A800200142CC7 /* CoreDataService.swift */,
+				7AEBB5A72BACACFB006A333F /* TabBarController.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -315,6 +318,7 @@
 				7A0789CE2B84C41000EBE3D6 /* User.swift in Sources */,
 				7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */,
 				7A0789AD2B83C61400EBE3D6 /* SceneDelegate.swift in Sources */,
+				7AEBB5A82BACACFB006A333F /* TabBarController.swift in Sources */,
 				7A52DF2F2BA3767300FE73E3 /* CoreDataModel.swift in Sources */,
 				7A0789C42B83C6E800EBE3D6 /* Constants.swift in Sources */,
 				7A07E7A42B8E570D00E9B277 /* UserDetailsController.swift in Sources */,
