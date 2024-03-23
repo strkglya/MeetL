@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-Se-oBL">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="pWJ-Se-oBL">
                                 <rect key="frame" x="119" y="79" width="155" height="155"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="155" id="3lp-jW-vj7"/>
@@ -31,11 +31,11 @@
                                     <constraint firstAttribute="height" constant="2" id="m7D-4n-FLo"/>
                                 </constraints>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="22" translatesAutoresizingMaskIntoConstraints="NO" id="Hk1-l4-3MX">
-                                <rect key="frame" x="36" y="326" width="88" height="419"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="Hk1-l4-3MX">
+                                <rect key="frame" x="36" y="306" width="100" height="363"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zkC-da-yEy">
-                                        <rect key="frame" x="0.0" y="0.0" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="100" height="27"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="27" id="3pP-Ji-l0b"/>
                                         </constraints>
@@ -44,108 +44,99 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5rC-li-NH7">
-                                        <rect key="frame" x="0.0" y="49" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="42" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="asm-WK-s2i">
-                                        <rect key="frame" x="0.0" y="98" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="84" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qel-Z9-sq8">
-                                        <rect key="frame" x="0.0" y="147" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="126" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nmv-WT-A1l">
-                                        <rect key="frame" x="0.0" y="196" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="168" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JpX-Ov-Smi">
-                                        <rect key="frame" x="0.0" y="245" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="210" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="igX-e3-fGM">
-                                        <rect key="frame" x="0.0" y="294" width="88" height="27"/>
+                                        <rect key="frame" x="0.0" y="252" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Job" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlx-s6-XCV">
-                                        <rect key="frame" x="0.0" y="343" width="88" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Interests" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dlx-s6-XCV">
+                                        <rect key="frame" x="0.0" y="294" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Religion" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZo-TW-zkH">
-                                        <rect key="frame" x="0.0" y="392" width="88" height="27"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eZo-TW-zkH">
+                                        <rect key="frame" x="0.0" y="336" width="100" height="27"/>
                                         <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="100" id="xwk-Cg-NCA"/>
+                                </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="29" translatesAutoresizingMaskIntoConstraints="NO" id="PwS-jn-EI5">
-                                <rect key="frame" x="144" y="329" width="224" height="413"/>
-                                <subviews>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-yb-8au">
-                                        <rect key="frame" x="0.0" y="0.0" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-6R-e5a">
-                                        <rect key="frame" x="0.0" y="49" width="224" height="20.333333333333329"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FuY-xw-3iA">
-                                        <rect key="frame" x="0.0" y="98.333333333333314" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8um-lE-MPg">
-                                        <rect key="frame" x="0.0" y="147.33333333333331" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ea6-Zf-eKK">
-                                        <rect key="frame" x="0.0" y="196.33333333333337" width="224" height="20.333333333333343"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2K-d4-bFj">
-                                        <rect key="frame" x="0.0" y="245.66666666666663" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="auK-Zc-hvC">
-                                        <rect key="frame" x="0.0" y="294.66666666666663" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="9tS-IW-XYq">
-                                        <rect key="frame" x="0.0" y="343.66666666666663" width="224" height="20.333333333333314"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                    <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Byba" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mET-Rp-DvT">
-                                        <rect key="frame" x="0.0" y="393" width="224" height="20"/>
-                                        <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
-                                </subviews>
-                            </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD4-ph-Ygs">
-                                <rect key="frame" x="324" y="37" width="28" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8CE-yb-8au">
+                                <rect key="frame" x="156" y="304.33333333333331" width="211" height="24.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="23"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter age" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="kOz-6R-e5a">
+                                <rect key="frame" x="156" y="347.33333333333331" width="211" height="23.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Choose gender" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="FuY-xw-3iA">
+                                <rect key="frame" x="156" y="389.33333333333331" width="211" height="23.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter country" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="8um-lE-MPg">
+                                <rect key="frame" x="156" y="431.33333333333331" width="211" height="23.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter city" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Ea6-Zf-eKK">
+                                <rect key="frame" x="156" y="473.33333333333331" width="211" height="23.666666666666686"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter height" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="Q2K-d4-bFj">
+                                <rect key="frame" x="156" y="515.33333333333337" width="211" height="23.666666666666629"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Enter weight" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="auK-Zc-hvC">
+                                <rect key="frame" x="156" y="557.33333333333337" width="211" height="23.666666666666629"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PD4-ph-Ygs">
+                                <rect key="frame" x="323" y="59" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="PEj-5q-TKi"/>
+                                    <constraint firstAttribute="height" constant="40" id="bQA-nh-26e"/>
+                                </constraints>
                                 <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain">
@@ -161,21 +152,64 @@
                                     <action selector="edit:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2cV-hb-2vB"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Tell us about your interests" translatesAutoresizingMaskIntoConstraints="NO" id="wO8-uN-YmX">
+                                <rect key="frame" x="156" y="594" width="227" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="KPX-7Y-DJK"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Tell us about yourself" translatesAutoresizingMaskIntoConstraints="NO" id="vFW-g7-ZGQ">
+                                <rect key="frame" x="156" y="666" width="227" height="69"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="69" id="E5W-uQ-Vqy"/>
+                                </constraints>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="22"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="0.99215686319999996" green="0.9529411793" blue="0.97254902119999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstItem="Hk1-l4-3MX" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leadingMargin" constant="20" id="0ba-wB-LQx"/>
-                            <constraint firstItem="PwS-jn-EI5" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="9ki-Pm-aUo"/>
+                            <constraint firstItem="vFW-g7-ZGQ" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="0rz-XH-CkC"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="vFW-g7-ZGQ" secondAttribute="trailing" constant="10" id="3l8-T2-3rD"/>
+                            <constraint firstItem="auK-Zc-hvC" firstAttribute="firstBaseline" secondItem="igX-e3-fGM" secondAttribute="firstBaseline" id="90F-oJ-v39"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8um-lE-MPg" secondAttribute="trailing" constant="10" id="AIz-J1-D8p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Ea6-Zf-eKK" secondAttribute="trailing" constant="10" id="AwA-sp-CbL"/>
+                            <constraint firstItem="Q2K-d4-bFj" firstAttribute="firstBaseline" secondItem="JpX-Ov-Smi" secondAttribute="firstBaseline" id="FJs-Qk-rM5"/>
+                            <constraint firstItem="8CE-yb-8au" firstAttribute="firstBaseline" secondItem="zkC-da-yEy" secondAttribute="firstBaseline" id="FLx-Oj-j2v"/>
                             <constraint firstItem="YHw-U1-ZTZ" firstAttribute="top" secondItem="pWJ-Se-oBL" secondAttribute="bottom" constant="40" id="HgP-NL-Csh"/>
+                            <constraint firstItem="8um-lE-MPg" firstAttribute="firstBaseline" secondItem="Qel-Z9-sq8" secondAttribute="firstBaseline" id="Iei-YE-MoS"/>
+                            <constraint firstItem="FuY-xw-3iA" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="J00-FF-sGa"/>
+                            <constraint firstItem="Ea6-Zf-eKK" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="K6p-LO-3YP"/>
+                            <constraint firstItem="auK-Zc-hvC" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="L0z-sc-x97"/>
+                            <constraint firstItem="wO8-uN-YmX" firstAttribute="top" secondItem="auK-Zc-hvC" secondAttribute="bottom" constant="13" id="LdG-1O-Jyf"/>
                             <constraint firstItem="pWJ-Se-oBL" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="20" id="Ly0-DN-A6n"/>
                             <constraint firstItem="YHw-U1-ZTZ" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="MFW-F3-q4p"/>
-                            <constraint firstItem="Hk1-l4-3MX" firstAttribute="top" secondItem="YHw-U1-ZTZ" secondAttribute="bottom" constant="50" id="Rf3-dm-9z4"/>
-                            <constraint firstItem="PwS-jn-EI5" firstAttribute="height" secondItem="Hk1-l4-3MX" secondAttribute="height" multiplier="0.98568" id="TfA-ai-WXz"/>
+                            <constraint firstItem="8um-lE-MPg" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="OnV-qo-5nD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="auK-Zc-hvC" secondAttribute="trailing" constant="10" id="Poy-xj-oLL"/>
+                            <constraint firstItem="Hk1-l4-3MX" firstAttribute="top" secondItem="YHw-U1-ZTZ" secondAttribute="bottom" constant="30" id="Rf3-dm-9z4"/>
+                            <constraint firstItem="kOz-6R-e5a" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="TrF-ep-fbA"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PD4-ph-Ygs" secondAttribute="trailing" constant="30" id="UVh-Kg-Y2O"/>
+                            <constraint firstItem="PD4-ph-Ygs" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="W2K-iK-2mu"/>
+                            <constraint firstItem="kOz-6R-e5a" firstAttribute="firstBaseline" secondItem="5rC-li-NH7" secondAttribute="firstBaseline" id="WYL-Ik-FeR"/>
+                            <constraint firstAttribute="trailing" secondItem="wO8-uN-YmX" secondAttribute="trailing" constant="10" id="XDg-nU-oNz"/>
+                            <constraint firstItem="FuY-xw-3iA" firstAttribute="firstBaseline" secondItem="asm-WK-s2i" secondAttribute="firstBaseline" id="ZAg-Wb-K3F"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="8CE-yb-8au" secondAttribute="trailing" constant="10" id="ZCb-d6-xhr"/>
+                            <constraint firstItem="Q2K-d4-bFj" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="ZrI-Cs-Y1X"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="FuY-xw-3iA" secondAttribute="trailing" constant="10" id="awJ-4h-xT2"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Q2K-d4-bFj" secondAttribute="trailing" constant="10" id="eaO-pY-ghm"/>
                             <constraint firstAttribute="trailing" secondItem="YHw-U1-ZTZ" secondAttribute="trailing" id="evJ-tT-jdE"/>
+                            <constraint firstItem="vFW-g7-ZGQ" firstAttribute="top" secondItem="wO8-uN-YmX" secondAttribute="bottom" constant="3" id="gzD-mT-Gxj"/>
+                            <constraint firstItem="8CE-yb-8au" firstAttribute="leading" secondItem="Hk1-l4-3MX" secondAttribute="trailing" constant="20" id="ntD-06-NeL"/>
                             <constraint firstItem="pWJ-Se-oBL" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="ono-V9-jA1"/>
-                            <constraint firstItem="PwS-jn-EI5" firstAttribute="top" secondItem="YHw-U1-ZTZ" secondAttribute="bottom" constant="53" id="tGy-gj-Rqb"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="PwS-jn-EI5" secondAttribute="trailing" constant="25" id="vHZ-gu-Cri"/>
+                            <constraint firstItem="Ea6-Zf-eKK" firstAttribute="firstBaseline" secondItem="Nmv-WT-A1l" secondAttribute="firstBaseline" id="pdG-O9-clH"/>
+                            <constraint firstItem="wO8-uN-YmX" firstAttribute="leading" secondItem="dlx-s6-XCV" secondAttribute="trailing" constant="20" id="u3c-l9-Tya"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="kOz-6R-e5a" secondAttribute="trailing" constant="10" id="z8N-ms-KGq"/>
                         </constraints>
                     </view>
                     <connections>
@@ -186,9 +220,9 @@
                         <outlet property="personalGender" destination="FuY-xw-3iA" id="1Je-XS-cpI"/>
                         <outlet property="personalHeight" destination="Q2K-d4-bFj" id="S0g-aB-FFr"/>
                         <outlet property="personalImage" destination="pWJ-Se-oBL" id="rze-EN-I8Z"/>
-                        <outlet property="personalJob" destination="9tS-IW-XYq" id="hhe-YC-bQ9"/>
+                        <outlet property="personalInfo" destination="vFW-g7-ZGQ" id="cVo-PY-fUu"/>
+                        <outlet property="personalInterests" destination="wO8-uN-YmX" id="xq1-m7-9fG"/>
                         <outlet property="personalName" destination="8CE-yb-8au" id="qtR-WG-thF"/>
-                        <outlet property="personalReligion" destination="mET-Rp-DvT" id="njX-WB-vEX"/>
                         <outlet property="personalWeight" destination="auK-Zc-hvC" id="0re-CR-8NY"/>
                     </connections>
                 </viewController>
@@ -198,7 +232,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="icon.png" width="72" height="72"/>
         <image name="pencil" catalog="system" width="128" height="113"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondaryLabelColor">
             <color red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

@@ -71,4 +71,21 @@ final class UserViewModel {
     func loadFromCoreData() -> [CoreDataModel]{
         return CoreDataService.shared.loadUsers()
     }
+    
+    func saveAccountChangesToCoreData(user: CoreDataModel){
+            CoreDataService.shared.saveAccountChanges(updatedInfo: CoreDataModel(id: user.id,
+                                                                                 name: user.name,
+                                                                                 age: user.age,
+                                                                                 height: user.height,
+                                                                                 weight: user.weight,
+                                                                                 interests: user.interests,
+                                                                                 gender: user.gender,
+                                                                                 city: user.city,
+                                                                                 country: user.country,
+                                                                                 about: user.about,
+                                                                                 image: user.image))
+    }
+    func loadAccountChangesFromCoreData() -> CoreDataModel{
+        CoreDataService.shared.loadAccountChanges()
+    }
 }
