@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class PersonalPageController: UIViewController {
 
@@ -34,6 +35,9 @@ class PersonalPageController: UIViewController {
     }
     
     private func setUpUi() {
+        let imageTapGesture = UITapGestureRecognizer(target: self, action: #selector(pickImage))
+        personalImage.addGestureRecognizer(imageTapGesture)
+        
         personalName.isUserInteractionEnabled = false
         personalImage.layer.cornerRadius = personalImage.frame.width/2
         personalImage.layer.borderWidth = 2
@@ -62,8 +66,16 @@ class PersonalPageController: UIViewController {
         toggleEditing()
     }
     
+    func createAlert(){
+        let alert = UIAlertController(title: "Error!", message: "All fields must be filled", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: .default)
+        alert.addAction(action)
+        present(alert, animated: true)
+    }
+    
     func createUserFromTextFields() -> CoreDataModel {
-        guard
+    var userFromTextFields = CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())
+       if
             let name = personalName.text,
             let ageText = personalAge.text, let age = Int(ageText),
             let gender = personalGender.text,
@@ -74,11 +86,13 @@ class PersonalPageController: UIViewController {
             let interests = personalInterests.text?.components(separatedBy: ","),
             let about = personalInfo.text,
             let imageData = personalImage.image?.pngData()
-        else {
-            return CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())
-        }
-
-        return CoreDataModel(id: 0, name: name, age: age, height: height, weight: weight, interests: interests, gender: gender, city: city, country: country, about: about, image: imageData)
+        {
+           userFromTextFields = CoreDataModel(id: 0, name: name, age: age, height: height, weight: weight, interests: interests, gender: gender, city: city, country: country, about: about, image: imageData)
+            //return CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())
+       } else {
+           createAlert()
+       }
+        return userFromTextFields
     }
 
 
@@ -105,7 +119,6 @@ class PersonalPageController: UIViewController {
     }
     
     private func toggleBorder(){
-       
         if state {
             personalName.borderStyle = .roundedRect
             personalAge.borderStyle = .roundedRect
@@ -128,6 +141,39 @@ class PersonalPageController: UIViewController {
             personalInfo.backgroundColor = .clear
         }
     }
+    
+    func configureImagePicker(){
+            var configuration = PHPickerConfiguration()
+            configuration.filter = .images
+            configuration.selectionLimit = 1
+            let pickerViewController = PHPickerViewController(configuration: configuration)
+            pickerViewController.delegate = self
+            present(pickerViewController, animated: true)
+        }
+
+        @objc func pickImage(){
+            print("tap")
+            configureImagePicker()
+        }
 }
 
 
+extension PersonalPageController: PHPickerViewControllerDelegate{
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        picker.dismiss(animated: true)
+        if let itemprovider = results.first?.itemProvider{
+          
+            if itemprovider.canLoadObject(ofClass: UIImage.self){
+               
+                itemprovider.loadObject(ofClass: UIImage.self) { image , error  in
+                    if let selectedImage = image as? UIImage{
+                        DispatchQueue.main.async {
+                            self.personalImage.image = selectedImage
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}

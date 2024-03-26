@@ -74,7 +74,7 @@ class CoreDataService {
         
         let fetchRequest: NSFetchRequest<PersonalPageData> = PersonalPageData.fetchRequest()
         if let existingAccount = try? context.fetch(fetchRequest).first {
-
+            print(existingAccount)
             existingAccount.name = updatedInfo.name
             existingAccount.age = Int16(updatedInfo.age)
             existingAccount.height = Int16(updatedInfo.height)
@@ -141,40 +141,40 @@ class CoreDataService {
     }
     
     func loadAccountChanges() -> CoreDataModel {
-        let context = CoreDataService.shared.context
-        var fetchedInfo: PersonalPageData?
+            let context = CoreDataService.shared.context
+            var fetchedInfo: PersonalPageData?
 
-        let fetchRequest: NSFetchRequest<PersonalPageData> = PersonalPageData.fetchRequest()
-        do {
-            let fetchedPersons = try context.fetch(fetchRequest)
-            if let fetchedPerson = fetchedPersons.first {
-                fetchedInfo = fetchedPerson
+            let fetchRequest: NSFetchRequest<PersonalPageData> = PersonalPageData.fetchRequest()
+            do {
+                let fetchedPersons = try context.fetch(fetchRequest)
+                if let fetchedPerson = fetchedPersons.first {
+                    fetchedInfo = fetchedPerson
+                }
+                
+            } catch {
+                print(error)
             }
             
-        } catch {
-            print(error)
+            guard let fetchedInfo = fetchedInfo else {return CoreDataModel(id: 0, name: "", age: 2, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())}
+            
+            let interestsString = fetchedInfo.interests ?? ""
+            let interestsArray = interestsString.split(separator: ", ").map { String($0) }
+            
+            var fetchedImage = Data()
+            if let image = fetchedInfo.image {
+                fetchedImage = image
+            }
+            
+            return CoreDataModel(id: 0,
+                                 name: fetchedInfo.name ?? "",
+                                 age: Int(fetchedInfo.age),
+                                 height: Int(fetchedInfo.height),
+                                 weight: Int(fetchedInfo.weight),
+                                 interests: interestsArray,
+                                 gender: fetchedInfo.gender ?? "",
+                                 city: fetchedInfo.city ?? "",
+                                 country: fetchedInfo.country ?? "",
+                                 about: fetchedInfo.about ?? "",
+                                 image: fetchedImage)
         }
-        
-        guard let fetchedInfo = fetchedInfo else {return CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())}
-        
-        let interestsString = fetchedInfo.interests ?? ""
-        let interestsArray = interestsString.split(separator: ", ").map { String($0) }
-        
-        var fetchedImage = Data()
-        if let image = fetchedInfo.image {
-            fetchedImage = image
-        }
-        
-        return CoreDataModel(id: 0,
-                             name: fetchedInfo.name ?? "",
-                             age: Int(fetchedInfo.age),
-                             height: Int(fetchedInfo.height),
-                             weight: Int(fetchedInfo.weight),
-                             interests: interestsArray,
-                             gender: fetchedInfo.gender ?? "",
-                             city: fetchedInfo.city ?? "",
-                             country: fetchedInfo.country ?? "",
-                             about: fetchedInfo.about ?? "",
-                             image: fetchedImage)
-    }
 }
