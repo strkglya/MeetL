@@ -140,7 +140,7 @@ class CoreDataService {
         return loadedPersons
     }
     
-    func loadAccountChanges() -> CoreDataModel {
+    func loadAccountChanges() -> CoreDataModel? {
             let context = CoreDataService.shared.context
             var fetchedInfo: PersonalPageData?
 
@@ -155,7 +155,7 @@ class CoreDataService {
                 print(error)
             }
             
-            guard let fetchedInfo = fetchedInfo else {return CoreDataModel(id: 0, name: "", age: 2, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())}
+            guard let fetchedInfo = fetchedInfo else {return nil}
             
             let interestsString = fetchedInfo.interests ?? ""
             let interestsArray = interestsString.split(separator: ", ").map { String($0) }
@@ -177,4 +177,20 @@ class CoreDataService {
                                  about: fetchedInfo.about ?? "",
                                  image: fetchedImage)
         }
+    
+    func deletePerson(person: CoreDataModel) {
+        let context = CoreDataService.shared.context
+        let fetchRequest: NSFetchRequest<LikedPersonData> = LikedPersonData.fetchRequest()
+        fetchRequest.predicate = NSPredicate(format: "id = %d", person.id)
+        
+        do {
+            let fetchedPersons = try context.fetch(fetchRequest)
+            if let fetchedPerson = fetchedPersons.first {
+                context.delete(fetchedPerson)
+                CoreDataService.shared.saveContext()
+            }
+        } catch {
+            print(error)
+        }
+    }
 }

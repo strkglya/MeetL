@@ -12,11 +12,20 @@ final class UserViewModel {
     private let loadService = UserLoadService()
     
     var userDidChange: (() -> Void)?
+    var allUsersLoaded: (() ->Void)?
     var imageDidLoad: (() -> Void)?
     
+    var state = false
+
     var loadedUser = UserModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
         didSet {
             userDidChange?()
+        }
+    }
+    
+    var loadedUsers = [UserModel](){
+        didSet {
+            allUsersLoaded?()
         }
     }
     
@@ -29,12 +38,17 @@ final class UserViewModel {
     func loadFromJson(){
         loadService.loadUser { [weak self] user in
             self?.loadedUser = user
-            let image = UIImage()
             self?.imageFromUrl { image in
                 guard let image = image else {return}
                 self?.loadedImage = image
             }
         }
+    }
+    
+    func loadAllFromJson(){
+        loadService.loadAllUsers(completion: {[weak self] loadedUsers in
+            self?.loadedUsers = loadedUsers
+        })
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
@@ -85,7 +99,12 @@ final class UserViewModel {
                                                                                  about: user.about,
                                                                                  image: user.image))
     }
-    func loadAccountChangesFromCoreData() -> CoreDataModel{
+    
+    func loadAccountChangesFromCoreData() -> CoreDataModel?{
         CoreDataService.shared.loadAccountChanges()
+    }
+    
+    func deleteFromCoreData(person: CoreDataModel){
+        CoreDataService.shared.deletePerson(person: person)
     }
 }

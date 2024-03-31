@@ -7,7 +7,6 @@
 
 import UIKit
 
-@IBDesignable
 class UserCardController: UIView {
     
     @IBOutlet weak var nameLabel: UILabel!

@@ -20,7 +20,6 @@ final class UserLoadService {
     }
     
     func loadUser(completion: @escaping (UserModel) -> ()) {
-        
         let urlString = Constants.mainUrl
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
@@ -52,9 +51,41 @@ final class UserLoadService {
                 print(posts)
                 self.index += 1
                 completion(posts)
-                
             } catch {
                 print("Error decoding JSON: \(error)")
+            }
+        }.resume()
+    }
+    
+    func loadAllUsers(completion: @escaping ([UserModel]) -> Void) {
+        var loadedArray = [UserModel]()
+        let url = Constants.mainUrl
+        guard let url = URL(string: url) else {return}
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard let data = data else {return}
+            do {
+                let userResponse = try JSONDecoder().decode([User].self, from: data)
+                for user in userResponse {
+                    loadedArray.append(UserModel(id: user.id,
+                                                 name: user.name,
+                                                 age: user.age,
+                                                 height: user.height,
+                                                 weight: user.weight,
+                                                 interests: user.interests,
+                                                 gender: user.gender,
+                                                 city: user.city,
+                                                 country: user.country,
+                                                 about: user.about,
+                                                 image: Constants.imageUrl(responseGender: user.gender)))
+                    print(user)
+                }
+                completion(loadedArray)
+            } catch {
+                print(error)
+                completion([])
             }
         }.resume()
     }

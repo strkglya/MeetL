@@ -50,6 +50,18 @@
                                     <action selector="dismiss:" destination="BYZ-38-t0r" eventType="touchUpInside" id="wEX-Fc-oL0"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbb-ue-Qjj">
+                                <rect key="frame" x="318" y="45" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="50" id="4T9-yn-zGz"/>
+                                    <constraint firstAttribute="height" constant="50" id="tv5-dy-XOG"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" image="text.justify" catalog="system"/>
+                                <connections>
+                                    <action selector="filterPage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="lwd-Uh-0pp"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="1" green="0.95484910892748065" blue="0.97122103845579344" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -57,8 +69,10 @@
                         <constraints>
                             <constraint firstItem="aN9-cg-czt" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="61.5" id="Ago-3O-ZqL"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CG6-Zf-UJd"/>
+                            <constraint firstItem="Bbb-ue-Qjj" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="45" id="Fp1-S6-BgF"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" multiplier="0.86514" id="IfY-Pj-BRi"/>
                             <constraint firstItem="23E-pD-Ser" firstAttribute="height" secondItem="8bC-Xf-vdC" secondAttribute="height" multiplier="0.469484" constant="50" id="TnN-dY-uaj"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Bbb-ue-Qjj" secondAttribute="trailing" constant="25" id="VLT-tW-cHk"/>
                             <constraint firstItem="AYf-m7-pc1" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="XIa-mu-vtN"/>
                             <constraint firstItem="aN9-cg-czt" firstAttribute="top" secondItem="23E-pD-Ser" secondAttribute="bottom" constant="35" id="p0l-dd-q8p"/>
                             <constraint firstItem="AYf-m7-pc1" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" constant="-59.5" id="scT-ov-gld"/>
@@ -66,6 +80,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="lVn-yy-d46"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="customCard" destination="23E-pD-Ser" id="bYm-lx-GJD"/>
                         <outlet property="dismissButton" destination="AYf-m7-pc1" id="xUg-qk-wP0"/>
@@ -80,6 +95,7 @@
     <resources>
         <image name="dismiss" width="70" height="70"/>
         <image name="heart" width="55" height="55"/>
+        <image name="text.justify" catalog="system" width="128" height="99"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

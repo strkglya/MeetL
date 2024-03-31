@@ -6,24 +6,31 @@
 //
 
 import UIKit
+import MultiSlider
 
 class FilterController: UIViewController {
-
+    
+    @IBOutlet weak var ageSlider: Slider!
+    @IBOutlet weak var heightSlider: Slider!
+    @IBOutlet weak var weightSlider: Slider!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        ageSlider.valueLabelPosition = .bottom
+        ageSlider.valueLabelColor = .black
+        
+        heightSlider.valueLabelPosition = .bottom
+        heightSlider.valueLabelColor = .black
+        
+        weightSlider.valueLabelPosition = .bottom
+        weightSlider.valueLabelColor = .black
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func ageSliderMoved(_ sender: Slider) {
+        print(sender.value)
     }
-    */
-
+    @IBAction func heightSliderMoved(_ sender: Any) {
+    }
+    @IBAction func weightSliderMoved(_ sender: Any) {
+    }
 }

@@ -16,6 +16,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         model = UserViewModel()
         model.loadFromJson()
+        model.loadAllFromJson()
         setUpBorders()
         setUpShadow()
         setUpTaps()
@@ -60,6 +61,9 @@ class ViewController: UIViewController {
                 self.customCard.configure(user: self.model.loadedUser, image: self.model.loadedImage)
             }
         }
+        model.allUsersLoaded = { [weak self] in
+            guard let self = self else {return}
+        }
     }
     
     private func setUpBarButtonImage(button: UIBarButtonItem, image: UIImage){
@@ -82,18 +86,6 @@ class ViewController: UIViewController {
         secondVC.configure(model: model.loadedUser, image: model.loadedImage)
     }
     
-    @IBAction func goToChats(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Chats", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "ChatsController") as! ChatsController
-        present(secondVC, animated: true)
-    }
-    
-    @IBAction func goToPersonalPage(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "PersonalPage", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "PersonalPage")
-        present(secondVC, animated: true)
-    }
-    
     @IBAction func like(_ sender: Any) {
         if model.loadedUser.likedBack {
             showAlert()
@@ -107,6 +99,11 @@ class ViewController: UIViewController {
         model.loadFromJson()
         uploadView()
         print("fy")
+    }
+    @IBAction func filterPage(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "FilterPage", bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: "FilterController") as! FilterController
+        present(secondVC, animated: true)
     }
 }
 

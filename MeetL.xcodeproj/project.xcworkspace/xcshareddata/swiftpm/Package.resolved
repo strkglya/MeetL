@@ -1,6 +1,15 @@
 {
-  "originHash" : "8f41067740b6399ffc93220974bde95c34fe4fe411e2dc043beb699efc0e7d84",
+  "originHash" : "d23b595df9e6cb1dfd7404b4010d59156db59624a5603130cabc7604415d21d5",
   "pins" : [
+    {
+      "identity" : "availablehapticfeedback",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/AvailableHapticFeedback",
+      "state" : {
+        "revision" : "9b2e0d85b532333bcb026b850052575852659d18",
+        "version" : "1.0.4"
+      }
+    },
     {
       "identity" : "iqkeyboardmanager",
       "kind" : "remoteSourceControl",
@@ -8,6 +17,24 @@
       "state" : {
         "revision" : "5d30eba093678d05a6d5d1800f8c1d2121c7e3dd",
         "version" : "7.0.2"
+      }
+    },
+    {
+      "identity" : "multislider",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/MultiSlider",
+      "state" : {
+        "revision" : "ce55c0ec06e5fcde1dd8ad9791bd74ccfe4c4032",
+        "version" : "2.1.2"
+      }
+    },
+    {
+      "identity" : "sweeterswift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/yonat/SweeterSwift",
+      "state" : {
+        "revision" : "aff918fc4e8cba40c51b1df99766594e3acc4eb1",
+        "version" : "1.2.3"
       }
     }
   ],

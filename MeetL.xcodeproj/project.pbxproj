@@ -30,6 +30,8 @@
 		7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPageController.swift */; };
 		7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */; };
 		7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADD12B8A800200142CC7 /* CoreDataService.swift */; };
+		7A4DC54E2BB89ABF00110819 /* MultiSlider in Frameworks */ = {isa = PBXBuildFile; productRef = 7A4DC54D2BB89ABF00110819 /* MultiSlider */; };
+		7A4DC5502BB8A65D00110819 /* Slider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A4DC54F2BB8A65D00110819 /* Slider.swift */; };
 		7A52DF2F2BA3767300FE73E3 /* CoreDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A52DF2E2BA3767300FE73E3 /* CoreDataModel.swift */; };
 		7A76B8B82B9796D800E94618 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A76B8B72B9796D800E94618 /* Chats.storyboard */; };
 		7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BB2B97970800E94618 /* ChatsController.swift */; };
@@ -66,6 +68,7 @@
 		7A32A0492B93701900E6BD99 /* PersonalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageController.swift; sourceTree = "<group>"; };
 		7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
+		7A4DC54F2BB8A65D00110819 /* Slider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Slider.swift; sourceTree = "<group>"; };
 		7A52DF2E2BA3767300FE73E3 /* CoreDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataModel.swift; sourceTree = "<group>"; };
 		7A76B8B72B9796D800E94618 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		7A76B8BB2B97970800E94618 /* ChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
@@ -81,6 +84,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AE18D182BAF45400049D36C /* IQKeyboardManagerSwift in Frameworks */,
+				7A4DC54E2BB89ABF00110819 /* MultiSlider in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -249,6 +253,7 @@
 			children = (
 				7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */,
 				7AEBB5A52BAC9DDB006A333F /* FilterController.swift */,
+				7A4DC54F2BB8A65D00110819 /* Slider.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -271,6 +276,7 @@
 			name = MeetL;
 			packageProductDependencies = (
 				7AE18D172BAF45400049D36C /* IQKeyboardManagerSwift */,
+				7A4DC54D2BB89ABF00110819 /* MultiSlider */,
 			);
 			productName = MeetL;
 			productReference = 7A0789A72B83C61400EBE3D6 /* MeetL.app */;
@@ -302,6 +308,7 @@
 			mainGroup = 7A07899E2B83C61400EBE3D6;
 			packageReferences = (
 				7AE18D162BAF45400049D36C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
+				7A4DC54C2BB89ABF00110819 /* XCRemoteSwiftPackageReference "MultiSlider" */,
 			);
 			productRefGroup = 7A0789A82B83C61400EBE3D6 /* Products */;
 			projectDirPath = "";
@@ -344,6 +351,7 @@
 				7A0789C22B83C66F00EBE3D6 /* UserLoadService.swift in Sources */,
 				7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */,
 				7A1290AB2BAE066400F4BBF4 /* PersonalPageData+CoreDataClass.swift in Sources */,
+				7A4DC5502BB8A65D00110819 /* Slider.swift in Sources */,
 				7A1290AC2BAE066400F4BBF4 /* PersonalPageData+CoreDataProperties.swift in Sources */,
 				7AEBB5A62BAC9DDB006A333F /* FilterController.swift in Sources */,
 				7A0789CE2B84C41000EBE3D6 /* User.swift in Sources */,
@@ -581,6 +589,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		7A4DC54C2BB89ABF00110819 /* XCRemoteSwiftPackageReference "MultiSlider" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/yonat/MultiSlider";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.1.2;
+			};
+		};
 		7AE18D162BAF45400049D36C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
@@ -592,6 +608,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		7A4DC54D2BB89ABF00110819 /* MultiSlider */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7A4DC54C2BB89ABF00110819 /* XCRemoteSwiftPackageReference "MultiSlider" */;
+			productName = MultiSlider;
+		};
 		7AE18D172BAF45400049D36C /* IQKeyboardManagerSwift */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 7AE18D162BAF45400049D36C /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;

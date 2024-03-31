@@ -9,10 +9,10 @@ import UIKit
 import PhotosUI
 
 class PersonalPageController: UIViewController {
-
+    
     @IBOutlet weak var personalImage: UIImageView!
     @IBOutlet weak var editButton: UIButton!
-
+    
     @IBOutlet weak var personalName: UITextField!
     @IBOutlet weak var personalAge: UITextField!
     @IBOutlet weak var personalGender: UITextField!
@@ -22,14 +22,13 @@ class PersonalPageController: UIViewController {
     @IBOutlet weak var personalWeight: UITextField!
     @IBOutlet weak var personalInterests: UITextView!
     @IBOutlet weak var personalInfo: UITextView!
-        
+    
     private let model = UserViewModel()
     
-    private var state = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
         setUpLoadedInfo()
         setUpUi()
     }
@@ -45,7 +44,7 @@ class PersonalPageController: UIViewController {
     }
     
     private func setUpLoadedInfo(){
-        let updates = model.loadAccountChangesFromCoreData()
+        guard let updates = model.loadAccountChangesFromCoreData() else { return }
         personalName.text = updates.name
         personalAge.text = String(updates.age)
         personalGender.text = updates.gender
@@ -59,23 +58,23 @@ class PersonalPageController: UIViewController {
     }
     
     @IBAction func edit(_ sender: Any) {
-        if state {
-            model.saveAccountChangesToCoreData(user: createUserFromTextFields())
-            print("saved")
+        if model.state {
+            guard let newUser = createUserFromTextFields() else {return}
+            model.saveAccountChangesToCoreData(user: newUser)
         }
         toggleEditing()
     }
     
     func createAlert(){
-        let alert = UIAlertController(title: "Error!", message: "All fields must be filled", preferredStyle: .alert)
+        let alert = UIAlertController(title: "Error!", message: "All fields must be filled. Fill them or otherwise your changes won't be saved ", preferredStyle: .alert)
         let action = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(action)
         present(alert, animated: true)
     }
     
-    func createUserFromTextFields() -> CoreDataModel {
-    var userFromTextFields = CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())
-       if
+    func createUserFromTextFields() -> CoreDataModel? {
+        var userFromTextFields: CoreDataModel?
+        if
             let name = personalName.text,
             let ageText = personalAge.text, let age = Int(ageText),
             let gender = personalGender.text,
@@ -85,76 +84,62 @@ class PersonalPageController: UIViewController {
             let weightText = personalWeight.text, let weight = Int(weightText),
             let interests = personalInterests.text?.components(separatedBy: ","),
             let about = personalInfo.text,
-            let imageData = personalImage.image?.pngData()
-        {
-           userFromTextFields = CoreDataModel(id: 0, name: name, age: age, height: height, weight: weight, interests: interests, gender: gender, city: city, country: country, about: about, image: imageData)
-            //return CoreDataModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: Data())
-       } else {
-           createAlert()
-       }
+            let imageData = personalImage.image?.pngData() {
+            userFromTextFields = CoreDataModel(id: 0, name: name, age: age, height: height, weight: weight, interests: interests, gender: gender, city: city, country: country, about: about, image: imageData)
+        } else {
+            createAlert()
+        }
         return userFromTextFields
     }
-
-
     
     private func toggleEditing(){
-        state.toggle()
+        model.state.toggle()
         
-        personalName.isUserInteractionEnabled = state
-        personalAge.isUserInteractionEnabled = state
-        personalGender.isUserInteractionEnabled = state
-        personalCounrty.isUserInteractionEnabled = state
-        personalCity.isUserInteractionEnabled = state
-        personalHeight.isUserInteractionEnabled = state
-        personalWeight.isUserInteractionEnabled = state
-        personalInterests.isUserInteractionEnabled = state
-        personalInfo.isUserInteractionEnabled = state
-        personalImage.isUserInteractionEnabled = state
+        personalName.isUserInteractionEnabled = model.state
+        personalAge.isUserInteractionEnabled = model.state
+        personalGender.isUserInteractionEnabled = model.state
+        personalCounrty.isUserInteractionEnabled = model.state
+        personalCity.isUserInteractionEnabled = model.state
+        personalHeight.isUserInteractionEnabled = model.state
+        personalWeight.isUserInteractionEnabled = model.state
+        personalInterests.isUserInteractionEnabled = model.state
+        personalInfo.isUserInteractionEnabled = model.state
+        personalImage.isUserInteractionEnabled = model.state
         
-        let buttonImageName = state ? "checkmark.seal.fill" : "pencil"
-       
+        let buttonImageName = model.state ? "checkmark.seal.fill" : "pencil"
+        
         editButton.setImage(UIImage(systemName: buttonImageName), for: .normal)
         
         toggleBorder()
     }
     
     private func toggleBorder(){
-        if state {
-            personalName.borderStyle = .roundedRect
-            personalAge.borderStyle = .roundedRect
-            personalGender.borderStyle = .roundedRect
-            personalCounrty.borderStyle = .roundedRect
-            personalCity.borderStyle = .roundedRect
-            personalHeight.borderStyle = .roundedRect
-            personalWeight.borderStyle = .roundedRect
-            personalInterests.backgroundColor = .white
-            personalInfo.backgroundColor = .white
-        } else {
-            personalName.borderStyle = .none
-            personalAge.borderStyle = .none
-            personalGender.borderStyle = .none
-            personalCounrty.borderStyle = .none
-            personalCity.borderStyle = .none
-            personalHeight.borderStyle = .none
-            personalWeight.borderStyle = .none
-            personalInterests.backgroundColor = .clear
-            personalInfo.backgroundColor = .clear
-        }
+        let editingStyle: UITextField.BorderStyle = model.state ? .roundedRect : .none
+        let editingColor: UIColor = model.state ? .white : .clear
+        
+        personalName.borderStyle = editingStyle
+        personalAge.borderStyle = editingStyle
+        personalGender.borderStyle = editingStyle
+        personalCounrty.borderStyle = editingStyle
+        personalCity.borderStyle = editingStyle
+        personalHeight.borderStyle = editingStyle
+        personalWeight.borderStyle = editingStyle
+        personalInterests.backgroundColor = editingColor
+        personalInfo.backgroundColor = editingColor
     }
     
     func configureImagePicker(){
-            var configuration = PHPickerConfiguration()
-            configuration.filter = .images
-            configuration.selectionLimit = 1
-            let pickerViewController = PHPickerViewController(configuration: configuration)
-            pickerViewController.delegate = self
-            present(pickerViewController, animated: true)
-        }
-
-        @objc func pickImage(){
-            print("tap")
-            configureImagePicker()
-        }
+        var configuration = PHPickerConfiguration()
+        configuration.filter = .images
+        configuration.selectionLimit = 1
+        let pickerViewController = PHPickerViewController(configuration: configuration)
+        pickerViewController.delegate = self
+        present(pickerViewController, animated: true)
+    }
+    
+    @objc func pickImage(){
+        configureImagePicker()
+    }
 }
 
 
@@ -162,9 +147,9 @@ extension PersonalPageController: PHPickerViewControllerDelegate{
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
         if let itemprovider = results.first?.itemProvider{
-          
+            
             if itemprovider.canLoadObject(ofClass: UIImage.self){
-               
+                
                 itemprovider.loadObject(ofClass: UIImage.self) { image , error  in
                     if let selectedImage = image as? UIImage{
                         DispatchQueue.main.async {
@@ -173,7 +158,6 @@ extension PersonalPageController: PHPickerViewControllerDelegate{
                     }
                 }
             }
-            
         }
     }
 }

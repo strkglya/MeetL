@@ -8,16 +8,24 @@
 import UIKit
 
 class ChatsController: UIViewController {
-
+    @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     let model = UserViewModel()
     
     var likedUsers = [CoreDataModel]()
     var likedPhoto = UIImage()
     
+    var isEditingEnabled = false
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         likedUsers = model.loadFromCoreData()
+    }
+    
+    @IBAction func toggleEditing(_ sender: Any) {
+        isEditingEnabled.toggle()
+        var toggledImage: UIImage = isEditingEnabled ? UIImage(systemName: "checkmark.seal")!: UIImage(systemName: "trash")!
+        tableView.setEditing(isEditingEnabled, animated: true)
     }
 }
 
@@ -30,15 +38,16 @@ extension ChatsController: UITableViewDelegate {
 
 extension ChatsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        return isEditingEnabled
     }
   
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-           if editingStyle == .delete {
-               likedUsers.remove(at: indexPath.row)
-               tableView.deleteRows(at: [indexPath], with: .fade)
-           }
-       }
+        if isEditingEnabled && editingStyle == .delete {
+            model.deleteFromCoreData(person: likedUsers[indexPath.row])
+            likedUsers.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return likedUsers.count
