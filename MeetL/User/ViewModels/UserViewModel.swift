@@ -29,6 +29,36 @@ final class UserViewModel {
         }
     }
     
+    var filters = Filter() {
+        didSet {
+            print(filters)
+        }
+    }
+    
+    var filteredUsers = [UserModel]() {
+        didSet {
+            filteredUsers = filterUsersWith(filters)
+        }
+    }
+    
+    func filterUsersWith(_ filters: Filter) -> [UserModel] {
+        var filteredUsers = loadedUsers.filter { user in
+            
+            let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
+            let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight
+            let weightInRange = user.weight >= filters.minWeight && user.weight <= filters.maxWeight
+            
+            var interestsMatch = true
+            if !filters.interests.isEmpty {
+                interestsMatch = user.interests.contains(filters.interests)
+            }
+            return ageInRange && heightInRange && weightInRange && interestsMatch
+        }
+        print(filteredUsers)
+        return filteredUsers
+    }
+
+    
     var loadedImage = UIImage() {
         didSet {
             imageDidLoad?()
@@ -108,3 +138,4 @@ final class UserViewModel {
         CoreDataService.shared.deletePerson(person: person)
     }
 }
+
