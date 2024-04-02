@@ -25,24 +25,23 @@ final class UserViewModel {
     
     var loadedUsers = [UserModel](){
         didSet {
+            print("Loaded users: \(loadedUsers)")
             allUsersLoaded?()
         }
     }
     
     var filters = Filter() {
         didSet {
-            print(filters)
-        }
-    }
-    
-    var filteredUsers = [UserModel]() {
-        didSet {
+            //loadAllFromJson()
             filteredUsers = filterUsersWith(filters)
         }
     }
     
+    var filteredUsers = [UserModel]()
+    
     func filterUsersWith(_ filters: Filter) -> [UserModel] {
-        var filteredUsers = loadedUsers.filter { user in
+        //loadAllFromJson()
+        let filteredUsers = loadedUsers.filter { user in
             
             let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
             let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight

@@ -48,7 +48,6 @@ final class UserLoadService {
                                       country: user.country,
                                       about: user.about,
                                       image: Constants.imageUrl(responseGender: user.gender))
-                print(posts)
                 self.index += 1
                 completion(posts)
             } catch {
@@ -68,6 +67,7 @@ final class UserLoadService {
             guard let data = data else {return}
             do {
                 let userResponse = try JSONDecoder().decode([User].self, from: data)
+                //map
                 for user in userResponse {
                     loadedArray.append(UserModel(id: user.id,
                                                  name: user.name,
@@ -80,7 +80,6 @@ final class UserLoadService {
                                                  country: user.country,
                                                  about: user.about,
                                                  image: Constants.imageUrl(responseGender: user.gender)))
-                    print(user)
                 }
                 completion(loadedArray)
             } catch {
