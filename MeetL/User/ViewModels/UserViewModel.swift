@@ -25,7 +25,7 @@ final class UserViewModel {
     
     var loadedUsers = [UserModel](){
         didSet {
-            print("Loaded users: \(loadedUsers)")
+            //print("Loaded users: \(loadedUsers)")
             allUsersLoaded?()
         }
     }

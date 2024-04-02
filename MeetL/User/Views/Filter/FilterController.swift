@@ -48,7 +48,7 @@ class FilterController: UIViewController {
     
     var buttonStates = [String: Bool]()
         
-    let model = UserViewModel()
+    var model: UserViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -110,7 +110,7 @@ class FilterController: UIViewController {
                                  minWeight: Int(weightSlider.value[0]),
                                  maxWeight: Int(weightSlider.value[1]),
                                  interests: interests)
-            model.filters = filters 
+            model?.filters = filters 
             dismiss(animated: true)
         }
     
