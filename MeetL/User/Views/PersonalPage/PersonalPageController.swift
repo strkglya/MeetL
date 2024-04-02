@@ -25,7 +25,6 @@ class PersonalPageController: UIViewController {
     
     private let model = UserViewModel()
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -58,6 +57,7 @@ class PersonalPageController: UIViewController {
     }
     
     @IBAction func edit(_ sender: Any) {
+        //модель
         if model.state {
             guard let newUser = createUserFromTextFields() else {return}
             model.saveAccountChangesToCoreData(user: newUser)
@@ -93,6 +93,7 @@ class PersonalPageController: UIViewController {
     }
     
     private func toggleEditing(){
+        //вьюмодел
         model.state.toggle()
         
         personalName.isUserInteractionEnabled = model.state

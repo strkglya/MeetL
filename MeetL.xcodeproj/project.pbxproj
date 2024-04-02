@@ -27,6 +27,9 @@
 		7A1290A02BADFD1F00F4BBF4 /* LikedPersonData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A12909E2BADFD1F00F4BBF4 /* LikedPersonData+CoreDataClass.swift */; };
 		7A1290AB2BAE066400F4BBF4 /* PersonalPageData+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290A92BAE066400F4BBF4 /* PersonalPageData+CoreDataClass.swift */; };
 		7A1290AC2BAE066400F4BBF4 /* PersonalPageData+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A1290AA2BAE066400F4BBF4 /* PersonalPageData+CoreDataProperties.swift */; };
+		7A12F59B2BBC746B00045BC8 /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A12F59A2BBC746B00045BC8 /* FilterViewModel.swift */; };
+		7A12F59D2BBC748B00045BC8 /* ChatsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A12F59C2BBC748B00045BC8 /* ChatsViewModel.swift */; };
+		7A12F59F2BBC74D500045BC8 /* PersonalPageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A12F59E2BBC74D500045BC8 /* PersonalPageViewModel.swift */; };
 		7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A32A0492B93701900E6BD99 /* PersonalPageController.swift */; };
 		7A32A04C2B93705400E6BD99 /* PersonalPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */; };
 		7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A3DADD12B8A800200142CC7 /* CoreDataService.swift */; };
@@ -65,6 +68,9 @@
 		7A12909E2BADFD1F00F4BBF4 /* LikedPersonData+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "LikedPersonData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A1290A92BAE066400F4BBF4 /* PersonalPageData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalPageData+CoreDataClass.swift"; sourceTree = "<group>"; };
 		7A1290AA2BAE066400F4BBF4 /* PersonalPageData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PersonalPageData+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7A12F59A2BBC746B00045BC8 /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
+		7A12F59C2BBC748B00045BC8 /* ChatsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsViewModel.swift; sourceTree = "<group>"; };
+		7A12F59E2BBC74D500045BC8 /* PersonalPageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageViewModel.swift; sourceTree = "<group>"; };
 		7A32A0492B93701900E6BD99 /* PersonalPageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPageController.swift; sourceTree = "<group>"; };
 		7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PersonalPage.storyboard; sourceTree = "<group>"; };
 		7A3DADD12B8A800200142CC7 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
@@ -159,7 +165,7 @@
 			children = (
 				7AEBB5A22BAC9D9D006A333F /* Filter */,
 				7A76B8B62B9796BE00E94618 /* Chats */,
-				7A07E7A72B8E572C00E9B277 /* Main */,
+				7A07E7A72B8E572C00E9B277 /* MainScreen */,
 				7A32A0482B936FE200E6BD99 /* PersonalPage */,
 				7A07E7A62B8E572500E9B277 /* Card */,
 				7A07E7A52B8E571600E9B277 /* Details */,
@@ -185,13 +191,14 @@
 			path = Card;
 			sourceTree = "<group>";
 		};
-		7A07E7A72B8E572C00E9B277 /* Main */ = {
+		7A07E7A72B8E572C00E9B277 /* MainScreen */ = {
 			isa = PBXGroup;
 			children = (
 				7A0789B02B83C61400EBE3D6 /* Main.storyboard */,
 				7A0789AE2B83C61400EBE3D6 /* ViewController.swift */,
+				7A0789C92B83D1C100EBE3D6 /* UserViewModel.swift */,
 			);
-			path = Main;
+			path = MainScreen;
 			sourceTree = "<group>";
 		};
 		7A1290972BADFB0400F4BBF4 /* UsersToSwipe */ = {
@@ -215,8 +222,9 @@
 		7A32A0482B936FE200E6BD99 /* PersonalPage */ = {
 			isa = PBXGroup;
 			children = (
-				7A32A0492B93701900E6BD99 /* PersonalPageController.swift */,
 				7A32A04B2B93705400E6BD99 /* PersonalPage.storyboard */,
+				7A32A0492B93701900E6BD99 /* PersonalPageController.swift */,
+				7A12F59E2BBC74D500045BC8 /* PersonalPageViewModel.swift */,
 			);
 			path = PersonalPage;
 			sourceTree = "<group>";
@@ -224,7 +232,6 @@
 		7A3DADD02B8A7FE300142CC7 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				7A0789C92B83D1C100EBE3D6 /* UserViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -244,6 +251,7 @@
 				7A76B8B72B9796D800E94618 /* Chats.storyboard */,
 				7A76B8BB2B97970800E94618 /* ChatsController.swift */,
 				7A76B8BD2B97978D00E94618 /* ChatCell.swift */,
+				7A12F59C2BBC748B00045BC8 /* ChatsViewModel.swift */,
 			);
 			path = Chats;
 			sourceTree = "<group>";
@@ -254,6 +262,7 @@
 				7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */,
 				7AEBB5A52BAC9DDB006A333F /* FilterController.swift */,
 				7A4DC54F2BB8A65D00110819 /* Slider.swift */,
+				7A12F59A2BBC746B00045BC8 /* FilterViewModel.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -342,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A12F59D2BBC748B00045BC8 /* ChatsViewModel.swift in Sources */,
 				7A3DADD22B8A800200142CC7 /* CoreDataService.swift in Sources */,
 				7A32A04A2B93701900E6BD99 /* PersonalPageController.swift in Sources */,
 				7A12909F2BADFD1F00F4BBF4 /* LikedPersonData+CoreDataProperties.swift in Sources */,
@@ -352,6 +362,7 @@
 				7A0789AB2B83C61400EBE3D6 /* AppDelegate.swift in Sources */,
 				7A1290AB2BAE066400F4BBF4 /* PersonalPageData+CoreDataClass.swift in Sources */,
 				7A4DC5502BB8A65D00110819 /* Slider.swift in Sources */,
+				7A12F59B2BBC746B00045BC8 /* FilterViewModel.swift in Sources */,
 				7A1290AC2BAE066400F4BBF4 /* PersonalPageData+CoreDataProperties.swift in Sources */,
 				7AEBB5A62BAC9DDB006A333F /* FilterController.swift in Sources */,
 				7A0789CE2B84C41000EBE3D6 /* User.swift in Sources */,
@@ -365,6 +376,7 @@
 				7A0789D02B84C4D200EBE3D6 /* UserModel.swift in Sources */,
 				7A1290A02BADFD1F00F4BBF4 /* LikedPersonData+CoreDataClass.swift in Sources */,
 				7A0789E52B88F0E800EBE3D6 /* UserCardController.swift in Sources */,
+				7A12F59F2BBC74D500045BC8 /* PersonalPageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

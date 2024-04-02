@@ -48,7 +48,7 @@ class FilterController: UIViewController {
     
     var buttonStates = [String: Bool]()
         
-    var model: UserViewModel?
+    var model = FilterViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -100,18 +100,11 @@ class FilterController: UIViewController {
     }
     
     @IBAction func save(_ sender: Any) {
-            let selectedInterests = buttonStates.filter {$0.value == true}
-            let interests = selectedInterests.map{$0.key}
-
-            let filters = Filter(minAge: Int(ageSlider.value[0]),
-                                 maxAge: Int(ageSlider.value[1]),
-                                 minHeight: Int(heightSlider.value[0]),
-                                 maxHeight: Int(heightSlider.value[1]),
-                                 minWeight: Int(weightSlider.value[0]),
-                                 maxWeight: Int(weightSlider.value[1]),
-                                 interests: interests)
-            model?.filters = filters 
-            dismiss(animated: true)
+        model.applyFilters(buttonStates: buttonStates,
+                           minAge: Int(ageSlider.value[0]), maxAge: Int(ageSlider.value[1]),
+                           minHeight: Int(heightSlider.value[0]), maxHeight: Int(heightSlider.value[1]),
+                           minWeight: Int(weightSlider.value[0]), maxWeight: Int(weightSlider.value[1]))
+        dismiss(animated: true)
         }
     
     @IBAction func cancel(_ sender: Any) {

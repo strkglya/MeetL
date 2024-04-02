@@ -30,34 +30,6 @@ final class UserViewModel {
         }
     }
     
-    var filters = Filter() {
-        didSet {
-            //loadAllFromJson()
-            filteredUsers = filterUsersWith(filters)
-        }
-    }
-    
-    var filteredUsers = [UserModel]()
-    
-    func filterUsersWith(_ filters: Filter) -> [UserModel] {
-        //loadAllFromJson()
-        let filteredUsers = loadedUsers.filter { user in
-            
-            let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
-            let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight
-            let weightInRange = user.weight >= filters.minWeight && user.weight <= filters.maxWeight
-            
-            var interestsMatch = true
-            if !filters.interests.isEmpty {
-                interestsMatch = user.interests.contains(filters.interests)
-            }
-            return ageInRange && heightInRange && weightInRange && interestsMatch
-        }
-        print(filteredUsers)
-        return filteredUsers
-    }
-
-    
     var loadedImage = UIImage() {
         didSet {
             imageDidLoad?()
@@ -93,6 +65,12 @@ final class UserViewModel {
                completion(image)
            }.resume()
        }
+    
+    var filteredUsers = [UserModel](){
+        didSet {
+           // print(filteredUsers)
+        }
+    }
     
     func saveToCoreData(likedPerson: UserModel, with image: UIImage){
         if let imageData = image.pngData() {
@@ -138,3 +116,17 @@ final class UserViewModel {
     }
 }
 
+extension UserViewModel: FilterDelegate {
+    func didFinishSelectingFilters(filters: Filter) {
+        let filteredUsers = loadedUsers.filter { user in
+            let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
+            let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight
+            let weightInRange = user.weight >= filters.minWeight && user.weight <= filters.maxWeight
+            let interestsMatch = filters.interests.contains { user.interests.contains($0) }
+
+            return ageInRange && heightInRange && weightInRange && interestsMatch
+        }
+        print(filteredUsers)
+        self.filteredUsers = filteredUsers
+    }
+}

@@ -57,35 +57,36 @@ final class UserLoadService {
     }
     
     func loadAllUsers(completion: @escaping ([UserModel]) -> Void) {
-        var loadedArray = [UserModel]()
+        
         let url = Constants.mainUrl
-        guard let url = URL(string: url) else {return}
+        guard let url = URL(string: url) else { return }
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         
         URLSession.shared.dataTask(with: request) { data, response, error in
-            guard let data = data else {return}
+            guard let data = data else { return }
+            
             do {
                 let userResponse = try JSONDecoder().decode([User].self, from: data)
-                //map
-                for user in userResponse {
-                    loadedArray.append(UserModel(id: user.id,
-                                                 name: user.name,
-                                                 age: user.age,
-                                                 height: user.height,
-                                                 weight: user.weight,
-                                                 interests: user.interests,
-                                                 gender: user.gender,
-                                                 city: user.city,
-                                                 country: user.country,
-                                                 about: user.about,
-                                                 image: Constants.imageUrl(responseGender: user.gender)))
+                
+                let loadedArray = userResponse.map { user in
+                    return UserModel(id: user.id,
+                                     name: user.name,
+                                     age: user.age,
+                                     height: user.height,
+                                     weight: user.weight,
+                                     interests: user.interests,
+                                     gender: user.gender,
+                                     city: user.city,
+                                     country: user.country,
+                                     about: user.about,
+                                     image: Constants.imageUrl(responseGender: user.gender))
                 }
                 completion(loadedArray)
             } catch {
                 print(error)
-                completion([])
             }
         }.resume()
     }
+
 }
