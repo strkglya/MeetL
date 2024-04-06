@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 final class Constants {
 //    let gender: Gender
@@ -21,4 +22,11 @@ final class Constants {
         }
         return "https://randomuser.me/api/portraits/\(gender.lowercased())/\(randomNumber).jpg"
         }
+    
+    static func createAlert(alertTitle: String, alertMessage: String, actionTitle: String, alertStyle: UIAlertAction.Style) -> UIAlertController{
+        let alert = UIAlertController(title: "Error!", message: "All fields must be filled. Fill them or otherwise your changes won't be saved ", preferredStyle: .alert)
+        let action = UIAlertAction(title: "Ok", style: alertStyle)
+        alert.addAction(action)
+        return alert
+    }
 }

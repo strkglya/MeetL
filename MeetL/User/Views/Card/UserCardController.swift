@@ -35,7 +35,7 @@ class UserCardController: UIView {
         addSubview(view)
     }
     
-    func configure(user: UserModel, image: UIImage?){
+    func configure(user: UserFromJson, image: UIImage?){
         nameLabel.text = user.name
         ageLabel.text = String(user.age)
        

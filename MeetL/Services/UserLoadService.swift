@@ -19,7 +19,7 @@ final class UserLoadService {
         }
     }
     
-    func loadUser(completion: @escaping (UserModel) -> ()) {
+    func loadUser(completion: @escaping (UserFromJson) -> ()) {
         let urlString = Constants.mainUrl
         guard let url = URL(string: urlString) else { return }
         var request = URLRequest(url: url)
@@ -37,7 +37,7 @@ final class UserLoadService {
                 }
                 
                 let user = userResponse[self.index]
-                let posts = UserModel(id: user.id,
+                let posts = UserFromJson(id: user.id,
                                       name: user.name,
                                       age: user.age,
                                       height: user.height,
@@ -56,7 +56,7 @@ final class UserLoadService {
         }.resume()
     }
     
-    func loadAllUsers(completion: @escaping ([UserModel]) -> Void) {
+    func loadAllUsers(completion: @escaping ([UserFromJson]) -> Void) {
         
         let url = Constants.mainUrl
         guard let url = URL(string: url) else { return }
@@ -70,7 +70,7 @@ final class UserLoadService {
                 let userResponse = try JSONDecoder().decode([User].self, from: data)
                 
                 let loadedArray = userResponse.map { user in
-                    return UserModel(id: user.id,
+                    return UserFromJson(id: user.id,
                                      name: user.name,
                                      age: user.age,
                                      height: user.height,

@@ -104,6 +104,7 @@ class ViewController: UIViewController {
     @IBAction func filterPage(_ sender: Any) {
         let storyboard = UIStoryboard(name: "FilterPage", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "FilterController") as! FilterController
+        secondVC.model.delegate = model
         present(secondVC, animated: true)
     }
 }

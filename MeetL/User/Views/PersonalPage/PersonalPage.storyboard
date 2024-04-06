@@ -143,7 +143,7 @@
                                     </imageReference>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="edit:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="2cV-hb-2vB"/>
+                                    <action selector="edit:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="q8b-Tx-8gV"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" text="Tell us about your interests" translatesAutoresizingMaskIntoConstraints="NO" id="wO8-uN-YmX">
@@ -226,6 +226,15 @@
                         <outlet property="personalInterests" destination="wO8-uN-YmX" id="xq1-m7-9fG"/>
                         <outlet property="personalName" destination="8CE-yb-8au" id="qtR-WG-thF"/>
                         <outlet property="personalWeight" destination="auK-Zc-hvC" id="0re-CR-8NY"/>
+                        <outletCollection property="textFields" destination="8CE-yb-8au" collectionClass="NSMutableArray" id="Sas-Uq-GvO"/>
+                        <outletCollection property="textFields" destination="kOz-6R-e5a" collectionClass="NSMutableArray" id="gB9-Cj-UGq"/>
+                        <outletCollection property="textFields" destination="FuY-xw-3iA" collectionClass="NSMutableArray" id="1ob-9w-nyI"/>
+                        <outletCollection property="textFields" destination="8um-lE-MPg" collectionClass="NSMutableArray" id="Qvy-TZ-LnD"/>
+                        <outletCollection property="textFields" destination="Ea6-Zf-eKK" collectionClass="NSMutableArray" id="ZfT-SR-InT"/>
+                        <outletCollection property="textFields" destination="Q2K-d4-bFj" collectionClass="NSMutableArray" id="PoO-4z-env"/>
+                        <outletCollection property="textFields" destination="auK-Zc-hvC" collectionClass="NSMutableArray" id="Hwv-pn-uE9"/>
+                        <outletCollection property="textViews" destination="wO8-uN-YmX" collectionClass="NSMutableArray" id="dcf-ab-LXC"/>
+                        <outletCollection property="textViews" destination="vFW-g7-ZGQ" collectionClass="NSMutableArray" id="Loh-7f-G2p"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

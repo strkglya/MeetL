@@ -27,7 +27,7 @@ class UserDetailsController: UIViewController {
         imageDetails.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
     }
     
-    func configure(model: UserModel, image: UIImage){
+    func configure(model: UserFromJson, image: UIImage){
         nameDetails.text = model.name
         ageDetails.text = String(model.age)
         genderDetails.text = model.gender

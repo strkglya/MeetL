@@ -10,22 +10,29 @@ import UIKit
 class ChatsController: UIViewController {
     @IBOutlet weak var deleteButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    let model = UserViewModel()
     
-    var likedUsers = [CoreDataModel]()
-    var likedPhoto = UIImage()
-    
-    var isEditingEnabled = false
+    let model = ChatsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        likedUsers = model.loadFromCoreData()
+        bind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        model.loadLikedUsers()
+    }
+    
+    func bind(){
+        model.userDidChange = { [weak self] in
+            guard let self = self else {return}
+            tableView.reloadData()
+        }
     }
     
     @IBAction func toggleEditing(_ sender: Any) {
-        isEditingEnabled.toggle()
-        var toggledImage: UIImage = isEditingEnabled ? UIImage(systemName: "checkmark.seal")!: UIImage(systemName: "trash")!
-        tableView.setEditing(isEditingEnabled, animated: true)
+        model.isEditingEnabled.toggle()
+        tableView.setEditing(model.isEditingEnabled, animated: true)
     }
 }
 
@@ -38,25 +45,24 @@ extension ChatsController: UITableViewDelegate {
 
 extension ChatsController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return isEditingEnabled
+        return model.isEditingEnabled
     }
   
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if isEditingEnabled && editingStyle == .delete {
-            //вьюмодель
-            model.deleteFromCoreData(person: likedUsers[indexPath.row])
-            likedUsers.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+        if model.isEditingEnabled && editingStyle == .delete {
+            //анимация где?
+            model.delete(indexPath: indexPath.row)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return likedUsers.count
+        return model.likedUsers.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as? ChatCell else { return UITableViewCell()}
-        cell.configure(model: likedUsers[indexPath.row])
+        let user = model.likedUsers[indexPath.row]
+        cell.configure(model: user)
         return cell
     }
 }

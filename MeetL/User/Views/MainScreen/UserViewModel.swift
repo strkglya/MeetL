@@ -14,16 +14,14 @@ final class UserViewModel {
     var userDidChange: (() -> Void)?
     var allUsersLoaded: (() ->Void)?
     var imageDidLoad: (() -> Void)?
-    
-    var state = false
-
-    var loadedUser = UserModel(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
+        
+    var loadedUser = UserFromJson(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
         didSet {
             userDidChange?()
         }
     }
     
-    var loadedUsers = [UserModel](){
+    var loadedUsers = [UserFromJson](){
         didSet {
             //print("Loaded users: \(loadedUsers)")
             allUsersLoaded?()
@@ -53,28 +51,28 @@ final class UserViewModel {
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
-           let imageURLString = loadedUser.image
-           guard let imageURL = URL(string: imageURLString) else { return }
-           
-           URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-               guard error == nil, let data = data, let image = UIImage(data: data) else {
-                   print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
-                   completion(nil)
-                   return
-               }
-               completion(image)
-           }.resume()
-       }
+        let imageURLString = loadedUser.image
+        guard let imageURL = URL(string: imageURLString) else { return }
+        
+        URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
+            guard error == nil, let data = data, let image = UIImage(data: data) else {
+                print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
+                completion(nil)
+                return
+            }
+            completion(image)
+        }.resume()
+    }
     
-    var filteredUsers = [UserModel](){
+    var filteredUsers = [UserFromJson](){
         didSet {
-           // print(filteredUsers)
+            // print(filteredUsers)
         }
     }
     
-    func saveToCoreData(likedPerson: UserModel, with image: UIImage){
+    func saveToCoreData(likedPerson: UserFromJson, with image: UIImage){
         if let imageData = image.pngData() {
-            CoreDataService.shared.savePerson(personToSave: CoreDataModel(id: likedPerson.id,
+            CoreDataService.shared.savePerson(personToSave: UserModel(id: likedPerson.id,
                                                                           name: likedPerson.name,
                                                                           age: likedPerson.age,
                                                                           height: likedPerson.height,
@@ -88,32 +86,6 @@ final class UserViewModel {
         }
         
     }
-    
-    func loadFromCoreData() -> [CoreDataModel]{
-        return CoreDataService.shared.loadUsers()
-    }
-    
-    func saveAccountChangesToCoreData(user: CoreDataModel){
-            CoreDataService.shared.saveAccountChanges(updatedInfo: CoreDataModel(id: user.id,
-                                                                                 name: user.name,
-                                                                                 age: user.age,
-                                                                                 height: user.height,
-                                                                                 weight: user.weight,
-                                                                                 interests: user.interests,
-                                                                                 gender: user.gender,
-                                                                                 city: user.city,
-                                                                                 country: user.country,
-                                                                                 about: user.about,
-                                                                                 image: user.image))
-    }
-    
-    func loadAccountChangesFromCoreData() -> CoreDataModel?{
-        CoreDataService.shared.loadAccountChanges()
-    }
-    
-    func deleteFromCoreData(person: CoreDataModel){
-        CoreDataService.shared.deletePerson(person: person)
-    }
 }
 
 extension UserViewModel: FilterDelegate {
@@ -122,8 +94,10 @@ extension UserViewModel: FilterDelegate {
             let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
             let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight
             let weightInRange = user.weight >= filters.minWeight && user.weight <= filters.maxWeight
-            let interestsMatch = filters.interests.contains { user.interests.contains($0) }
-
+            var interestsMatch = true
+            if !filters.interests.isEmpty {
+                interestsMatch = user.interests.contains(filters.interests)
+            }
             return ageInRange && heightInRange && weightInRange && interestsMatch
         }
         print(filteredUsers)

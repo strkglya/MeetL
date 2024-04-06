@@ -47,11 +47,10 @@ class CoreDataService {
         }
     }
     
-    func savePerson(personToSave: CoreDataModel){
+    func savePerson(personToSave: UserModel){
 
         let context = CoreDataService.shared.context
         let newUser = LikedPersonData(context: context)
-        
         
         newUser.id = Int16(personToSave.id)
             newUser.name = personToSave.name
@@ -69,7 +68,7 @@ class CoreDataService {
         }
     
     
-    func saveAccountChanges(updatedInfo: CoreDataModel){
+    func saveAccountChanges(updatedInfo: UserModel){
         let context = CoreDataService.shared.context
         
         let fetchRequest: NSFetchRequest<PersonalPageData> = PersonalPageData.fetchRequest()
@@ -106,9 +105,9 @@ class CoreDataService {
     }
 
     
-    func loadUsers() -> [CoreDataModel] {
+    func loadUsers() -> [UserModel] {
         
-        var loadedPersons = [CoreDataModel]()
+        var loadedPersons = [UserModel]()
         
         let context = CoreDataService.shared.context
         let fetchRequest: NSFetchRequest<LikedPersonData> = LikedPersonData.fetchRequest()
@@ -120,7 +119,7 @@ class CoreDataService {
                 let interestsString = person.interests ?? ""
                 let interestsArray = interestsString.split(separator: ", ").map { String($0) }
                 if let imageData = person.image {
-                    let loadedPerson = CoreDataModel(id: Int(person.id),
+                    let loadedPerson = UserModel(id: Int(person.id),
                                                      name: person.name ?? "",
                                                      age: Int(person.age),
                                                      height: Int(person.height),
@@ -140,7 +139,7 @@ class CoreDataService {
         return loadedPersons
     }
     
-    func loadAccountChanges() -> CoreDataModel? {
+    func loadAccountChanges() -> UserModel? {
             let context = CoreDataService.shared.context
             var fetchedInfo: PersonalPageData?
 
@@ -165,7 +164,7 @@ class CoreDataService {
                 fetchedImage = image
             }
             
-            return CoreDataModel(id: 0,
+            return UserModel(id: 0,
                                  name: fetchedInfo.name ?? "",
                                  age: Int(fetchedInfo.age),
                                  height: Int(fetchedInfo.height),
@@ -178,7 +177,7 @@ class CoreDataService {
                                  image: fetchedImage)
         }
     
-    func deletePerson(person: CoreDataModel) {
+    func deletePerson(person: UserModel) {
         let context = CoreDataService.shared.context
         let fetchRequest: NSFetchRequest<LikedPersonData> = LikedPersonData.fetchRequest()
         fetchRequest.predicate = NSPredicate(format: "id = %d", person.id)

@@ -30,7 +30,7 @@ class FilterViewModel {
                              minWeight: minWeight,
                              maxWeight: maxWeight,
                              interests: interests)
-        self.filters = filters
+       // self.filters = filters
         delegate?.didFinishSelectingFilters(filters: filters)
     }
 }
