@@ -44,4 +44,11 @@ class UserCardController: UIView {
     func updateImage(image: UIImage){
         personImage.image = image
     }
+    
+    func configureFromArray(users: [UserFromJson], image: UIImage) {
+        for user in users {
+            nameLabel.text = user.name
+            ageLabel.text = String(user.age)
+        }
+    }
 }

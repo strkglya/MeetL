@@ -61,8 +61,12 @@ class ViewController: UIViewController {
                 self.customCard.configure(user: self.model.loadedUser, image: self.model.loadedImage)
             }
         }
+        
         model.allUsersLoaded = { [weak self] in
             guard let self = self else {return}
+            DispatchQueue.main.async {
+                self.customCard.configureFromArray(users: self.model.filteredUsers, image: self.model.loadedImage)
+            }
         }
     }
     

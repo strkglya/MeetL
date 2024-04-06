@@ -58,29 +58,10 @@ class PersonalPageController: UIViewController {
         personalInfo.text = updates.about
         personalImage.image = UIImage(data: updates.image)
     }
-    //не работает!
+
     @IBAction func edit(_ sender: UIButton) {
         model.changeButtonImage(button: sender)
-        //        if model.state {
-        //            guard let newUser = model.createUserFromTextFields(nameTextField: personalName,
-        //                                                               ageTextField: personalAge,
-        //                                                               genderTextField: personalGender,
-        //                                                               countryTextField: personalCounrty,
-        //                                                               cityTextField: personalCity,
-        //                                                               heightTextField: personalHeight,
-        //                                                               weightTextField: personalWeight,
-        //                                                               interestsTextView: personalInterests,
-        //                                                               aboutTextView: personalInfo,
-        //                                                               image: personalImage) else {
-        //                present(Constants.createAlert(alertTitle: "Error!", alertMessage: "All fields must be filled", actionTitle: "Ok", alertStyle: .default),animated: true)
-        //                return
-        //            }
-        //            model.saveToCoreData(user: newUser)
-        //            toggleEditing()
-        //        }
-        //        else {
-        //            toggleEditing()
-        //        }
+
         model.save(nameTextField: personalName,
                    ageTextField: personalAge,
                    genderTextField: personalGender,
@@ -91,15 +72,6 @@ class PersonalPageController: UIViewController {
                    interestsTextView: personalInterests,
                    aboutTextView: personalInfo,
                    image: personalImage)
-    }
-    
-    private func toggleEditing(){
-        model.toggleEditing(textFields: textFields, textViews: textViews, image: personalImage)
-        toggleBorder()
-    }
-    
-    private func toggleBorder(){
-        model.toggleBorder(textFields: textFields, textViews: textViews)
     }
     
     func configureImagePicker(){

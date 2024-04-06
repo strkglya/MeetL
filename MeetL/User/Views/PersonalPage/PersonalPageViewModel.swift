@@ -12,7 +12,7 @@ class PersonalPageViewModel {
     
     var state = false
     
-    func saveAccountChangesToCoreData(user: UserModel){
+    private func saveAccountChangesToCoreData(user: UserModel){
         CoreDataService.shared.saveAccountChanges(updatedInfo: UserModel(id: user.id,
                                                                          name: user.name,
                                                                          age: user.age,
@@ -30,7 +30,7 @@ class PersonalPageViewModel {
         CoreDataService.shared.loadAccountChanges()
     }
     
-    func saveToCoreData(user: UserModel) {
+    private func saveToCoreData(user: UserModel) {
         saveAccountChangesToCoreData(user: user)
     }
     
@@ -47,11 +47,9 @@ class PersonalPageViewModel {
         if state {
             guard let user = createUserFromTextFields(nameTextField: nameTextField, ageTextField: ageTextField, genderTextField: genderTextField, countryTextField: countryTextField, cityTextField: cityTextField, heightTextField: heightTextField, weightTextField: weightTextField, interestsTextView: interestsTextView, aboutTextView: aboutTextView, image: image) else {return}
             saveToCoreData(user: user)
-            toggleEditing(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView], image: image)
-            toggleBorder(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView])
+            toggleUi(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView], image: image)
         } else {
-            toggleEditing(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView], image: image)
-            toggleBorder(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView])
+            toggleUi(textFields: [nameTextField,ageTextField,genderTextField,cityTextField,countryTextField,heightTextField,weightTextField], textViews: [interestsTextView,aboutTextView], image: image)
         }
     }
     
@@ -90,7 +88,7 @@ class PersonalPageViewModel {
         button.setImage(image, for: .normal)
     }
     
-    func toggleEditing(textFields: [UITextField], textViews: [UITextView], image: UIImageView){
+    private func toggleEditing(textFields: [UITextField], textViews: [UITextView], image: UIImageView){
         state.toggle()
         
         for textField in textFields {
@@ -103,7 +101,7 @@ class PersonalPageViewModel {
         image.isUserInteractionEnabled = state
     }
     
-    func toggleBorder(textFields: [UITextField], textViews: [UITextView]){
+    private func toggleBorder(textFields: [UITextField], textViews: [UITextView]){
         let editingStyle: UITextField.BorderStyle = state ? .roundedRect : .none
         let editingColor: UIColor = state ? .white : .clear
         
@@ -114,5 +112,10 @@ class PersonalPageViewModel {
         for textView in textViews {
             textView.backgroundColor = editingColor
         }
+    }
+    
+    private func toggleUi(textFields: [UITextField], textViews: [UITextView], image: UIImageView){
+        toggleEditing(textFields: textFields, textViews: textViews, image: image)
+        toggleBorder(textFields: textFields, textViews: textViews)
     }
 }

@@ -21,12 +21,7 @@ final class UserViewModel {
         }
     }
     
-    var loadedUsers = [UserFromJson](){
-        didSet {
-            //print("Loaded users: \(loadedUsers)")
-            allUsersLoaded?()
-        }
-    }
+    var loadedUsers = [UserFromJson]()
     
     var loadedImage = UIImage() {
         didSet {
@@ -66,7 +61,8 @@ final class UserViewModel {
     
     var filteredUsers = [UserFromJson](){
         didSet {
-            // print(filteredUsers)
+            print(filteredUsers)
+            userDidChange?()
         }
     }
     
@@ -84,7 +80,6 @@ final class UserViewModel {
                                                                           about: likedPerson.about,
                                                                           image: imageData))
         }
-        
     }
 }
 
@@ -100,7 +95,6 @@ extension UserViewModel: FilterDelegate {
             }
             return ageInRange && heightInRange && weightInRange && interestsMatch
         }
-        print(filteredUsers)
         self.filteredUsers = filteredUsers
     }
 }
