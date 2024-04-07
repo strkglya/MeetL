@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model = UserViewModel()
-        model.loadFromJson()
+//        model.loadFromJson()
         model.loadAllFromJson()
         setUpBorders()
         setUpShadow()
@@ -26,8 +26,8 @@ class ViewController: UIViewController {
     
     private func setUpShadow(){
         self.customCard.layer.shadowPath =
-              UIBezierPath(roundedRect: self.customCard.bounds,
-              cornerRadius: self.customCard.layer.cornerRadius).cgPath
+        UIBezierPath(roundedRect: self.customCard.bounds,
+                     cornerRadius: self.customCard.layer.cornerRadius).cgPath
         self.customCard.layer.shadowColor = UIColor.black.cgColor
         self.customCard.layer.shadowOpacity = 0.5
         self.customCard.layer.shadowOffset = CGSize(width: 5, height: 5)
@@ -58,14 +58,7 @@ class ViewController: UIViewController {
         model.userDidChange = { [weak self] in
             guard let self = self else {return}
             DispatchQueue.main.async {
-                self.customCard.configure(user: self.model.loadedUser, image: self.model.loadedImage)
-            }
-        }
-        
-        model.allUsersLoaded = { [weak self] in
-            guard let self = self else {return}
-            DispatchQueue.main.async {
-                self.customCard.configureFromArray(users: self.model.filteredUsers, image: self.model.loadedImage)
+                self.customCard.configure(user: self.model.loadedUser!, image: self.model.loadedImage)
             }
         }
     }
@@ -77,7 +70,7 @@ class ViewController: UIViewController {
     
     private func showAlert(){
         let alert = UIAlertController(title: "It's a match!", message: "It looks like this user liked you back!", preferredStyle: .alert)
-
+        
         let action = UIAlertAction(title: "ok", style: .default)
         alert.addAction(action)
         present(alert, animated: true)
@@ -87,20 +80,30 @@ class ViewController: UIViewController {
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
         present(secondVC, animated: true)
-        secondVC.configure(model: model.loadedUser, image: model.loadedImage)
+        guard let loadedUser = model.loadedUser else { return }
+        secondVC.configure(model: loadedUser, image: model.loadedImage)
     }
     
     @IBAction func like(_ sender: Any) {
-        if model.loadedUser.likedBack {
+        guard let loadedUser = model.loadedUser else { return }
+        if loadedUser.likedBack {
             showAlert()
-            model.saveToCoreData(likedPerson: model.loadedUser, with: model.loadedImage)
+            model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
         }
-        model.loadFromJson()
+        
         uploadView()
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        model.loadFromJson()
+        model.currentIndex += 1
+        print(model.currentIndex, model.loadedUsers.count)
+        if model.currentIndex == model.loadedUsers.count - 1 {
+            present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
+            model.currentIndex = 0
+        }
+
+        customCard.configure(user: model.loadedUser!, image: model.loadedImage)
+
         uploadView()
         print("fy")
     }

@@ -15,56 +15,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8A-4h-BJ9" customClass="Slider" customModule="MeetL" customModuleProvider="target">
-                                <rect key="frame" x="46" y="176" width="297" height="40"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="tyt-GB-URS"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
-                                        <real key="value" value="18"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
-                                        <real key="value" value="68"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keepsDistanceBetweenThumbs" value="YES"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="snapStepSize">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceBetweenThumbs">
-                                        <real key="value" value="1"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbCount">
-                                        <integer key="value" value="2"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isValueLabelRelative" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="valueLabelAlternatePosition" value="NO"/>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
-                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="outerTrackColor">
-                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="color" keyPath="valueLabelColor">
-                                        <color key="value" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="ageSliderMoved:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HM2-zs-2U8"/>
-                                </connections>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTERS" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-pa-XkG">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTERS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ff7-pa-XkG">
                                 <rect key="frame" x="120" y="79" width="153" height="36"/>
                                 <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="36"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Age" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KGS-9H-rLU">
-                                <rect key="frame" x="55" y="145" width="37.666666666666657" height="23"/>
+                                <rect key="frame" x="55" y="216.33333333333334" width="37.666666666666657" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="1cl-zp-IZd"/>
                                 </constraints>
@@ -72,8 +30,17 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Gender" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="T0c-TA-Syc">
+                                <rect key="frame" x="55" y="135" width="69" height="19"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="69" id="5Jf-ZZ-9Pd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="HiraginoSans-W3" family="Hiragino Sans" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Height" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jpM-2G-tan">
-                                <rect key="frame" x="55" y="246" width="62" height="23"/>
+                                <rect key="frame" x="54" y="307.33333333333331" width="62" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="5qr-Ex-PST"/>
                                 </constraints>
@@ -82,7 +49,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s21-FI-SO1" customClass="Slider" customModule="MeetL" customModuleProvider="target">
-                                <rect key="frame" x="55" y="270" width="298" height="40"/>
+                                <rect key="frame" x="54" y="331.33333333333331" width="298" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -124,7 +91,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-P3-FMw">
-                                <rect key="frame" x="54.999999999999993" y="338" width="66.333333333333314" height="23"/>
+                                <rect key="frame" x="53.999999999999993" y="391.33333333333331" width="66.333333333333314" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="7Ip-eo-6WU"/>
                                 </constraints>
@@ -133,7 +100,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOU-G6-EB1" customClass="Slider" customModule="MeetL" customModuleProvider="target">
-                                <rect key="frame" x="55" y="362" width="298" height="40"/>
+                                <rect key="frame" x="54" y="415.33333333333331" width="298" height="40"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
@@ -175,7 +142,7 @@
                                 </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preffered interests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iF-fr-UQe">
-                                <rect key="frame" x="55.000000000000014" y="430" width="177.33333333333337" height="23"/>
+                                <rect key="frame" x="54.000000000000014" y="483.33333333333331" width="177.33333333333337" height="23"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="23" id="meL-Im-bcg"/>
                                 </constraints>
@@ -184,10 +151,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zmb-ZQ-XAq">
-                                <rect key="frame" x="30" y="462.99999999999994" width="348" height="161.33333333333331"/>
+                                <rect key="frame" x="15" y="516.33333333333337" width="363" height="161.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="Lxd-Lk-hQa">
-                                        <rect key="frame" x="3" y="0.0" width="342.33333333333331" height="34.333333333333336"/>
+                                        <rect key="frame" x="10.333333333333343" y="0.0" width="342.33333333333326" height="34.333333333333336"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eDi-5x-Sn2">
                                                 <rect key="frame" x="0.0" y="0.0" width="86" height="34.333333333333336"/>
@@ -195,7 +162,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Reading"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Yy-LB-Cft"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Yy-LB-Cft"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBT-4C-uVV">
@@ -205,7 +172,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Traveling"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oBl-HN-G9N"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oBl-HN-G9N"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvE-1M-mqR">
@@ -214,7 +181,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cooking"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7iU-GK-gKT"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7iU-GK-gKT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB2-62-AUa">
@@ -223,13 +190,13 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Golf"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jGr-ai-voi"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jGr-ai-voi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="B2y-oo-g0v">
-                                        <rect key="frame" x="32" y="42.333333333333314" width="284.33333333333331" height="34.333333333333343"/>
+                                        <rect key="frame" x="39.333333333333343" y="42.333333333333258" width="284.33333333333326" height="34.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0J-ab-D5f">
                                                 <rect key="frame" x="0.0" y="0.0" width="122" height="34.333333333333336"/>
@@ -237,7 +204,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Photography"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pZx-Sf-H2I"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pZx-Sf-H2I"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-2P-4iI">
@@ -246,22 +213,22 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Golf"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VAG-Pe-vLD"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VAG-Pe-vLD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-24-C3p">
-                                                <rect key="frame" x="197.66666666666669" y="0.0" width="86.666666666666686" height="34.333333333333336"/>
+                                                <rect key="frame" x="197.66666666666666" y="0.0" width="86.666666666666657" height="34.333333333333336"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Dancing"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QDv-id-hmG"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QDv-id-hmG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="t7Z-rh-132">
-                                        <rect key="frame" x="13.333333333333343" y="84.666666666666629" width="321.33333333333326" height="34.333333333333343"/>
+                                        <rect key="frame" x="21" y="84.666666666666629" width="321.33333333333331" height="34.333333333333343"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PxC-IY-ae0">
                                                 <rect key="frame" x="0.0" y="0.0" width="85.333333333333329" height="34.333333333333336"/>
@@ -269,16 +236,16 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Painting"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l42-Ec-2I6"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l42-Ec-2I6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byg-ul-Bxt">
-                                                <rect key="frame" x="93.333333333333314" y="0.0" width="69.333333333333314" height="34.333333333333336"/>
+                                                <rect key="frame" x="93.333333333333343" y="0.0" width="69.333333333333343" height="34.333333333333336"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Music"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JZG-ur-B5u"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JZG-ur-B5u"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI5-HI-1tP">
@@ -287,7 +254,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Yoga"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bpM-lw-vAn"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bpM-lw-vAn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTI-YE-ISk">
@@ -296,13 +263,13 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cycling"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qvZ-s6-xjp"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qvZ-s6-xjp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ZZm-rd-CNC">
-                                        <rect key="frame" x="42.333333333333343" y="126.99999999999999" width="263.33333333333326" height="34.333333333333329"/>
+                                        <rect key="frame" x="50" y="126.99999999999999" width="263.33333333333331" height="34.333333333333329"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="D7R-vu-Zdw">
                                                 <rect key="frame" x="0.0" y="0.0" width="72" height="34.333333333333336"/>
@@ -310,16 +277,16 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Hiking"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YDE-3x-ieC"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YDE-3x-ieC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAQ-CE-Bzq">
-                                                <rect key="frame" x="80.000000000000014" y="0.0" width="82.999999999999986" height="34.333333333333336"/>
+                                                <rect key="frame" x="80" y="0.0" width="83" height="34.333333333333336"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Gaming"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SSE-eL-mmp"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SSE-eL-mmp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkP-rE-3Mc">
@@ -328,7 +295,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Camping"/>
                                                 <connections>
-                                                    <action selector="buttonTapped:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WH1-3f-nm7"/>
+                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WH1-3f-nm7"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -354,42 +321,116 @@
                                     <action selector="cancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IXf-LI-VCJ"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="D54-hn-aud">
+                                <rect key="frame" x="50" y="162" width="293" height="34.333333333333343"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd1-o6-Tww">
+                                        <rect key="frame" x="0.0" y="0.0" width="139.66666666666666" height="34.333333333333336"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Male"/>
+                                        <connections>
+                                            <action selector="genderSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="sLJ-ba-qVa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2AT-VB-WvN">
+                                        <rect key="frame" x="153.66666666666663" y="0.0" width="139.33333333333337" height="34.333333333333336"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Female"/>
+                                        <connections>
+                                            <action selector="genderSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pWo-fE-ket"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V8A-4h-BJ9" customClass="Slider" customModule="MeetL" customModuleProvider="target">
+                                <rect key="frame" x="54" y="247.33333333333337" width="297" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="tintColor" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="tyt-GB-URS"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="minimumValue">
+                                        <real key="value" value="18"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="maximumValue">
+                                        <real key="value" value="68"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="keepsDistanceBetweenThumbs" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isVertical" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="snapStepSize">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="distanceBetweenThumbs">
+                                        <real key="value" value="1"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="thumbCount">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="isValueLabelRelative" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="valueLabelAlternatePosition" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="thumbTintColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="outerTrackColor">
+                                        <color key="value" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="valueLabelColor">
+                                        <color key="value" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="ageSliderMoved:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HM2-zs-2U8"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" red="1" green="0.95484910889999997" blue="0.97122103849999997" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
-                            <constraint firstItem="jpM-2G-tan" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="0WL-SQ-KWi"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V8A-4h-BJ9" secondAttribute="trailing" constant="50" id="177-9W-tXd"/>
+                            <constraint firstItem="jpM-2G-tan" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="0WL-SQ-KWi"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="V8A-4h-BJ9" secondAttribute="trailing" constant="42" id="177-9W-tXd"/>
                             <constraint firstItem="4iF-fr-UQe" firstAttribute="top" secondItem="BOU-G6-EB1" secondAttribute="bottom" constant="28" id="1ZW-9r-Ups"/>
                             <constraint firstItem="tB3-SI-96M" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="1qh-0l-cf1"/>
                             <constraint firstItem="Zmb-ZQ-XAq" firstAttribute="top" secondItem="4iF-fr-UQe" secondAttribute="bottom" constant="10" id="5Gw-N5-70P"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s21-FI-SO1" secondAttribute="trailing" constant="40" id="E2B-q0-irX"/>
-                            <constraint firstItem="jpM-2G-tan" firstAttribute="top" secondItem="V8A-4h-BJ9" secondAttribute="bottom" constant="30" id="F0A-mq-VfD"/>
-                            <constraint firstItem="V8A-4h-BJ9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="46" id="H9Z-Et-pYn"/>
-                            <constraint firstItem="Zmb-ZQ-XAq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="30" id="LVN-2h-x21"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="s21-FI-SO1" secondAttribute="trailing" constant="41" id="E2B-q0-irX"/>
+                            <constraint firstItem="KGS-9H-rLU" firstAttribute="top" secondItem="D54-hn-aud" secondAttribute="bottom" constant="20" id="EQ2-zh-IIm"/>
+                            <constraint firstItem="jpM-2G-tan" firstAttribute="top" secondItem="V8A-4h-BJ9" secondAttribute="bottom" constant="20" id="F0A-mq-VfD"/>
+                            <constraint firstItem="V8A-4h-BJ9" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="H9Z-Et-pYn"/>
+                            <constraint firstItem="D54-hn-aud" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="50" id="Kvj-pe-RHz"/>
+                            <constraint firstItem="Zmb-ZQ-XAq" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="15" id="LVN-2h-x21"/>
                             <constraint firstItem="BOU-G6-EB1" firstAttribute="top" secondItem="ggK-P3-FMw" secondAttribute="bottom" constant="1" id="PMe-Rx-Ddj"/>
-                            <constraint firstItem="4iF-fr-UQe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="Rtw-oa-RhP"/>
+                            <constraint firstItem="4iF-fr-UQe" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="Rtw-oa-RhP"/>
                             <constraint firstItem="V8A-4h-BJ9" firstAttribute="top" secondItem="KGS-9H-rLU" secondAttribute="bottom" constant="8" symbolic="YES" id="SRe-k0-srL"/>
-                            <constraint firstItem="ggK-P3-FMw" firstAttribute="top" secondItem="s21-FI-SO1" secondAttribute="bottom" constant="28" id="ULK-CR-hYT"/>
+                            <constraint firstItem="ggK-P3-FMw" firstAttribute="top" secondItem="s21-FI-SO1" secondAttribute="bottom" constant="20" id="ULK-CR-hYT"/>
                             <constraint firstItem="KGS-9H-rLU" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="Xg5-5D-Kd0"/>
-                            <constraint firstItem="BOU-G6-EB1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="gQw-mc-WDI"/>
+                            <constraint firstItem="T0c-TA-Syc" firstAttribute="top" secondItem="Ff7-pa-XkG" secondAttribute="bottom" constant="20" id="Xj9-p4-cHQ"/>
+                            <constraint firstItem="BOU-G6-EB1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="gQw-mc-WDI"/>
                             <constraint firstItem="exe-Nq-44e" firstAttribute="bottom" secondItem="vDu-zF-Fre" secondAttribute="bottom" id="h85-ze-O7t"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Ff7-pa-XkG" secondAttribute="trailing" constant="120" id="ifE-pu-VOH"/>
+                            <constraint firstItem="T0c-TA-Syc" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="igG-7m-QBv"/>
                             <constraint firstItem="Ff7-pa-XkG" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="120" id="jOI-ja-0dt"/>
                             <constraint firstItem="s21-FI-SO1" firstAttribute="top" secondItem="jpM-2G-tan" secondAttribute="bottom" constant="1" id="jj3-NW-Kra"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BOU-G6-EB1" secondAttribute="trailing" constant="40" id="kuZ-Il-e53"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="BOU-G6-EB1" secondAttribute="trailing" constant="41" id="kuZ-Il-e53"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="tB3-SI-96M" secondAttribute="trailing" constant="45" id="lBz-9g-Jjw"/>
-                            <constraint firstItem="KGS-9H-rLU" firstAttribute="top" secondItem="Ff7-pa-XkG" secondAttribute="bottom" constant="30" id="rCu-9D-coP"/>
+                            <constraint firstItem="D54-hn-aud" firstAttribute="top" secondItem="T0c-TA-Syc" secondAttribute="bottom" constant="8" id="pLZ-RV-pth"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="D54-hn-aud" secondAttribute="trailing" constant="50" id="qTg-h3-4Ej"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Zmb-ZQ-XAq" secondAttribute="trailing" constant="15" id="uWM-Vb-Xlk"/>
-                            <constraint firstItem="s21-FI-SO1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="wOu-wj-E0r"/>
+                            <constraint firstItem="s21-FI-SO1" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="wOu-wj-E0r"/>
                             <constraint firstItem="exe-Nq-44e" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="45" id="y0M-8c-Bbb"/>
                             <constraint firstItem="Ff7-pa-XkG" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="20" id="zMI-pv-YXw"/>
-                            <constraint firstItem="ggK-P3-FMw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="55" id="zaM-aY-pLf"/>
+                            <constraint firstItem="ggK-P3-FMw" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="54" id="zaM-aY-pLf"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ageSlider" destination="V8A-4h-BJ9" id="jiE-ui-JVB"/>
+                        <outlet property="femaleButton" destination="2AT-VB-WvN" id="wyv-Ev-BGf"/>
                         <outlet property="heightSlider" destination="s21-FI-SO1" id="nJk-AC-fOX"/>
+                        <outlet property="maleButton" destination="Kd1-o6-Tww" id="vyh-mX-V09"/>
                         <outlet property="weightSlider" destination="BOU-G6-EB1" id="QFu-xH-eb6"/>
                         <outletCollection property="buttons" destination="eDi-5x-Sn2" collectionClass="NSMutableArray" id="BW7-iu-l6c"/>
                         <outletCollection property="buttons" destination="tBT-4C-uVV" collectionClass="NSMutableArray" id="sFh-at-VeM"/>

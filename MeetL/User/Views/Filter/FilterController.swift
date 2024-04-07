@@ -8,46 +8,20 @@
 import UIKit
 import MultiSlider
 
-struct Filter {
-    let minAge: Int
-    let maxAge: Int
-    let minHeight: Int
-    let maxHeight: Int
-    let minWeight: Int
-    let maxWeight: Int
-    let interests: [String]
-    
-    init() {
-        self.minAge = 0
-        self.maxAge = 0
-        self.minHeight = 0
-        self.maxHeight = 0
-        self.minWeight = 0
-        self.maxWeight = 0
-        self.interests = []
-    }
-    
-    init(minAge: Int, maxAge: Int, minHeight: Int, maxHeight: Int, minWeight: Int, maxWeight: Int, interests: [String]) {
-        self.minAge = minAge
-        self.maxAge = maxAge
-        self.minHeight = minHeight
-        self.maxHeight = maxHeight
-        self.minWeight = minWeight
-        self.maxWeight = maxWeight
-        self.interests = interests
-    }
-}
-
 class FilterController: UIViewController {
     
     @IBOutlet weak var ageSlider: Slider!
     @IBOutlet weak var heightSlider: Slider!
     @IBOutlet weak var weightSlider: Slider!
     
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    
     @IBOutlet var buttons: [UIButton]!
     
-    var buttonStates = [String: Bool]()
-        
+    var buttonStates = [String : Bool]()
+    var selectedGender = [String : Bool]()
+    
     var model = FilterViewModel()
     
     override func viewDidLoad() {
@@ -59,6 +33,10 @@ class FilterController: UIViewController {
                 buttonStates[title] = false
             }
         }
+        
+        selectedGender["Male"] = false
+        selectedGender["Female"] = false
+
     }
     
     private func setUpSliders(){
@@ -72,7 +50,7 @@ class FilterController: UIViewController {
         weightSlider.valueLabelColor = .black
     }
     
-    @IBAction func buttonTapped(_ sender: UIButton) {
+    @IBAction func interestSelectes(_ sender: UIButton) {
         
         guard let title = sender.titleLabel?.text else { return }
         
@@ -99,11 +77,27 @@ class FilterController: UIViewController {
         print(sender.value)
     }
     
+    @IBAction func genderSelected(_ sender: UIButton) {
+        //вьюмодель
+        guard let title = sender.titleLabel?.text else { return }
+        selectedGender[title]?.toggle()
+        
+        if selectedGender[title] == false {
+            sender.backgroundColor = .white
+            sender.tintColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
+        } else {
+            sender.backgroundColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
+            sender.tintColor = .white
+        }
+    }
+    
     @IBAction func save(_ sender: Any) {
-        model.applyFilters(buttonStates: buttonStates,
+      
+        model.applyFilters(prefferedGender: selectedGender, buttonStates: buttonStates,
                            minAge: Int(ageSlider.value[0]), maxAge: Int(ageSlider.value[1]),
                            minHeight: Int(heightSlider.value[0]), maxHeight: Int(heightSlider.value[1]),
                            minWeight: Int(weightSlider.value[0]), maxWeight: Int(weightSlider.value[1]))
+ 
         dismiss(animated: true)
         }
     

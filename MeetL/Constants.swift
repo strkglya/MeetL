@@ -24,8 +24,8 @@ final class Constants {
         }
     
     static func createAlert(alertTitle: String, alertMessage: String, actionTitle: String, alertStyle: UIAlertAction.Style) -> UIAlertController{
-        let alert = UIAlertController(title: "Error!", message: "All fields must be filled. Fill them or otherwise your changes won't be saved ", preferredStyle: .alert)
-        let action = UIAlertAction(title: "Ok", style: alertStyle)
+        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
+        let action = UIAlertAction(title: actionTitle, style: alertStyle)
         alert.addAction(action)
         return alert
     }

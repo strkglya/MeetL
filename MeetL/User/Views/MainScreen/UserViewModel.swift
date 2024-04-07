@@ -12,16 +12,24 @@ final class UserViewModel {
     private let loadService = UserLoadService()
     
     var userDidChange: (() -> Void)?
-    var allUsersLoaded: (() ->Void)?
     var imageDidLoad: (() -> Void)?
-        
-    var loadedUser = UserFromJson(id: 0, name: "", age: 0, height: 0, weight: 0, interests: [], gender: "", city: "", country: "", about: "", image: ""){
+    
+    var loadedUser: UserFromJson? {
         didSet {
+            self.imageFromUrl { [weak self] image in
+                guard let image = image else {return}
+                self?.loadedImage = image
+            }
             userDidChange?()
+            print(loadedUser)
         }
     }
     
-    var loadedUsers = [UserFromJson]()
+    var loadedUsers = [UserFromJson]() {
+        didSet {
+           loadedUser = loadedUsers[currentIndex]
+        }
+    }
     
     var loadedImage = UIImage() {
         didSet {
@@ -29,13 +37,9 @@ final class UserViewModel {
         }
     }
     
-    func loadFromJson(){
-        loadService.loadUser { [weak self] user in
-            self?.loadedUser = user
-            self?.imageFromUrl { image in
-                guard let image = image else {return}
-                self?.loadedImage = image
-            }
+    var currentIndex = 0 {
+        didSet {
+            loadedUser = loadedUsers[currentIndex]
         }
     }
     
@@ -46,7 +50,7 @@ final class UserViewModel {
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
-        let imageURLString = loadedUser.image
+        guard let imageURLString = loadedUser?.image else {return}
         guard let imageURL = URL(string: imageURLString) else { return }
         
         URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
@@ -61,7 +65,7 @@ final class UserViewModel {
     
     var filteredUsers = [UserFromJson](){
         didSet {
-            print(filteredUsers)
+            self.loadedUsers = filteredUsers
             userDidChange?()
         }
     }
@@ -69,23 +73,30 @@ final class UserViewModel {
     func saveToCoreData(likedPerson: UserFromJson, with image: UIImage){
         if let imageData = image.pngData() {
             CoreDataService.shared.savePerson(personToSave: UserModel(id: likedPerson.id,
-                                                                          name: likedPerson.name,
-                                                                          age: likedPerson.age,
-                                                                          height: likedPerson.height,
-                                                                          weight: likedPerson.weight,
-                                                                          interests: likedPerson.interests,
-                                                                          gender: likedPerson.gender,
-                                                                          city: likedPerson.city,
-                                                                          country: likedPerson.country,
-                                                                          about: likedPerson.about,
-                                                                          image: imageData))
+                                                                      name: likedPerson.name,
+                                                                      age: likedPerson.age,
+                                                                      height: likedPerson.height,
+                                                                      weight: likedPerson.weight,
+                                                                      interests: likedPerson.interests,
+                                                                      gender: likedPerson.gender,
+                                                                      city: likedPerson.city,
+                                                                      country: likedPerson.country,
+                                                                      about: likedPerson.about,
+                                                                      image: imageData))
         }
     }
 }
 
 extension UserViewModel: FilterDelegate {
     func didFinishSelectingFilters(filters: Filter) {
+       // self.filteredUsers = []
+
         let filteredUsers = loadedUsers.filter { user in
+            
+            var genderMatch = true
+            if !filters.preferedGender.isEmpty {
+                genderMatch = filters.preferedGender.contains(user.gender)
+            }
             let ageInRange = user.age >= filters.minAge && user.age <= filters.maxAge
             let heightInRange = user.height >= filters.minHeight && user.height <= filters.maxHeight
             let weightInRange = user.weight >= filters.minWeight && user.weight <= filters.maxWeight
@@ -93,7 +104,7 @@ extension UserViewModel: FilterDelegate {
             if !filters.interests.isEmpty {
                 interestsMatch = user.interests.contains(filters.interests)
             }
-            return ageInRange && heightInRange && weightInRange && interestsMatch
+            return genderMatch && ageInRange && heightInRange && weightInRange && interestsMatch
         }
         self.filteredUsers = filteredUsers
     }

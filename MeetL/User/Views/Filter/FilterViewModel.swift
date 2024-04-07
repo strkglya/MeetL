@@ -15,22 +15,34 @@ class FilterViewModel {
     
     weak var delegate: FilterDelegate?
     
-    private var filters = Filter() 
+    var filters = Filter() 
   
-    func applyFilters(buttonStates: Dictionary<String, Bool>,
+    func applyFilters(prefferedGender: Dictionary<String, Bool>,
+                      buttonStates: Dictionary<String, Bool>,
                       minAge: Int, maxAge: Int,
                       minHeight: Int, maxHeight: Int,
                       minWeight: Int, maxWeight: Int) {
+        resetFilters()
+        print("ДО\(filters)")
+
         let selectedInterests = buttonStates.filter {$0.value == true}
         let interests = selectedInterests.map{$0.key}
-        let filters = Filter(minAge: minAge,
+        
+        let selectedGenders = prefferedGender.filter {$0.value == true}
+        let gender = selectedGenders.map{$0.key}
+        
+        let filters = Filter(gender: gender, minAge: minAge,
                              maxAge: maxAge,
                              minHeight: minHeight,
                              maxHeight: maxHeight,
                              minWeight: minWeight,
                              maxWeight: maxWeight,
                              interests: interests)
-       // self.filters = filters
+        print("После\(filters)")
         delegate?.didFinishSelectingFilters(filters: filters)
+    }
+    
+    func resetFilters(){
+        self.filters = Filter()
     }
 }

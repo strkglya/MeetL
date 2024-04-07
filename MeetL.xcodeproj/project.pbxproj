@@ -39,6 +39,7 @@
 		7A76B8B82B9796D800E94618 /* Chats.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A76B8B72B9796D800E94618 /* Chats.storyboard */; };
 		7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BB2B97970800E94618 /* ChatsController.swift */; };
 		7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BD2B97978D00E94618 /* ChatCell.swift */; };
+		7AB3A3AE2BC1DCB6001285F4 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3A3AD2BC1DCB6001285F4 /* Filter.swift */; };
 		7AE18D182BAF45400049D36C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7AE18D172BAF45400049D36C /* IQKeyboardManagerSwift */; };
 		7AEBB5A42BAC9DB8006A333F /* FilterPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */; };
 		7AEBB5A62BAC9DDB006A333F /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A52BAC9DDB006A333F /* FilterController.swift */; };
@@ -79,6 +80,7 @@
 		7A76B8B72B9796D800E94618 /* Chats.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Chats.storyboard; sourceTree = "<group>"; };
 		7A76B8BB2B97970800E94618 /* ChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		7A76B8BD2B97978D00E94618 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
+		7AB3A3AD2BC1DCB6001285F4 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
 		7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterPage.storyboard; sourceTree = "<group>"; };
 		7AEBB5A52BAC9DDB006A333F /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
 		7AEBB5A72BACACFB006A333F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -263,6 +265,7 @@
 				7AEBB5A52BAC9DDB006A333F /* FilterController.swift */,
 				7A4DC54F2BB8A65D00110819 /* Slider.swift */,
 				7A12F59A2BBC746B00045BC8 /* FilterViewModel.swift */,
+				7AB3A3AD2BC1DCB6001285F4 /* Filter.swift */,
 			);
 			path = Filter;
 			sourceTree = "<group>";
@@ -376,6 +379,7 @@
 				7A0789D02B84C4D200EBE3D6 /* UserFromJson.swift in Sources */,
 				7A1290A02BADFD1F00F4BBF4 /* LikedPersonData+CoreDataClass.swift in Sources */,
 				7A0789E52B88F0E800EBE3D6 /* UserCardController.swift in Sources */,
+				7AB3A3AE2BC1DCB6001285F4 /* Filter.swift in Sources */,
 				7A12F59F2BBC74D500045BC8 /* PersonalPageViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
