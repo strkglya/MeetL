@@ -30,14 +30,14 @@ class ViewController: UIViewController {
                      cornerRadius: self.customCard.layer.cornerRadius).cgPath
         self.customCard.layer.shadowColor = UIColor.black.cgColor
         self.customCard.layer.shadowOpacity = 0.5
-        self.customCard.layer.shadowOffset = CGSize(width: 5, height: 5)
+        self.customCard.layer.shadowOffset = CGSize(width: 3, height: 3)
         self.customCard.layer.shadowRadius = 1
         self.customCard.layer.masksToBounds = false
     }
     
     private func setUpBorders(){
-        customCard.layer.cornerRadius = 80
-        customCard.layer.borderWidth = 8
+        customCard.layer.cornerRadius = 30
+        customCard.layer.borderWidth = 3
         let color = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
         customCard.layer.borderColor = color.cgColor
     }

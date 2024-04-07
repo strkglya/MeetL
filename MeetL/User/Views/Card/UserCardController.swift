@@ -17,7 +17,7 @@ class UserCardController: UIView {
         super.init(coder: aDecoder)
         initSubviews()
         personImage.layer.cornerRadius = personImage.frame.width/2
-        personImage.layer.borderWidth = 2
+        personImage.layer.borderWidth = 1
         personImage.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
     }
     
