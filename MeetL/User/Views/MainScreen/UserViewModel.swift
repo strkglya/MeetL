@@ -26,7 +26,8 @@ final class UserViewModel {
     
     var loadedUsers = [UserFromJson]() {
         didSet {
-           loadedUser = loadedUsers[currentIndex]
+            loadedUser = loadedUsers[safe: currentIndex]
+            filteredUsers = loadedUsers
         }
     }
     
@@ -39,9 +40,13 @@ final class UserViewModel {
     var currentIndex = 0 {
         didSet {
             print(currentIndex)
-            loadedUser = loadedUsers[currentIndex]
+            loadedUser = filteredUsers[safe: currentIndex]
         }
     }
+    
+//    var matches: Bool {
+//        return matchesFound(users: filteredUsers)
+//    }
     
     func loadAllFromJson(){
         loadService.loadAllUsers(completion: {[weak self] loadedUsers in
@@ -65,7 +70,6 @@ final class UserViewModel {
     
     var filteredUsers = [UserFromJson](){
         didSet {
-            self.loadedUsers = filteredUsers
             userDidChange?()
         }
     }
@@ -89,8 +93,6 @@ final class UserViewModel {
 
 extension UserViewModel: FilterDelegate {
     func didFinishSelectingFilters(filters: Filter) {
-       // self.filteredUsers = []
-
         let filteredUsers = loadedUsers.filter { user in
             
             var genderMatch = true
@@ -106,6 +108,17 @@ extension UserViewModel: FilterDelegate {
             }
             return genderMatch && ageInRange && heightInRange && weightInRange && interestsMatch
         }
+        print(filteredUsers)
         self.filteredUsers = filteredUsers
     }
+    
+//    func matchesFound(users: [UserFromJson]) -> Bool {
+//        return users.isEmpty ? false : true
+//    }
+}
+
+extension Array {
+  subscript(safe index: Index) -> Element? {
+    0 <= index && index < count ? self[index] : nil
+  }
 }

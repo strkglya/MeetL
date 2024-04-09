@@ -15,7 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         model = UserViewModel()
-//        model.loadFromJson()
+        
         model.loadAllFromJson()
         setUpBorders()
         setUpShadow()
@@ -57,8 +57,12 @@ class ViewController: UIViewController {
         
         model.userDidChange = { [weak self] in
             guard let self = self else {return}
+            guard let user = self.model.loadedUser else {
+                present(Constants.createAlert(alertTitle: "Error", alertMessage: "No matches found", actionTitle: "Ok", alertStyle: .default), animated: true)
+                return
+            }
             DispatchQueue.main.async {
-                self.customCard.configure(user: self.model.loadedUser!, image: self.model.loadedImage)
+                self.customCard.configure(user: user, image: self.model.loadedImage)
             }
         }
     }
@@ -66,15 +70,6 @@ class ViewController: UIViewController {
     private func setUpBarButtonImage(button: UIBarButtonItem, image: UIImage){
         let originalImage = image.withRenderingMode(.alwaysOriginal)
         button.image = originalImage
-    }
-    
-    private func showAlert(){
-        //через функцию
-        let alert = UIAlertController(title: "It's a match!", message: "It looks like this user liked you back!", preferredStyle: .alert)
-        
-        let action = UIAlertAction(title: "Ok", style: .default)
-        alert.addAction(action)
-        present(alert, animated: true)
     }
     
     @objc private func getDetails(){
@@ -89,7 +84,7 @@ class ViewController: UIViewController {
         model.currentIndex += 1
         guard let loadedUser = model.loadedUser else { return }
         if loadedUser.likedBack {
-            showAlert()
+            present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
             model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
         }
         uploadView()
@@ -97,7 +92,7 @@ class ViewController: UIViewController {
     
     @IBAction func dismiss(_ sender: Any) {
         model.currentIndex += 1
-        if model.currentIndex == model.loadedUsers.count - 1 {
+        if model.currentIndex == model.filteredUsers.count - 1 {
             present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
             model.currentIndex = 0
         }
@@ -123,7 +118,7 @@ class ViewController: UIViewController {
                 model.currentIndex += 1
                 guard let loadedUser = model.loadedUser else { return }
                 if loadedUser.likedBack {
-                    showAlert()
+                    present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
                     model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
                 }
                 uploadView()
@@ -131,7 +126,7 @@ class ViewController: UIViewController {
             else if point.x < 0{
                 model.currentIndex += 1
                 print(xFromCenter)
-                if model.currentIndex == model.loadedUsers.count - 1 {
+                if model.currentIndex == model.filteredUsers.count - 1 {
                     present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
                     model.currentIndex = 0
                 }
