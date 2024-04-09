@@ -21,7 +21,6 @@ final class UserViewModel {
                 self?.loadedImage = image
             }
             userDidChange?()
-            print(loadedUser)
         }
     }
     
@@ -39,6 +38,7 @@ final class UserViewModel {
     
     var currentIndex = 0 {
         didSet {
+            print(currentIndex)
             loadedUser = loadedUsers[currentIndex]
         }
     }

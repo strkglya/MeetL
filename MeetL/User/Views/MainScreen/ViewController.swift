@@ -69,9 +69,10 @@ class ViewController: UIViewController {
     }
     
     private func showAlert(){
+        //через функцию
         let alert = UIAlertController(title: "It's a match!", message: "It looks like this user liked you back!", preferredStyle: .alert)
         
-        let action = UIAlertAction(title: "ok", style: .default)
+        let action = UIAlertAction(title: "Ok", style: .default)
         alert.addAction(action)
         present(alert, animated: true)
     }
@@ -85,27 +86,22 @@ class ViewController: UIViewController {
     }
     
     @IBAction func like(_ sender: Any) {
+        model.currentIndex += 1
         guard let loadedUser = model.loadedUser else { return }
         if loadedUser.likedBack {
             showAlert()
             model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
         }
-        
         uploadView()
     }
     
     @IBAction func dismiss(_ sender: Any) {
         model.currentIndex += 1
-        print(model.currentIndex, model.loadedUsers.count)
         if model.currentIndex == model.loadedUsers.count - 1 {
             present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
             model.currentIndex = 0
         }
-
-        customCard.configure(user: model.loadedUser!, image: model.loadedImage)
-
         uploadView()
-        print("fy")
     }
     
     @IBAction func filterPage(_ sender: Any) {
@@ -114,5 +110,36 @@ class ViewController: UIViewController {
         secondVC.model.delegate = model
         present(secondVC, animated: true)
     }
+   
+    @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
+        guard let card = sender.view else { return }
+        let point = sender.translation(in: view)
+        card.center = CGPoint(x: view.center.x + point.x, y: view.center.y-65+point.y)
+        
+        let xFromCenter = card.center.x - view.center.x
+        
+        if sender.state == UIGestureRecognizer.State.ended {
+            if point.x > 0 {
+                model.currentIndex += 1
+                guard let loadedUser = model.loadedUser else { return }
+                if loadedUser.likedBack {
+                    showAlert()
+                    model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
+                }
+                uploadView()
+            }
+            else if point.x < 0{
+                model.currentIndex += 1
+                print(xFromCenter)
+                if model.currentIndex == model.loadedUsers.count - 1 {
+                    present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
+                    model.currentIndex = 0
+                }
+                uploadView()
+            }
+        }
+    }
+    
+    
 }
 

@@ -20,6 +20,10 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="23E-pD-Ser" customClass="UserCardController" customModule="MeetL" customModuleProvider="target">
                                 <rect key="frame" x="26.666666666666657" y="136" width="340" height="450"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="Q4k-zu-HTW" appends="YES" id="T97-HC-7u8"/>
+                                </connections>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aN9-cg-czt">
                                 <rect key="frame" x="229.66666666666663" y="611" width="85" height="110"/>
@@ -47,7 +51,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AYf-m7-pc1">
-                                <rect key="frame" x="97" y="614" width="85" height="110"/>
+                                <rect key="frame" x="97.666666666666686" y="614" width="85" height="110"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="85" id="MHh-H7-7Aj"/>
                                     <constraint firstAttribute="height" constant="110" id="Vl4-d4-hi0"/>
@@ -88,6 +92,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <panGestureRecognizer minimumNumberOfTouches="1" id="Q4k-zu-HTW">
+                    <connections>
+                        <action selector="panCard:" destination="BYZ-38-t0r" id="UB1-R1-HXn"/>
+                    </connections>
+                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1185.4961832061069" y="492.95774647887328"/>
         </scene>
