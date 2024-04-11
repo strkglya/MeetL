@@ -40,6 +40,7 @@
 		7A76B8BC2B97970800E94618 /* ChatsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BB2B97970800E94618 /* ChatsController.swift */; };
 		7A76B8BE2B97978D00E94618 /* ChatCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A76B8BD2B97978D00E94618 /* ChatCell.swift */; };
 		7AB3A3AE2BC1DCB6001285F4 /* Filter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AB3A3AD2BC1DCB6001285F4 /* Filter.swift */; };
+		7ABB33642BC7CCC300FCF75F /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 7ABB33632BC7CCC300FCF75F /* Localizable.xcstrings */; };
 		7AE18D182BAF45400049D36C /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 7AE18D172BAF45400049D36C /* IQKeyboardManagerSwift */; };
 		7AEBB5A42BAC9DB8006A333F /* FilterPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */; };
 		7AEBB5A62BAC9DDB006A333F /* FilterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AEBB5A52BAC9DDB006A333F /* FilterController.swift */; };
@@ -81,6 +82,7 @@
 		7A76B8BB2B97970800E94618 /* ChatsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatsController.swift; sourceTree = "<group>"; };
 		7A76B8BD2B97978D00E94618 /* ChatCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatCell.swift; sourceTree = "<group>"; };
 		7AB3A3AD2BC1DCB6001285F4 /* Filter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Filter.swift; sourceTree = "<group>"; };
+		7ABB33632BC7CCC300FCF75F /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		7AEBB5A32BAC9DB8006A333F /* FilterPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FilterPage.storyboard; sourceTree = "<group>"; };
 		7AEBB5A52BAC9DDB006A333F /* FilterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterController.swift; sourceTree = "<group>"; };
 		7AEBB5A72BACACFB006A333F /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				7ABB335C2BC684EE00FCF75F /* Support */,
 				7A0789D32B84E82C00EBE3D6 /* Services */,
 				7A0789BB2B83C61500EBE3D6 /* Info.plist */,
+				7ABB33632BC7CCC300FCF75F /* Localizable.xcstrings */,
 			);
 			path = MeetL;
 			sourceTree = "<group>";
@@ -300,6 +303,10 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
+				pl,
+				fr,
+				de,
 			);
 			mainGroup = 7A07899E2B83C61400EBE3D6;
 			packageReferences = (
@@ -328,6 +335,7 @@
 				7A07E7A22B8E56F400E9B277 /* UserDetails.storyboard in Resources */,
 				7A0789B22B83C61400EBE3D6 /* Main.storyboard in Resources */,
 				7AEBB5A42BAC9DB8006A333F /* FilterPage.storyboard in Resources */,
+				7ABB33642BC7CCC300FCF75F /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

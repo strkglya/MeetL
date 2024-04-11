@@ -24,8 +24,8 @@ final class Constants {
         }
     
     static func createAlert(alertTitle: String, alertMessage: String, actionTitle: String, alertStyle: UIAlertAction.Style) -> UIAlertController{
-        let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
-        let action = UIAlertAction(title: actionTitle, style: alertStyle)
+        let alert = UIAlertController(title: String(localized: String.LocalizationValue(alertTitle)), message: String(localized: String.LocalizationValue(alertMessage)), preferredStyle: .alert)
+        let action = UIAlertAction(title: String(localized: String.LocalizationValue(actionTitle)) , style: alertStyle)
         alert.addAction(action)
         return alert
     }
