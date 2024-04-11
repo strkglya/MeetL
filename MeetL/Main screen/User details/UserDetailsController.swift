@@ -9,16 +9,16 @@ import UIKit
 
 class UserDetailsController: UIViewController {
 
-    @IBOutlet weak var nameDetails: UILabel!
-    @IBOutlet weak var ageDetails: UILabel!
-    @IBOutlet weak var heightDetails: UILabel!
-    @IBOutlet weak var weightDetails: UILabel!
-    @IBOutlet weak var genderDetails: UILabel!
-    @IBOutlet weak var interests: UILabel!
-    @IBOutlet weak var aboutUser: UILabel!
-    @IBOutlet weak var countryDetails: UILabel!
-    @IBOutlet weak var cityDetails: UILabel!
-    @IBOutlet weak var imageDetails: UIImageView!
+    @IBOutlet weak private var nameDetails: UILabel!
+    @IBOutlet weak private var ageDetails: UILabel!
+    @IBOutlet weak private var heightDetails: UILabel!
+    @IBOutlet weak private var weightDetails: UILabel!
+    @IBOutlet weak private var genderDetails: UILabel!
+    @IBOutlet weak private var interests: UILabel!
+    @IBOutlet weak private var aboutUser: UILabel!
+    @IBOutlet weak private var countryDetails: UILabel!
+    @IBOutlet weak private var cityDetails: UILabel!
+    @IBOutlet weak private var imageDetails: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()

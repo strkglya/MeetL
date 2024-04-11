@@ -162,7 +162,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Reading"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Yy-LB-Cft"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7Yy-LB-Cft"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tBT-4C-uVV">
@@ -172,7 +172,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Traveling"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oBl-HN-G9N"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="oBl-HN-G9N"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BvE-1M-mqR">
@@ -181,7 +181,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cooking"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7iU-GK-gKT"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="7iU-GK-gKT"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WB2-62-AUa">
@@ -190,7 +190,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Golf"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jGr-ai-voi"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="jGr-ai-voi"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -204,7 +204,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Photography"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pZx-Sf-H2I"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="pZx-Sf-H2I"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P5x-2P-4iI">
@@ -213,7 +213,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Golf"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VAG-Pe-vLD"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="VAG-Pe-vLD"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MSo-24-C3p">
@@ -222,7 +222,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Dancing"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QDv-id-hmG"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="QDv-id-hmG"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -236,7 +236,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Painting"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l42-Ec-2I6"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="l42-Ec-2I6"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Byg-ul-Bxt">
@@ -245,7 +245,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Music"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JZG-ur-B5u"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="JZG-ur-B5u"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lI5-HI-1tP">
@@ -254,7 +254,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Yoga"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bpM-lw-vAn"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="bpM-lw-vAn"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZTI-YE-ISk">
@@ -263,7 +263,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Cycling"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qvZ-s6-xjp"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qvZ-s6-xjp"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -277,7 +277,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Hiking"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YDE-3x-ieC"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="YDE-3x-ieC"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAQ-CE-Bzq">
@@ -286,7 +286,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Gaming"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SSE-eL-mmp"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="SSE-eL-mmp"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lkP-rE-3Mc">
@@ -295,7 +295,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" title="Camping"/>
                                                 <connections>
-                                                    <action selector="interestSelectes:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WH1-3f-nm7"/>
+                                                    <action selector="interestSelected:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="WH1-3f-nm7"/>
                                                 </connections>
                                             </button>
                                         </subviews>

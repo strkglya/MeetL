@@ -2,20 +2,19 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var customCard: UserCardController!
-    @IBOutlet weak var dismissButton: UIButton!
-    @IBOutlet weak var likeButton: UIButton!
+    @IBOutlet weak private var customCard: UserCardController!
+    @IBOutlet weak private var dismissButton: UIButton!
+    @IBOutlet weak private var likeButton: UIButton!
     
-    @IBOutlet weak var chatButton: UIBarButtonItem!
-    @IBOutlet weak var heartButton: UIBarButtonItem!
-    @IBOutlet weak var personalPageButton: UIBarButtonItem!
+    @IBOutlet weak private var chatButton: UIBarButtonItem!
+    @IBOutlet weak private var heartButton: UIBarButtonItem!
+    @IBOutlet weak private var personalPageButton: UIBarButtonItem!
     
     var model: UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         model = UserViewModel()
-        
         model.loadAllFromJson()
         setUpBorders()
         setUpShadow()
@@ -47,11 +46,13 @@ class ViewController: UIViewController {
         customCard.addGestureRecognizer(tap)
     }
     
-    func uploadView() {
+    private func uploadView() {
         model.imageDidLoad = { [weak self] in
             DispatchQueue.main.async {
                 guard let self = self else {return}
+                self.customCard.loadingIndicator.stopAnimating()
                 self.customCard.updateImage(image: self.model.loadedImage)
+                self.customCard.loadingView.isHidden = true
             }
         }
         
@@ -72,6 +73,18 @@ class ViewController: UIViewController {
         button.image = originalImage
     }
     
+    private func like(){
+        model.like {
+            present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
+        }
+        uploadView()
+    }
+    
+    private func dislike(){
+        model.currentIndex += 1
+        uploadView()
+    }
+    
     @objc private func getDetails(){
         let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
         let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
@@ -81,22 +94,11 @@ class ViewController: UIViewController {
     }
     
     @IBAction func like(_ sender: Any) {
-        model.currentIndex += 1
-        guard let loadedUser = model.loadedUser else { return }
-        if loadedUser.likedBack {
-            present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
-            model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
-        }
-        uploadView()
+        like()
     }
     
     @IBAction func dismiss(_ sender: Any) {
-        model.currentIndex += 1
-        if model.currentIndex == model.filteredUsers.count - 1 {
-            present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
-            model.currentIndex = 0
-        }
-        uploadView()
+        dislike()
     }
     
     @IBAction func filterPage(_ sender: Any) {
@@ -105,36 +107,44 @@ class ViewController: UIViewController {
         secondVC.model.delegate = model
         present(secondVC, animated: true)
     }
-   
+}
+
+extension ViewController {
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         guard let card = sender.view else { return }
         let point = sender.translation(in: view)
+        let factor = point.x/view.center.x
+        let desiredAngle = 0.61 * factor
+        let scale = min(abs(100/abs(point.x)), 1)
+        
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y-65+point.y)
-        
-        let xFromCenter = card.center.x - view.center.x
-        
+        card.transform = CGAffineTransform(rotationAngle: desiredAngle).scaledBy(x: scale, y: scale)
         if sender.state == UIGestureRecognizer.State.ended {
-            if point.x > 0 {
-                model.currentIndex += 1
-                guard let loadedUser = model.loadedUser else { return }
-                if loadedUser.likedBack {
-                    present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
-                    model.saveToCoreData(likedPerson: loadedUser, with: model.loadedImage)
+            
+            if card.center.x < 75 {
+                UIView.animate(withDuration: 0.3) {
+                    card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
                 }
-                uploadView()
-            }
-            else if point.x < 0{
-                model.currentIndex += 1
-                print(xFromCenter)
-                if model.currentIndex == model.filteredUsers.count - 1 {
-                    present(Constants.createAlert(alertTitle: "Oops", alertMessage: "It looks like you ran out of profiles", actionTitle: "Ok :(", alertStyle: .default), animated: true)
-                    model.currentIndex = 0
+                dislike()
+                resetCard()
+                return
+            } else if card.center.x > (view.frame.width - 75) {
+                UIView.animate(withDuration: 0.3) {
+                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
                 }
-                uploadView()
+                like()
+                resetCard()
+                return
+            } else {
+                resetCard()
             }
         }
     }
     
-    
+    private func resetCard(){
+        UIView.animate(withDuration: 0.2) {
+            self.customCard.center = CGPoint(x: self.view.center.x, y: self.view.center.y-65)
+            self.customCard.transform = CGAffineTransform.identity
+        }
+    }
 }
-

@@ -9,13 +9,16 @@ import UIKit
 
 class UserCardController: UIView {
     
-    @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var ageLabel: UILabel!
-    @IBOutlet weak var personImage: UIImageView!
+    @IBOutlet weak private var nameLabel: UILabel!
+    @IBOutlet weak private var ageLabel: UILabel!
+    @IBOutlet weak private var personImage: UIImageView!
+    @IBOutlet weak var loadingView: UIView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         initSubviews()
+        loadingIndicator.startAnimating()
         personImage.layer.cornerRadius = personImage.frame.width/2
         personImage.layer.borderWidth = 1
         personImage.layer.borderColor = #colorLiteral(red: 0.8470588235, green: 0.0431372549, blue: 0.3803921569, alpha: 1)
@@ -24,6 +27,7 @@ class UserCardController: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         initSubviews()
+        loadingIndicator.startAnimating()
     }
     
     private func initSubviews() {

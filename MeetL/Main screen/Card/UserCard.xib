@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22504"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -10,6 +10,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="UserCardController" customModule="MeetL" customModuleProvider="target">
             <connections>
                 <outlet property="ageLabel" destination="Rlw-qL-OTb" id="By7-Fo-FDx"/>
+                <outlet property="loadingIndicator" destination="tpN-rU-g4e" id="n5j-6r-yMu"/>
+                <outlet property="loadingView" destination="yQy-qj-Lbc" id="hDl-JZ-zlf"/>
                 <outlet property="nameLabel" destination="w4U-LL-7dk" id="W7W-IP-kqA"/>
                 <outlet property="personImage" destination="hq4-Sp-oew" id="Nra-aP-e69"/>
             </connections>
@@ -42,6 +44,20 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yQy-qj-Lbc">
+                    <rect key="frame" x="16" y="20" width="308" height="414"/>
+                    <subviews>
+                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="tpN-rU-g4e">
+                            <rect key="frame" x="135.66666666666666" y="188.66666666666666" width="37" height="37"/>
+                            <color key="color" red="0.77647060160000003" green="0.1764705926" blue="0.3803921938" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </activityIndicatorView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="tpN-rU-g4e" firstAttribute="centerX" secondItem="yQy-qj-Lbc" secondAttribute="centerX" id="9am-OZ-9ng"/>
+                        <constraint firstItem="tpN-rU-g4e" firstAttribute="centerY" secondItem="yQy-qj-Lbc" secondAttribute="centerY" id="Ngt-ra-Td1"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <constraints>
@@ -51,6 +67,10 @@
                 <constraint firstItem="hq4-Sp-oew" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-35" id="Prl-eO-obo"/>
                 <constraint firstItem="Rlw-qL-OTb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="40" id="U9c-0e-kWs"/>
                 <constraint firstAttribute="bottom" secondItem="Rlw-qL-OTb" secondAttribute="bottom" constant="34" id="W20-ud-gDq"/>
+                <constraint firstAttribute="bottom" secondItem="yQy-qj-Lbc" secondAttribute="bottom" constant="16" id="gEb-Yk-3fV"/>
+                <constraint firstItem="yQy-qj-Lbc" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="20" symbolic="YES" id="njI-4R-dM1"/>
+                <constraint firstItem="yQy-qj-Lbc" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="16" id="thh-RA-RPh"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="yQy-qj-Lbc" secondAttribute="trailing" constant="16" id="vno-o5-Wcn"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="64.122137404580144" y="29.577464788732396"/>

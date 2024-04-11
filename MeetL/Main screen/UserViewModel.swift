@@ -31,6 +31,13 @@ final class UserViewModel {
         }
     }
     
+    var filteredUsers = [UserFromJson](){
+        didSet {
+            currentIndex = 0
+            userDidChange?()
+        }
+    }
+    
     var loadedImage = UIImage() {
         didSet {
             imageDidLoad?()
@@ -44,14 +51,19 @@ final class UserViewModel {
         }
     }
     
-//    var matches: Bool {
-//        return matchesFound(users: filteredUsers)
-//    }
-    
     func loadAllFromJson(){
         loadService.loadAllUsers(completion: {[weak self] loadedUsers in
             self?.loadedUsers = loadedUsers
         })
+    }
+    
+    func like(alertClosure: () ->()){
+        currentIndex += 1
+        guard let loadedUser = loadedUser else { return }
+        if loadedUser.likedBack {
+            alertClosure()
+            saveToCoreData(likedPerson: loadedUser, with: loadedImage)
+        }
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
@@ -66,12 +78,6 @@ final class UserViewModel {
             }
             completion(image)
         }.resume()
-    }
-    
-    var filteredUsers = [UserFromJson](){
-        didSet {
-            userDidChange?()
-        }
     }
     
     func saveToCoreData(likedPerson: UserFromJson, with image: UIImage){
@@ -111,10 +117,6 @@ extension UserViewModel: FilterDelegate {
         print(filteredUsers)
         self.filteredUsers = filteredUsers
     }
-    
-//    func matchesFound(users: [UserFromJson]) -> Bool {
-//        return users.isEmpty ? false : true
-//    }
 }
 
 extension Array {
