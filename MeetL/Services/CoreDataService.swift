@@ -8,10 +8,6 @@
 import Foundation
 import CoreData
 
-enum CoreDataEntities {
-    case usersToMatch
-    case personalAccount
-}
 
 protocol AccountChanged {
     func saveAccountChanges(updatedInfo: UserModel)
@@ -22,11 +18,7 @@ protocol PersonSaved {
     func savePerson(personToSave: UserModel)
 }
 
-protocol PersonDeleted {
-    func deletePerson(person: UserModel)
-}
-
-protocol ChatOperation: PersonDeleted {
+protocol ChatOperation {
     func deletePerson(person: UserModel)
     func loadUsers() -> [UserModel]
 }
