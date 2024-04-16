@@ -98,7 +98,8 @@ final class ViewController: UIViewController {
     
     @objc private func getDetails(){
         let storyboard = UIStoryboard(name: StoryboardName.userDetails.rawValue, bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.userDetails.rawValue) as! UserDetailsController
+        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.userDetails.rawValue) as? UserDetailsController
+        guard let secondVC = secondVC else {return}
         present(secondVC, animated: true)
         guard let loadedUser = model.loadedUser else { return }
         secondVC.configure(model: loadedUser, image: model.loadedImage)
@@ -114,7 +115,8 @@ final class ViewController: UIViewController {
     
     @IBAction private func filterPage() {
         let storyboard = UIStoryboard(name: StoryboardName.filterPage.rawValue, bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.filterPage.rawValue) as! FilterController
+        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.filterPage.rawValue) as? FilterController
+        guard let secondVC = secondVC else {return}
         secondVC.model.delegate = model
         present(secondVC, animated: true)
     }
