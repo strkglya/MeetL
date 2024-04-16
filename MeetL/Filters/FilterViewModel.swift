@@ -15,7 +15,7 @@ final class FilterViewModel {
     
     weak var delegate: FilterDelegate?
     
-    var filters = Filter() 
+    private var filters = Filter() 
   
     func applyFilters(prefferedGender: Dictionary<String, Bool>,
                       buttonStates: Dictionary<String, Bool>,

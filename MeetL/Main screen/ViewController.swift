@@ -161,7 +161,8 @@ extension ViewController {
     }
     
     private func resetCard(){
-        UIView.animate(withDuration: 0.2) {
+        UIView.animate(withDuration: 0.2) { [weak self] in
+            guard let self = self else {return}
             self.customCard.center = CGPoint(x: self.view.center.x, y: self.view.center.y-65)
             self.customCard.transform = CGAffineTransform.identity
         }

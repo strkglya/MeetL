@@ -100,7 +100,8 @@ extension PersonalPageController: PHPickerViewControllerDelegate{
             if itemprovider.canLoadObject(ofClass: UIImage.self){
                 itemprovider.loadObject(ofClass: UIImage.self) { image , error  in
                     if let selectedImage = image as? UIImage{
-                        DispatchQueue.main.async {
+                        DispatchQueue.main.async { [weak self] in
+                            guard let self = self else {return}
                             self.personalImage.image = selectedImage
                         }
                     }
