@@ -43,18 +43,4 @@ struct UserModel {
         self.about = about
         self.image = image
     }
-    
-    init(image: Data) {
-        self.id = 0
-        self.name = "Enter name"
-        self.age = 0
-        self.height = 0
-        self.weight = 0
-        self.interests = ["Enter your interests"]
-        self.gender = "Male"
-        self.city = "Minsk"
-        self.country = "USA"
-        self.about = "Who"
-        self.image = image
-    }
 }

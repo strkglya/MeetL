@@ -8,7 +8,7 @@
 import UIKit
 import MultiSlider
 
-class Slider: MultiSlider {
+final class Slider: MultiSlider {
 
     
 }

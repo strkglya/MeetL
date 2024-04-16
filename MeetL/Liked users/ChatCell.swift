@@ -7,12 +7,12 @@
 
 import UIKit
 
-class ChatCell: UITableViewCell {
+final class ChatCell: UITableViewCell {
 
-    @IBOutlet weak var likedImage: UIImageView!
-    @IBOutlet weak var likedName: UILabel!
-    @IBOutlet weak var likedAge: UILabel!
-    @IBOutlet weak var likedAddress: UILabel!
+    @IBOutlet weak private var likedImage: UIImageView!
+    @IBOutlet weak private var likedName: UILabel!
+    @IBOutlet weak private var likedAge: UILabel!
+    @IBOutlet weak private var likedAddress: UILabel!
 
     override func awakeFromNib() {
         super.awakeFromNib()

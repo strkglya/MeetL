@@ -86,9 +86,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="heightSliderMoved:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HCz-5R-dOG"/>
-                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Weight" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggK-P3-FMw">
                                 <rect key="frame" x="53.999999999999993" y="391.33333333333331" width="66.333333333333314" height="23"/>
@@ -137,9 +134,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="weightSliderMoved:" destination="Y6W-OH-hqX" eventType="valueChanged" id="dL9-Ub-x6r"/>
-                                </connections>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Preffered interests" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4iF-fr-UQe">
                                 <rect key="frame" x="54.000000000000014" y="483.33333333333331" width="177.33333333333337" height="23"/>
@@ -309,7 +303,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Save"/>
                                 <connections>
-                                    <action selector="save:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="qaK-ug-clE"/>
+                                    <action selector="save" destination="Y6W-OH-hqX" eventType="touchUpInside" id="lJi-ct-qmf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="exe-Nq-44e">
@@ -318,7 +312,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Cancel"/>
                                 <connections>
-                                    <action selector="cancel:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="IXf-LI-VCJ"/>
+                                    <action selector="cancel" destination="Y6W-OH-hqX" eventType="touchUpInside" id="v3a-s3-ClL"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="D54-hn-aud">
@@ -384,9 +378,6 @@
                                     </userDefinedRuntimeAttribute>
                                     <userDefinedRuntimeAttribute type="boolean" keyPath="" value="YES"/>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="ageSliderMoved:" destination="Y6W-OH-hqX" eventType="valueChanged" id="HM2-zs-2U8"/>
-                                </connections>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>

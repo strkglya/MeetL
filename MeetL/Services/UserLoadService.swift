@@ -7,7 +7,12 @@
 
 import UIKit
 
-final class UserLoadService {
+protocol LoadingService {
+    func loadUser(completion: @escaping (UserFromJson) -> ())
+    func loadAllUsers(completion: @escaping ([UserFromJson]) -> Void)
+}
+
+final class UserLoadService: LoadingService {
     
     private let userDefaultsKey = "currentIndex"
     private var index: Int {

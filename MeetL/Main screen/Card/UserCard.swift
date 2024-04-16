@@ -7,13 +7,13 @@
 
 import UIKit
 
-class UserCardController: UIView {
+final class UserCard: UIView {
     
     @IBOutlet weak private var nameLabel: UILabel!
     @IBOutlet weak private var ageLabel: UILabel!
     @IBOutlet weak private var personImage: UIImageView!
-    @IBOutlet weak var loadingView: UIView!
-    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+    @IBOutlet weak private var loadingView: UIView!
+    @IBOutlet weak private var loadingIndicator: UIActivityIndicatorView!
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -31,10 +31,9 @@ class UserCardController: UIView {
     }
     
     private func initSubviews() {
-        let nib = UINib(nibName: "UserCard", bundle: nil)
-        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {fatalError("Unable to convert nib")}
+        let nib = UINib(nibName: NibNames.userCard.rawValue, bundle: nil)
+        guard let view = nib.instantiate(withOwner: self, options: nil).first as? UIView else {fatalError(Errors.nibError.rawValue)}
         view.frame = bounds
-        view.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         
         addSubview(view)
     }
@@ -42,17 +41,14 @@ class UserCardController: UIView {
     func configure(user: UserFromJson, image: UIImage?){
         nameLabel.text = user.name
         ageLabel.text = String(user.age)
-       
     }
     
     func updateImage(image: UIImage){
         personImage.image = image
     }
     
-    func configureFromArray(users: [UserFromJson], image: UIImage) {
-        for user in users {
-            nameLabel.text = user.name
-            ageLabel.text = String(user.age)
-        }
+    func stopLoadingIndicator(){
+        loadingIndicator.stopAnimating()
+        loadingView.isHidden = true
     }
 }

@@ -8,19 +8,19 @@
 import UIKit
 import MultiSlider
 
-class FilterController: UIViewController {
+final class FilterController: UIViewController {
     
-    @IBOutlet weak var ageSlider: Slider!
-    @IBOutlet weak var heightSlider: Slider!
-    @IBOutlet weak var weightSlider: Slider!
+    @IBOutlet weak private var ageSlider: Slider!
+    @IBOutlet weak private var heightSlider: Slider!
+    @IBOutlet weak private var weightSlider: Slider!
     
-    @IBOutlet weak var maleButton: UIButton!
-    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak private var maleButton: UIButton!
+    @IBOutlet weak private var femaleButton: UIButton!
     
-    @IBOutlet var buttons: [UIButton]!
+    @IBOutlet private var buttons: [UIButton]!
     
-    var buttonStates = [String : Bool]()
-    var selectedGender = [String : Bool]()
+    private var buttonStates = [String : Bool]()
+    private var selectedGender = [String : Bool]()
     
     var model = FilterViewModel()
     
@@ -34,8 +34,8 @@ class FilterController: UIViewController {
             }
         }
         
-        selectedGender["Male"] = false
-        selectedGender["Female"] = false
+        selectedGender[Genders.male.rawValue] = false
+        selectedGender[Genders.female.rawValue] = false
     }
     
     private func setUpSliders(){
@@ -64,20 +64,8 @@ class FilterController: UIViewController {
         }
     }
     
-    @IBAction func ageSliderMoved(_ sender: Slider) {
-        print(sender.value)
-    }
-    
-    @IBAction func heightSliderMoved(_ sender: Slider) {
-        print(sender.value)
-    }
-    
-    @IBAction func weightSliderMoved(_ sender: Slider) {
-        print(sender.value)
-    }
-    
     @IBAction func genderSelected(_ sender: UIButton) {
-        //вьюмодель
+
         guard let title = sender.titleLabel?.text else { return }
         selectedGender[title]?.toggle()
         
@@ -90,7 +78,7 @@ class FilterController: UIViewController {
         }
     }
     
-    @IBAction func save(_ sender: Any) {
+    @IBAction func save() {
         dismiss(animated: true) { [unowned self] in
             model.applyFilters(prefferedGender: selectedGender, buttonStates: buttonStates,
                                minAge: Int(ageSlider.value[0]), maxAge: Int(ageSlider.value[1]),
@@ -99,7 +87,7 @@ class FilterController: UIViewController {
         }
     }
     
-    @IBAction func cancel(_ sender: Any) {
+    @IBAction func cancel() {
         dismiss(animated: true)
     }
 }

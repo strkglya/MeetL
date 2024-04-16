@@ -7,14 +7,16 @@
 
 import UIKit
 
-class ChatsController: UIViewController {
-    @IBOutlet weak var deleteButton: UIBarButtonItem!
-    @IBOutlet weak var tableView: UITableView!
+final class ChatsController: UIViewController {
+    @IBOutlet weak private var deleteButton: UIBarButtonItem!
+    @IBOutlet weak private var tableView: UITableView!
     
-    let model = ChatsViewModel()
-    
+    private let model = ChatsViewModel(chatOperator: CoreDataService.shared)
+   
     override func viewDidLoad() {
         super.viewDidLoad()
+        let searchBarButtonItem = UIBarButtonItem(image: UIImage(named: ImageNames.searchIcon.rawValue), style: .plain, target: self, action: #selector(toggleEditing))
+                self.navigationItem.rightBarButtonItem  = searchBarButtonItem
         bind()
     }
     
@@ -23,14 +25,14 @@ class ChatsController: UIViewController {
         model.loadLikedUsers()
     }
     
-    func bind(){
+    private func bind(){
         model.userDidChange = { [weak self] in
             guard let self = self else {return}
             tableView.reloadData()
         }
     }
     
-    @IBAction func toggleEditing(_ sender: Any) {
+    @IBAction func toggleEditing() {
         model.isEditingEnabled.toggle()
         tableView.setEditing(model.isEditingEnabled, animated: true)
     }
@@ -59,7 +61,7 @@ extension ChatsController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "chatCell") as? ChatCell else { return UITableViewCell()}
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: NibNames.chatCell.rawValue) as? ChatCell else { return UITableViewCell()}
         let user = model.likedUsers[indexPath.row]
         cell.configure(model: user)
         return cell

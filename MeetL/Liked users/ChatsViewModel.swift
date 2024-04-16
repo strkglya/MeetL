@@ -8,7 +8,13 @@
 import Foundation
 import UIKit
 
-class ChatsViewModel {
+final class ChatsViewModel {
+    
+    private let chatOperator: ChatOperation
+    
+    init(chatOperator: ChatOperation) {
+        self.chatOperator = chatOperator
+    }
     
     var isEditingEnabled = false
 
@@ -19,14 +25,14 @@ class ChatsViewModel {
             userDidChange?()
         }
     }
-    var likedPhoto = UIImage()
+    private var likedPhoto = UIImage()
     
     func loadLikedUsers(){
         likedUsers = loadFromCoreData()
     }
     
     func deleteFromCoreData(person: UserModel){
-        CoreDataService.shared.deletePerson(person: person)
+        chatOperator.deletePerson(person: person)
     }
     
     func delete(indexPath: Int){
@@ -35,6 +41,6 @@ class ChatsViewModel {
     }
     
     func loadFromCoreData() -> [UserModel]{
-        return CoreDataService.shared.loadUsers()
+        return chatOperator.loadUsers()
     }
 }

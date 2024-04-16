@@ -8,26 +8,32 @@
 import Foundation
 import UIKit
 
-class PersonalPageViewModel {
+final class PersonalPageViewModel {
     
-    var state = false
+    private let database: AccountChanged
+    
+    init(database: AccountChanged){
+        self.database = database
+    }
+    
+    private var state = false
     
     private func saveAccountChangesToCoreData(user: UserModel){
-        CoreDataService.shared.saveAccountChanges(updatedInfo: UserModel(id: user.id,
-                                                                         name: user.name,
-                                                                         age: user.age,
-                                                                         height: user.height,
-                                                                         weight: user.weight,
-                                                                         interests: user.interests,
-                                                                         gender: user.gender,
-                                                                         city: user.city,
-                                                                         country: user.country,
-                                                                         about: user.about,
-                                                                         image: user.image))
+        database.saveAccountChanges(updatedInfo: UserModel(id: user.id,
+                                                           name: user.name,
+                                                           age: user.age,
+                                                           height: user.height,
+                                                           weight: user.weight,
+                                                           interests: user.interests,
+                                                           gender: user.gender,
+                                                           city: user.city,
+                                                           country: user.country,
+                                                           about: user.about,
+                                                           image: user.image))
     }
     
     func loadAccountChangesFromCoreData() -> UserModel?{
-        CoreDataService.shared.loadAccountChanges()
+        database.loadAccountChanges()
     }
     
     private func saveToCoreData(user: UserModel) {
@@ -84,7 +90,7 @@ class PersonalPageViewModel {
     }
     
     func changeButtonImage(button: UIButton){
-        let image = state ? UIImage(systemName: "pencil") : UIImage(systemName: "checkmark")
+        let image = state ? UIImage(systemName: ImageNames.pencil.rawValue) : UIImage(systemName: ImageNames.checkmark.rawValue)
         button.setImage(image, for: .normal)
     }
     

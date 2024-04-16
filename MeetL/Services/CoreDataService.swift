@@ -13,10 +13,26 @@ enum CoreDataEntities {
     case personalAccount
 }
 
-class CoreDataService {
-    
-    let model = UserViewModel()
-    
+protocol AccountChanged {
+    func saveAccountChanges(updatedInfo: UserModel)
+    func loadAccountChanges() -> UserModel?
+}
+
+protocol PersonSaved {
+    func savePerson(personToSave: UserModel)
+}
+
+protocol PersonDeleted {
+    func deletePerson(person: UserModel)
+}
+
+protocol ChatOperation: PersonDeleted {
+    func deletePerson(person: UserModel)
+    func loadUsers() -> [UserModel]
+}
+
+final class CoreDataService: AccountChanged, PersonSaved, ChatOperation {
+        
     static let shared = CoreDataService()
     
     private init() {}

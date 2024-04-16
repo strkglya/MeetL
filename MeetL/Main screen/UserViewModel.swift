@@ -9,7 +9,16 @@ import UIKit
 
 final class UserViewModel {
     
-    private let loadService = UserLoadService()
+    private let loadService: LoadingService
+    private let imageTransformer: ImageTransformer
+    
+    private let saver: PersonSaved
+    
+    init(loadService: LoadingService, imageTransformer: ImageTransformer, saver: PersonSaved) {
+        self.loadService = loadService
+        self.imageTransformer = imageTransformer
+        self.saver = saver
+    }
     
     var userDidChange: (() -> Void)?
     var imageDidLoad: (() -> Void)?
@@ -46,7 +55,6 @@ final class UserViewModel {
     
     var currentIndex = 0 {
         didSet {
-            print(currentIndex)
             loadedUser = filteredUsers[safe: currentIndex]
         }
     }
@@ -58,31 +66,26 @@ final class UserViewModel {
     }
     
     func like(alertClosure: () ->()){
-        currentIndex += 1
         guard let loadedUser = loadedUser else { return }
         if loadedUser.likedBack {
             alertClosure()
             saveToCoreData(likedPerson: loadedUser, with: loadedImage)
         }
+        currentIndex += 1
     }
     
     func imageFromUrl(completion: @escaping (UIImage?) -> Void){
-        guard let imageURLString = loadedUser?.image else {return}
-        guard let imageURL = URL(string: imageURLString) else { return }
-        
-        URLSession.shared.dataTask(with: imageURL) { (data, response, error) in
-            guard error == nil, let data = data, let image = UIImage(data: data) else {
-                print("Error loading image: \(error?.localizedDescription ?? "Unknown error")")
-                completion(nil)
-                return
-            }
-            completion(image)
-        }.resume()
+        guard let urlString = loadedUser?.image else {return}
+        imageTransformer.imageFromUrl(urlString: urlString) { [weak self] image in
+            guard let image = image else {return}
+            self?.loadedImage = image
+        }
     }
-    
+        
     func saveToCoreData(likedPerson: UserFromJson, with image: UIImage){
         if let imageData = image.pngData() {
-            CoreDataService.shared.savePerson(personToSave: UserModel(id: likedPerson.id,
+
+            saver.savePerson(personToSave: UserModel(id: likedPerson.id,
                                                                       name: likedPerson.name,
                                                                       age: likedPerson.age,
                                                                       height: likedPerson.height,
@@ -114,7 +117,6 @@ extension UserViewModel: FilterDelegate {
             }
             return genderMatch && ageInRange && heightInRange && weightInRange && interestsMatch
         }
-        print(filteredUsers)
         self.filteredUsers = filteredUsers
     }
 }

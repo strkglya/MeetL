@@ -11,7 +11,7 @@ protocol FilterDelegate: AnyObject {
     func didFinishSelectingFilters(filters: Filter)
 }
 
-class FilterViewModel {
+final class FilterViewModel {
     
     weak var delegate: FilterDelegate?
     
@@ -23,7 +23,6 @@ class FilterViewModel {
                       minHeight: Int, maxHeight: Int,
                       minWeight: Int, maxWeight: Int) {
         resetFilters()
-        print("ДО\(filters)")
 
         let selectedInterests = buttonStates.filter {$0.value == true}
         let interests = selectedInterests.map{$0.key}
@@ -38,7 +37,6 @@ class FilterViewModel {
                              minWeight: minWeight,
                              maxWeight: maxWeight,
                              interests: interests)
-        print("После\(filters)")
         delegate?.didFinishSelectingFilters(filters: filters)
     }
     

@@ -1,8 +1,8 @@
 import UIKit
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
     
-    @IBOutlet weak private var customCard: UserCardController!
+    @IBOutlet weak private var customCard: UserCard!
     @IBOutlet weak private var dismissButton: UIButton!
     @IBOutlet weak private var likeButton: UIButton!
     
@@ -10,28 +10,40 @@ class ViewController: UIViewController {
     @IBOutlet weak private var heartButton: UIBarButtonItem!
     @IBOutlet weak private var personalPageButton: UIBarButtonItem!
     
-    var model: UserViewModel!
+    private var model: UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        model = UserViewModel()
+        bind()
         model.loadAllFromJson()
         setUpBorders()
         setUpShadow()
         setUpTaps()
         uploadView()
-        tabBarItem.image = UIImage(named: "heart")
     }
     
     private func setUpShadow(){
-        self.customCard.layer.shadowPath =
-        UIBezierPath(roundedRect: self.customCard.bounds,
-                     cornerRadius: self.customCard.layer.cornerRadius).cgPath
-        self.customCard.layer.shadowColor = UIColor.black.cgColor
-        self.customCard.layer.shadowOpacity = 0.5
-        self.customCard.layer.shadowOffset = CGSize(width: 3, height: 3)
-        self.customCard.layer.shadowRadius = 1
-        self.customCard.layer.masksToBounds = false
+        customCard.layer.shadowColor = UIColor.black.cgColor
+        customCard.layer.shadowOpacity = 0.5
+        customCard.layer.shadowOffset = CGSize(width: 3, height: 3)
+        customCard.layer.shadowRadius = 1
+        customCard.layer.masksToBounds = false
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        updateShadowPath()
+    }
+
+    private func updateShadowPath() {
+        customCard.layer.shadowPath = UIBezierPath(roundedRect: customCard.bounds,
+                                                    cornerRadius: customCard.layer.cornerRadius).cgPath
+    }
+    
+    private func bind(){
+        let loadingService = UserLoadService()
+        let imageTransformer = ImageTransformService()
+        model = UserViewModel(loadService: loadingService, imageTransformer: imageTransformer, saver: CoreDataService.shared)
     }
     
     private func setUpBorders(){
@@ -50,16 +62,15 @@ class ViewController: UIViewController {
         model.imageDidLoad = { [weak self] in
             DispatchQueue.main.async {
                 guard let self = self else {return}
-                self.customCard.loadingIndicator.stopAnimating()
                 self.customCard.updateImage(image: self.model.loadedImage)
-                self.customCard.loadingView.isHidden = true
+                self.customCard.stopLoadingIndicator()
             }
         }
         
         model.userDidChange = { [weak self] in
             guard let self = self else {return}
             guard let user = self.model.loadedUser else {
-                present(Constants.createAlert(alertTitle: "Error", alertMessage: "No matches found", actionTitle: "Ok", alertStyle: .default), animated: true)
+                present(Constants.createAlert(alertTitle: Errors.simpleError.rawValue, alertMessage: AlertAttributes.noMatches.rawValue, actionTitle: AlertAttributes.ok.rawValue, alertStyle: .default), animated: true)
                 return
             }
             DispatchQueue.main.async {
@@ -75,7 +86,7 @@ class ViewController: UIViewController {
     
     private func like(){
         model.like {
-            present(Constants.createAlert(alertTitle: "It's a match!", alertMessage: "It looks like this user liked you back!", actionTitle: "Ok", alertStyle: .default), animated: true)
+            present(Constants.createAlert(alertTitle: AlertAttributes.match.rawValue, alertMessage: AlertAttributes.matchMessage.rawValue, actionTitle: AlertAttributes.ok.rawValue, alertStyle: .default), animated: true)
         }
         uploadView()
     }
@@ -86,24 +97,24 @@ class ViewController: UIViewController {
     }
     
     @objc private func getDetails(){
-        let storyboard = UIStoryboard(name: "UserDetails", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "UserDetails") as! UserDetailsController
+        let storyboard = UIStoryboard(name: StoryboardName.userDetails.rawValue, bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.userDetails.rawValue) as! UserDetailsController
         present(secondVC, animated: true)
         guard let loadedUser = model.loadedUser else { return }
         secondVC.configure(model: loadedUser, image: model.loadedImage)
     }
     
-    @IBAction func like(_ sender: Any) {
+    @IBAction private func likeAction() {
         like()
     }
     
-    @IBAction func dismiss(_ sender: Any) {
+    @IBAction private func dislikeAction() {
         dislike()
     }
     
-    @IBAction func filterPage(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "FilterPage", bundle: nil)
-        let secondVC = storyboard.instantiateViewController(identifier: "FilterController") as! FilterController
+    @IBAction private func filterPage() {
+        let storyboard = UIStoryboard(name: StoryboardName.filterPage.rawValue, bundle: nil)
+        let secondVC = storyboard.instantiateViewController(identifier: StoryboardIdentifier.filterPage.rawValue) as! FilterController
         secondVC.model.delegate = model
         present(secondVC, animated: true)
     }
@@ -113,31 +124,39 @@ extension ViewController {
     @IBAction func panCard(_ sender: UIPanGestureRecognizer) {
         guard let card = sender.view else { return }
         let point = sender.translation(in: view)
+
+        rotate(card: card, point: point)
+       
+        if sender.state == UIGestureRecognizer.State.ended {
+            swipeDetected(for: card)
+        }
+    }
+    
+    private func rotate(card: UIView, point: CGPoint){
+        let scale = min(abs(100/abs(point.x)), 1)
         let factor = point.x/view.center.x
         let desiredAngle = 0.61 * factor
-        let scale = min(abs(100/abs(point.x)), 1)
-        
         card.center = CGPoint(x: view.center.x + point.x, y: view.center.y-65+point.y)
         card.transform = CGAffineTransform(rotationAngle: desiredAngle).scaledBy(x: scale, y: scale)
-        if sender.state == UIGestureRecognizer.State.ended {
-            
-            if card.center.x < 75 {
-                UIView.animate(withDuration: 0.3) {
-                    card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
-                }
-                dislike()
-                resetCard()
-                return
-            } else if card.center.x > (view.frame.width - 75) {
-                UIView.animate(withDuration: 0.3) {
-                    card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
-                }
-                like()
-                resetCard()
-                return
-            } else {
-                resetCard()
+    }
+    
+    private func swipeDetected(for card: UIView){
+        if card.center.x < 75 {
+            UIView.animate(withDuration: 0.3) {
+                card.center = CGPoint(x: card.center.x - 200, y: card.center.y + 75)
             }
+            dislike()
+            resetCard()
+            return
+        } else if card.center.x > (view.frame.width - 75) {
+            UIView.animate(withDuration: 0.3) {
+                card.center = CGPoint(x: card.center.x + 200, y: card.center.y + 75)
+            }
+            like()
+            resetCard()
+            return
+        } else {
+            resetCard()
         }
     }
     

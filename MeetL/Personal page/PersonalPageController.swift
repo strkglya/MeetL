@@ -8,25 +8,25 @@
 import UIKit
 import PhotosUI
 
-class PersonalPageController: UIViewController {
+final class PersonalPageController: UIViewController {
     
-    @IBOutlet weak var personalImage: UIImageView!
-    @IBOutlet weak var editButton: UIButton!
+    @IBOutlet weak private var personalImage: UIImageView!
+    @IBOutlet weak private var editButton: UIButton!
     
-    @IBOutlet weak var personalName: UITextField!
-    @IBOutlet weak var personalAge: UITextField!
-    @IBOutlet weak var personalGender: UITextField!
-    @IBOutlet weak var personalCounrty: UITextField!
-    @IBOutlet weak var personalCity: UITextField!
-    @IBOutlet weak var personalHeight: UITextField!
-    @IBOutlet weak var personalWeight: UITextField!
-    @IBOutlet weak var personalInterests: UITextView!
-    @IBOutlet weak var personalInfo: UITextView!
+    @IBOutlet weak private var personalName: UITextField!
+    @IBOutlet weak private var personalAge: UITextField!
+    @IBOutlet weak private var personalGender: UITextField!
+    @IBOutlet weak private var personalCounrty: UITextField!
+    @IBOutlet weak private var personalCity: UITextField!
+    @IBOutlet weak private var personalHeight: UITextField!
+    @IBOutlet weak private var personalWeight: UITextField!
+    @IBOutlet weak private var personalInterests: UITextView!
+    @IBOutlet weak private var personalInfo: UITextView!
     
-    private let model = PersonalPageViewModel()
+    private let model = PersonalPageViewModel(database: CoreDataService.shared)
     
-    @IBOutlet var textFields: [UITextField]!
-    @IBOutlet var textViews: [UITextView]!
+    @IBOutlet private var textFields: [UITextField]!
+    @IBOutlet private var textViews: [UITextView]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,10 +88,14 @@ class PersonalPageController: UIViewController {
     }
 }
 
-
 extension PersonalPageController: PHPickerViewControllerDelegate{
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         picker.dismiss(animated: true)
+        openPHPicker(results)
+    }
+    
+    private func openPHPicker(_ results: [PHPickerResult]) {
         if let itemprovider = results.first?.itemProvider{
             if itemprovider.canLoadObject(ofClass: UIImage.self){
                 itemprovider.loadObject(ofClass: UIImage.self) { image , error  in
